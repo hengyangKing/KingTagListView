@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0950550A201F3246006FE16E /* YQTRectangleTagConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505509201F3246006FE16E /* YQTRectangleTagConfig.m */; };
+		0950550D201F3E70006FE16E /* YQTRectangleTagContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950550C201F3E70006FE16E /* YQTRectangleTagContentView.m */; };
 		0957FE82201ECC22007F270B /* YQTTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE80201ECC22007F270B /* YQTTagView.m */; };
 		0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE86201EE7D3007F270B /* YQTRowTagView.m */; };
+		0957FE8A201EF62C007F270B /* YQTTagBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE89201EF62C007F270B /* YQTTagBaseView.m */; };
+		0957FE8D201EFF76007F270B /* YQTRectangleTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE8C201EFF76007F270B /* YQTRectangleTagView.m */; };
+		0957FE95201F0B8C007F270B /* YQTTagListBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE94201F0B8B007F270B /* YQTTagListBaseCellModel.m */; };
+		0957FE97201F17C9007F270B /* select.mark.YQTTagView.png in Resources */ = {isa = PBXBuildFile; fileRef = 0957FE96201F17C9007F270B /* select.mark.YQTTagView.png */; };
+		0957FE9D201F266B007F270B /* NSString+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE9B201F266A007F270B /* NSString+YQKit.m */; };
+		0957FEA6201F26D5007F270B /* UIColor+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FEA3201F26D5007F270B /* UIColor+YQKit.m */; };
+		0957FEA7201F26D5007F270B /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FEA4201F26D5007F270B /* UIColor+Image.m */; };
 		09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B552019E40F001DB26D /* AppDelegate.m */; };
 		09EB3B592019E40F001DB26D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B582019E40F001DB26D /* ViewController.m */; };
 		09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EB3B5D2019E40F001DB26D /* Assets.xcassets */; };
@@ -24,16 +33,32 @@
 		09EB3BC0201D13C9001DB26D /* YQTTagListBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */; };
 		09EB3BCC201D3A56001DB26D /* YQTTagRectangleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */; };
 		09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */; };
-		09EB3BD2201D3B31001DB26D /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BD1201D3B31001DB26D /* UIColor+Image.m */; };
 		09EB3BD5201D3BA0001DB26D /* NSAttributedString+tagSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */; };
 		7AB6B26BB551E1FDA33714D1 /* Pods_YQTTagsViewTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09505508201F3246006FE16E /* YQTRectangleTagConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRectangleTagConfig.h; sourceTree = "<group>"; };
+		09505509201F3246006FE16E /* YQTRectangleTagConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRectangleTagConfig.m; sourceTree = "<group>"; };
+		0950550B201F3E70006FE16E /* YQTRectangleTagContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRectangleTagContentView.h; sourceTree = "<group>"; };
+		0950550C201F3E70006FE16E /* YQTRectangleTagContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRectangleTagContentView.m; sourceTree = "<group>"; };
 		0957FE80201ECC22007F270B /* YQTTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagView.m; sourceTree = "<group>"; };
 		0957FE81201ECC22007F270B /* YQTTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagView.h; sourceTree = "<group>"; };
 		0957FE85201EE7D3007F270B /* YQTRowTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRowTagView.h; sourceTree = "<group>"; };
 		0957FE86201EE7D3007F270B /* YQTRowTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRowTagView.m; sourceTree = "<group>"; };
+		0957FE88201EF62C007F270B /* YQTTagBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagBaseView.h; sourceTree = "<group>"; };
+		0957FE89201EF62C007F270B /* YQTTagBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagBaseView.m; sourceTree = "<group>"; };
+		0957FE8B201EFF76007F270B /* YQTRectangleTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRectangleTagView.h; sourceTree = "<group>"; };
+		0957FE8C201EFF76007F270B /* YQTRectangleTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRectangleTagView.m; sourceTree = "<group>"; };
+		0957FE93201F0B8B007F270B /* YQTTagListBaseCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListBaseCellModel.h; sourceTree = "<group>"; };
+		0957FE94201F0B8B007F270B /* YQTTagListBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBaseCellModel.m; sourceTree = "<group>"; };
+		0957FE96201F17C9007F270B /* select.mark.YQTTagView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select.mark.YQTTagView.png; sourceTree = "<group>"; };
+		0957FE9B201F266A007F270B /* NSString+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YQKit.m"; sourceTree = "<group>"; };
+		0957FE9C201F266B007F270B /* NSString+YQKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YQKit.h"; sourceTree = "<group>"; };
+		0957FEA2201F26D5007F270B /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
+		0957FEA3201F26D5007F270B /* UIColor+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YQKit.m"; sourceTree = "<group>"; };
+		0957FEA4201F26D5007F270B /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
+		0957FEA5201F26D5007F270B /* UIColor+YQKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YQKit.h"; sourceTree = "<group>"; };
 		09EB3B512019E40F001DB26D /* YQTTagsViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQTTagsViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09EB3B542019E40F001DB26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09EB3B552019E40F001DB26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -65,8 +90,6 @@
 		09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagRectangleCell.m; sourceTree = "<group>"; };
 		09EB3BCD201D3A60001DB26D /* YQTTagRowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagRowCell.h; sourceTree = "<group>"; };
 		09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagRowCell.m; sourceTree = "<group>"; };
-		09EB3BD0201D3B30001DB26D /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
-		09EB3BD1201D3B31001DB26D /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
 		09EB3BD3201D3BA0001DB26D /* NSAttributedString+tagSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+tagSize.h"; sourceTree = "<group>"; };
 		09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+tagSize.m"; sourceTree = "<group>"; };
 		256B3A3F4345AC92C51A869E /* Pods-YQTTagsViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +121,13 @@
 		0957FE83201ECC4D007F270B /* YQTRectangleTagView */ = {
 			isa = PBXGroup;
 			children = (
+				0957FE8B201EFF76007F270B /* YQTRectangleTagView.h */,
+				0957FE8C201EFF76007F270B /* YQTRectangleTagView.m */,
+				0950550B201F3E70006FE16E /* YQTRectangleTagContentView.h */,
+				0950550C201F3E70006FE16E /* YQTRectangleTagContentView.m */,
+				09505508201F3246006FE16E /* YQTRectangleTagConfig.h */,
+				09505509201F3246006FE16E /* YQTRectangleTagConfig.m */,
+				0957FE96201F17C9007F270B /* select.mark.YQTTagView.png */,
 			);
 			path = YQTRectangleTagView;
 			sourceTree = "<group>";
@@ -109,6 +139,26 @@
 				0957FE86201EE7D3007F270B /* YQTRowTagView.m */,
 			);
 			path = YQTRowTagView;
+			sourceTree = "<group>";
+		};
+		0957FE92201F0B6B007F270B /* YQTTagListBaseCellModel */ = {
+			isa = PBXGroup;
+			children = (
+				0957FE93201F0B8B007F270B /* YQTTagListBaseCellModel.h */,
+				0957FE94201F0B8B007F270B /* YQTTagListBaseCellModel.m */,
+			);
+			path = YQTTagListBaseCellModel;
+			sourceTree = "<group>";
+		};
+		0957FEA1201F26D5007F270B /* YQKit */ = {
+			isa = PBXGroup;
+			children = (
+				0957FEA2201F26D5007F270B /* UIColor+Image.h */,
+				0957FEA3201F26D5007F270B /* UIColor+YQKit.m */,
+				0957FEA4201F26D5007F270B /* UIColor+Image.m */,
+				0957FEA5201F26D5007F270B /* UIColor+YQKit.h */,
+			);
+			path = YQKit;
 			sourceTree = "<group>";
 		};
 		09EB3B482019E40F001DB26D = {
@@ -165,6 +215,8 @@
 				0957FE84201ECC53007F270B /* YQTRowTagView */,
 				0957FE83201ECC4D007F270B /* YQTRectangleTagView */,
 				0957FE7F201ECC22007F270B /* YQTTagView */,
+				0957FE88201EF62C007F270B /* YQTTagBaseView.h */,
+				0957FE89201EF62C007F270B /* YQTTagBaseView.m */,
 				09EB3B89201AD89E001DB26D /* YQTTagsViewConfig.h */,
 				09EB3B86201AD89E001DB26D /* YQTTagsViewConfig.m */,
 			);
@@ -211,6 +263,7 @@
 				09EB3BBA201D13BC001DB26D /* YQTTagListCell */,
 				09EB3BBE201D13C9001DB26D /* YQTTagListBaseCell.h */,
 				09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */,
+				0957FE92201F0B6B007F270B /* YQTTagListBaseCellModel */,
 			);
 			name = YQTTagListBaseCell;
 			path = YQTTagsViewTest/YQTTagListBaseCell;
@@ -230,8 +283,9 @@
 			children = (
 				09EB3BD3201D3BA0001DB26D /* NSAttributedString+tagSize.h */,
 				09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */,
-				09EB3BD0201D3B30001DB26D /* UIColor+Image.h */,
-				09EB3BD1201D3B31001DB26D /* UIColor+Image.m */,
+				0957FE9C201F266B007F270B /* NSString+YQKit.h */,
+				0957FE9B201F266A007F270B /* NSString+YQKit.m */,
+				0957FEA1201F26D5007F270B /* YQKit */,
 			);
 			path = YQTTagViewTool;
 			sourceTree = "<group>";
@@ -333,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */,
+				0957FE97201F17C9007F270B /* select.mark.YQTTagView.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,21 +454,28 @@
 			files = (
 				09EB3BC0201D13C9001DB26D /* YQTTagListBaseCell.m in Sources */,
 				09EB3BAF201C56C4001DB26D /* TestViewController.m in Sources */,
+				0957FE8D201EFF76007F270B /* YQTRectangleTagView.m in Sources */,
 				0957FE82201ECC22007F270B /* YQTTagView.m in Sources */,
+				0950550D201F3E70006FE16E /* YQTRectangleTagContentView.m in Sources */,
+				0957FE95201F0B8C007F270B /* YQTTagListBaseCellModel.m in Sources */,
 				0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */,
 				09EB3BA2201AE2DF001DB26D /* YQTTagListHeaderConfig.m in Sources */,
 				09EB3B9B201AE0D1001DB26D /* YQTTagListHeaderView.m in Sources */,
+				0957FEA7201F26D5007F270B /* UIColor+Image.m in Sources */,
+				0957FE9D201F266B007F270B /* NSString+YQKit.m in Sources */,
 				09EB3BD5201D3BA0001DB26D /* NSAttributedString+tagSize.m in Sources */,
 				09EB3B93201AD99C001DB26D /* TTGTagCollectionView.m in Sources */,
 				09EB3B592019E40F001DB26D /* ViewController.m in Sources */,
+				0957FE8A201EF62C007F270B /* YQTTagBaseView.m in Sources */,
 				09EB3B642019E40F001DB26D /* main.m in Sources */,
-				09EB3BD2201D3B31001DB26D /* UIColor+Image.m in Sources */,
+				0950550A201F3246006FE16E /* YQTRectangleTagConfig.m in Sources */,
 				09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */,
 				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,
 				09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */,
 				09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */,
 				09EB3B8B201AD89E001DB26D /* YQTTagsViewConfig.m in Sources */,
 				09EB3BBD201D13BC001DB26D /* YQTTagListCell.m in Sources */,
+				0957FEA6201F26D5007F270B /* UIColor+YQKit.m in Sources */,
 				09EB3BCC201D3A56001DB26D /* YQTTagRectangleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -518,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

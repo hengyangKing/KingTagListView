@@ -8,9 +8,10 @@
 
 #import "YQTTagListBaseCell.h"
 #import "YQTTagListHeaderView.h"
+#import "YQTTagBaseView.h"
 #import "Masonry.h"
 
-@interface YQTTagListBaseCell()
+@interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource>
 @property(nonatomic,strong)TTGTagCollectionView *taglistView;
 @property(nonatomic,strong)YQTTagListHeaderView *header;
 @property(nonatomic,strong)NSMutableArray *tags;
@@ -20,7 +21,6 @@
 +(NSString *)YQTTagViewCellID {
     return [NSStringFromClass([self class]) stringByAppendingString:@"ID"];
 }
-
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -30,6 +30,7 @@
 }
 -(void)setupUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:self.header];
     __weak typeof(self) weakself = self;
     [self.header mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,7 +44,7 @@
         make.leading.mas_equalTo(weakself.header.mas_leading);
         make.trailing.mas_equalTo(weakself.header.mas_trailing);
         make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(15.f);
-        make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
+        make.bottom.mas_equalTo(weakself.contentView.mas_bottom).mas_offset(-32.5f);
     }];
 }
 
@@ -51,8 +52,10 @@
 -(TTGTagCollectionView *)taglistView {
     if (!_taglistView) {
         _taglistView = [[TTGTagCollectionView alloc]initWithFrame:CGRectZero];
-        _taglistView.verticalSpacing = 4.f;
-        _taglistView.horizontalSpacing = 2.f;
+        _taglistView.verticalSpacing = 14.f;
+        _taglistView.horizontalSpacing = 14.f;
+        _taglistView.delegate = self;
+        _taglistView.dataSource = self;
     }
     return _taglistView;
 }
@@ -86,13 +89,6 @@
     return _deleteTags;
 }
 #pragma mark -- 父类子类通信
--(void (^)(YQTTagListBaseCell *))setTagsViewDelegate {
-    
-    return ^(YQTTagListBaseCell *cell){
-        self.taglistView.delegate = cell;
-        self.taglistView.dataSource = cell;
-    };
-}
 -(void (^)(UIView *))selectTag {
     return ^(UIView *view){
         if ([self.deleteTags containsObject:view]) {
@@ -115,15 +111,38 @@
         }
     };
 }
--(void (^)(NSString *, NSArray<UIView *> *))layoutSubview {
-    return ^(NSString *title, NSArray<UIView *> *tags){
-        self.header.headerTitle(title);
+
+-(void (^)(YQTTagListBaseCellModel *))layoutSubview {
+    return ^(YQTTagListBaseCellModel *model){
+        self.header.headerTitle(model.headerTitle);
         [self.tags removeAllObjects];
-        [self.tags addObjectsFromArray:tags];
+        [self.tags addObjectsFromArray:[model.datas copy]];
+        self.taglistView.horizontalSpacing = model.contentHSpacing;
+        self.taglistView.verticalSpacing = model.contentVSpacing;
+        self.header.hiddenHeaderButton(model.hiddenHeaderButton);
         [self.taglistView reload];
     };
 }
+#pragma mark - TTGTagCollectionViewDelegate
+- (CGSize)tagCollectionView:(TTGTagCollectionView *)tagCollectionView sizeForTagAtIndex:(NSUInteger)index {
+    return [self.dataSource tagSizeForTagAtIndex:index];
+}
+- (void)tagCollectionView:(TTGTagCollectionView *)tagCollectionView didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+    [self.dataSource tagViewdidSelectTag:tagView atIndex:index];
+}
+- (BOOL)tagCollectionView:(TTGTagCollectionView *)tagCollectionView shouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+   return [self.dataSource tagViewShouldSelectTag:tagView atIndex:index];
+}
 
+#pragma mark - TTGTagCollectionViewDataSource
+
+- (NSUInteger)numberOfTagsInTagCollectionView:(TTGTagCollectionView *)tagCollectionView {
+    return [self.dataSource numberOfTagsInTag];
+}
+
+- (UIView *)tagCollectionView:(TTGTagCollectionView *)tagCollectionView tagViewForIndex:(NSUInteger)index {
+    return [self.dataSource tagViewForIndex:index];
+}
 
 
 @end

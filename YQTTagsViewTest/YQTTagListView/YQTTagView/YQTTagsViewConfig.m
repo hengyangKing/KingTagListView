@@ -11,12 +11,20 @@
 @implementation YQTTagsViewConfig
 +(instancetype)defaultConfig {
     YQTTagsViewConfig *config = [[YQTTagsViewConfig alloc]init];
-    //基类
-    config.titleFont([UIFont fontWithName:@"PingFangSC-Regular"size:15]).radius(3.f);
-    //子类
-    config.normalBGColor([UIColor redColor]).selectedBGColor([UIColor greenColor]).delineColor([UIColor blackColor]).contentViewInset(UIEdgeInsetsMake(4, 4, 4, 4)).isSelect(NO);
     return config;
 }
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        //基类
+        self.titleFont([UIFont fontWithName:@"PingFangSC-Regular"size:15]).radius(3.f).titleColor([UIColor colorWithHex:@"#333333"]);
+        //子类
+        self.normalBGColor([UIColor colorWithHex:@"#FFFFFF"]).selectedBGColor([UIColor colorWithHex:@"#EDEDED"]).delineColor([UIColor colorWithHex:@"#BBBBBB"]).contentViewInset(UIEdgeInsetsMake(0,0,0,0)).isSelect(NO).selectedTitleTextColor([UIColor colorWithHex:@"#BBBBBB"]);
+    }
+    return self;
+}
+
+
 #pragma mark set
 -(void)setNormalColor:(UIColor *)normalColor {
     _normalColor = normalColor;

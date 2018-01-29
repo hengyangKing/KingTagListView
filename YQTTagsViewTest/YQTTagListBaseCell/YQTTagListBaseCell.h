@@ -8,13 +8,16 @@
 //直接调用子类使用
 
 #import <UIKit/UIKit.h>
-#import "YQTTagView.h"
-#import "NSAttributedString+tagSize.h"
+#import "YQTTagListCommon.h"
+#import "YQTTagListBaseCellModel.h"
+
 @class YQTTagListBaseCell;
+@class YQTTagBaseView;
+
 @protocol YQTTagListCellDelegate <NSObject>
 
 ///选中某tagview调用
-- (void)tagListCell:(YQTTagListBaseCell *)cell didSelectTag:(YQTTagView *)tagView atIndex:(NSUInteger)index;
+- (void)tagListCell:(YQTTagListBaseCell *)cell didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
 
 ///全部取消的回调
 -(void)tagListCellUnselectAllTag:(YQTTagListBaseCell *)cell;
@@ -22,16 +25,30 @@
 ///全部选中的回调
 -(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell;
 
+
 @optional
 
 ///将要选中某tagview调用
-- (BOOL)tagListCell:(YQTTagListBaseCell *)cell shouldSelectTag:(YQTTagView *)tagView atIndex:(NSUInteger)index;
+- (BOOL)tagListCell:(YQTTagListBaseCell *)cell shouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
 
 @end
-///YQTTagListBaseCell 数据源协议
+
+///YQTTagListBaseCell 数据源协议 子类必须实现
 @protocol YQTTagListCellDataSource <NSObject>
+///需要返回Size
+- (CGSize)tagSizeForTagAtIndex:(NSUInteger)index;
+///返回Count
+- (NSUInteger)numberOfTagsInTag;
+///返回contentView
+- (UIView *)tagViewForIndex:(NSUInteger)index;
 
+///选中某tagview调用 需要在实现时调用父类的delegate
+- (void)tagViewdidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
 
+@optional
+
+///将要选中某tagview调用 需要在实现时调用父类的delegate 
+- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
 
 @end
 @interface YQTTagListBaseCell : UITableViewCell
@@ -44,9 +61,8 @@
 ///代理 父类声明 子类调用
 @property(nonatomic,weak)id<YQTTagListCellDelegate> delegate;
 
-///子类实现父类声明的代理
-///子类设置taglistview 代理
-@property(nonatomic,copy,readonly)void (^setTagsViewDelegate)(YQTTagListBaseCell *);
+///数据源协议 子类必须遵循 并且实现
+@property(nonatomic,weak)id<YQTTagListCellDataSource> dataSource;
 
 ///父类子类通信
 ///headerButton 点击后 调用block 父类通知子类
@@ -55,9 +71,8 @@
 ///点击tag 子类需要通知父类 修改header状态
 @property(nonatomic,copy,readonly)void (^selectTag)(UIView *);
 
+
+#pragma mark 子类调用父类修改UI
 ///子类通知父类需要刷新UI 调用 子类展示的tags
-
-@property(nonatomic,copy,readonly)void (^layoutSubview)(NSString *title,NSArray <UIView *> *);
-
-
+@property(nonatomic,copy,readonly)void (^layoutSubview)(YQTTagListBaseCellModel *model);
 @end

@@ -14,7 +14,10 @@
 
 ///需要改变button 状态时调用
 @property(nonatomic,copy,readonly)void (^changeBtnState)(TagListHeaderButtonState state);
-///设置Header
+///设置Headertitle
 @property(nonatomic,copy,readonly)void (^headerTitle)(NSString *title);
+///设置header button
+@property(nonatomic,copy,readonly)void (^hiddenHeaderButton)(BOOL hidden);
+
 
 @end

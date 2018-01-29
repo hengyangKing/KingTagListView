@@ -7,15 +7,12 @@
 //
 
 #import "YQTTagListCell.h"
-
 #import "YQTTagView.h"
-
-
-@interface YQTTagListCell()
+#import "NSAttributedString+tagSize.h"
+@interface YQTTagListCell()<YQTTagListCellDataSource>
 @property(nonatomic,strong)NSMutableArray<YQTTagView *> *tags;
 @end
 @implementation YQTTagListCell
-
 +(instancetype)TagListCellWithTableView:(UITableView *)tableview {
     YQTTagListCell *cell = [tableview dequeueReusableCellWithIdentifier:[self YQTTagViewCellID]];
     if (!cell) {
@@ -27,7 +24,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         //重置代理
-        self.setTagsViewDelegate(self);
+        self.dataSource = self;
     }
     return self;
 }
@@ -76,14 +73,23 @@
         }
     };
 }
-
-#pragma mark - TTGTagCollectionViewDelegate
-- (CGSize)tagCollectionView:(TTGTagCollectionView *)tagCollectionView sizeForTagAtIndex:(NSUInteger)index {
+#pragma mark - YQTTagListBaseCellDataSource
+- (CGSize)tagSizeForTagAtIndex:(NSUInteger)index {
     YQTTagView *view = self.tags[index];
     return view.attrStr.tagSize;
 }
-
-- (void)tagCollectionView:(TTGTagCollectionView *)tagCollectionView didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+///返回Count
+- (NSUInteger)numberOfTagsInTag {
+    return self.tags.count;    
+}
+///返回contentView
+- (UIView *)tagViewForIndex:(NSUInteger)index {
+    YQTTagView *view = self.tags[index];
+    return view;
+}
+///选中某tagview调用 需要在实现时调用父类的delegate
+- (void)tagViewdidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+    
     if ([tagView isMemberOfClass:[YQTTagView class]]) {
         YQTTagView *view = (YQTTagView *)tagView;
         if ([self.delegate respondsToSelector:@selector(tagListCell:didSelectTag:atIndex:)]) {
@@ -93,30 +99,23 @@
         self.selectTag(view);
     }
 }
-- (BOOL)tagCollectionView:(TTGTagCollectionView *)tagCollectionView shouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-    if ([self.delegate respondsToSelector:@selector(tagListCell:shouldSelectTag:atIndex:)]&&[tagView isMemberOfClass:[YQTTagView class]]) {
-        YQTTagView *view = (YQTTagView *)tagView;
-        return [self.delegate tagListCell:self shouldSelectTag:view atIndex:index];
+///将要选中某tagview调用 需要在实现时调用父类的delegate
+- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+    if ([self.delegate respondsToSelector:@selector(tagListCell:shouldSelectTag:atIndex:)]) {
+        return [self.delegate tagListCell:self shouldSelectTag:tagView atIndex:index];
     }
     return YES;
-}
-
-#pragma mark - TTGTagCollectionViewDataSource
-
-- (NSUInteger)numberOfTagsInTagCollectionView:(TTGTagCollectionView *)tagCollectionView {
-    return self.tags.count;
-}
-
-- (UIView *)tagCollectionView:(TTGTagCollectionView *)tagCollectionView tagViewForIndex:(NSUInteger)index {
-    YQTTagView *view = self.tags[index];
-    return view;
 }
 #pragma mark -- layoutSubview UI
 ///需要重新刷新UI
 -(void)reloadSubviews {
     ///根据内容修改约束
+    YQTTagListBaseCellModel *model = [YQTTagListBaseCellModel YQTTagListBaseCellModel];
+    
     NSString *title = self.tags.count?@"点击划掉不用的单词":@"";
-    self.layoutSubview(title, [self.tags copy]);
+    model.headerTitle = title;
+    model.datas = [self.tags copy];
+    self.layoutSubview(model);
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

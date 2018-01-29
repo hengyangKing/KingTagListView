@@ -55,15 +55,7 @@
     }
     return _line;
 }
--(instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.backgroundColor = [UIColor yellowColor];
-        self.userInteractionEnabled = NO;
-    }
-    return self;
-}
+
 -(UIButton *)contentView {
     if (!_contentView) {
         

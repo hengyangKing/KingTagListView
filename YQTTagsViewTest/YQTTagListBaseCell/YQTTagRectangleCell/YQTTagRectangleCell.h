@@ -8,6 +8,6 @@
 
 #import "YQTTagListBaseCell.h"
 
-@interface YQTTagRectangleCell : YQTTagListBaseCell<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource>
-
+@interface YQTTagRectangleCell : YQTTagListBaseCell
++(instancetype)TagListCellWithTableView:(UITableView *)tableview;
 @end

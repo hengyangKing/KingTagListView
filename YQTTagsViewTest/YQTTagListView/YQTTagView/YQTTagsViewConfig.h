@@ -19,7 +19,7 @@
 @property(nonatomic,strong,readonly)UIColor *lineColor;
 
 
-// Content inset, default is UIEdgeInsetsMake(2, 2, 2, 2).
+// Content inset, default is UIEdgeInsetsMake(0, 0, 0, 0).
 @property(nonatomic,assign,readonly)UIEdgeInsets contentInset;
 
 ///当前view的选中状态

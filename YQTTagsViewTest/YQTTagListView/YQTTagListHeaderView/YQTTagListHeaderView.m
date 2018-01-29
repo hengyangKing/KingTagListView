@@ -27,6 +27,7 @@
     return view;
 }
 -(void)setup {
+    self.backgroundColor = [UIColor clearColor];
     [self setHidden:YES];
     [self addSubview:self.title];
     __weak typeof(self) weakself = self;
@@ -43,8 +44,6 @@
             make.width.mas_equalTo(54.f);
         }];
     }
-    self.backgroundColor = [UIColor blueColor];
-
 #pragma mark 默认状态 tag 全都选中 button title 为取消全选
     self.changeBtnState(ButtonStateIsSelectAll);
 }
@@ -94,13 +93,18 @@
 -(void (^)(TagListHeaderButtonState))changeBtnState {
     return ^(TagListHeaderButtonState state){
         self.state = state;
-        
     };
 }
 -(void (^)(NSString *))headerTitle {
     return ^(NSString *title){
         [self.title setText:title];
         [self setNeedsUpdateConstraints];
+    };
+}
+-(void (^)(BOOL))hiddenHeaderButton {
+    return ^(BOOL hidden){
+        [self.button setHidden:hidden];
+        self.config.needHiddenButton(hidden);
     };
 }
 -(void)setState:(TagListHeaderButtonState)state {

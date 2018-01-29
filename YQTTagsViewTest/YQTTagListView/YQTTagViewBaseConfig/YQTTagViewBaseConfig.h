@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YQTTagListCommon.h"
+#import "UIColor+YQKit.h"
 @interface YQTTagViewBaseConfig : NSObject
 #pragma mark get
 ///titleFont

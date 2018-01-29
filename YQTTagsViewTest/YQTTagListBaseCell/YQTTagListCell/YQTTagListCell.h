@@ -9,7 +9,7 @@
 #import "YQTTagListBaseCell.h"
 
 
-@interface YQTTagListCell : YQTTagListBaseCell<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource>
+@interface YQTTagListCell : YQTTagListBaseCell
 
 +(instancetype)TagListCellWithTableView:(UITableView *)tableview ;
 

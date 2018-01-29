@@ -65,9 +65,7 @@
         //多行
         CGFloat hight = contentSize.height;
         hight += (8.5*2);
-        CGFloat width = MAXSIZE.width;
-        width -= (13*2)+4;
-        
+        CGFloat width = MAXSIZE.width;        
         return CGSizeMake(width, hight);
     }
     //单行
@@ -80,10 +78,12 @@
     if (!attr.string.length) {
         return CGSizeZero;
     }
-    CGFloat padding = 4.f;//预留半透明部分
-    CGFloat W = ((MAXSIZE.width+padding)/2.0f);
-    CGFloat H = (W*(46.f+padding))/(168.f+padding);
-    return  CGSizeMake(W, H);
+    
+    CGFloat padding = 6.f;//预留半透明部分
+    CGFloat scale = (168.f+padding)/(46.f+padding);
+    CGFloat W = (((MAXSIZE.width)/2.0f)-2.f);
+    CGFloat scaleH = W/scale;
+    return  CGSizeMake(W, scaleH);
 }
 
 @end

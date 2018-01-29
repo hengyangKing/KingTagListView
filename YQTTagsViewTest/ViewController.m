@@ -8,9 +8,8 @@
 
 #import "ViewController.h"
 #import "YQTTagListCell.h"
-
-
-
+#import "YQTTagRowCell.h"
+#import "YQTTagRectangleCell.h"
 @interface ViewController ()<YQTTagListCellDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView *tableview;
 @property(nonatomic,strong)NSMutableArray *datas;
@@ -32,6 +31,8 @@
 {
     if (!_tableview) {
         _tableview = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:(UITableViewStylePlain)];
+        CGFloat color = 245.0/255.0;
+        [_tableview setBackgroundColor:[UIColor colorWithRed:color green:color blue:color alpha:1.0f]];
         _tableview.delegate = self;
         _tableview.dataSource = self;
     }
@@ -51,13 +52,13 @@
 }
 
 -(void)addDatas{
-    [self.datas addObjectsFromArray:@[@"photo photo photo photo photo photo photo photo photo photo photo photo photo photo photo photo", @"assistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"]];
+    [self.datas addObjectsFromArray:@[@"photo photo photo photo photo photo photo photo photo photo photo photo photo photo photo photo", @"assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"]];
     
     [self.tableview reloadData];
 }
 #pragma mark tagListCellDelegate
 
-- (void)tagListCell:(YQTTagListCell *)cell didSelectTag:(YQTTagView *)tagView atIndex:(NSUInteger)index {
+- (void)tagListCell:(YQTTagListCell *)cell didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
     id data = self.datas[index];
     if ([self.deleteTags containsObject:data]) {
         //包含
@@ -69,28 +70,30 @@
 }
 
 - (void)tagListCellSelectAllTag:(YQTTagListCell *)cell {
-    
+    [self.deleteTags removeAllObjects];
+    [self.deleteTags addObjectsFromArray:[self.datas copy]];
 }
 
 - (void)tagListCellUnselectAllTag:(YQTTagListCell *)cell {
-    
+    [self.deleteTags removeAllObjects];
 }
 
 #pragma mark tableviewDatasource
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if (!indexPath.section) {
-        YQTTagListCell *cell = [YQTTagListCell TagListCellWithTableView:tableView];
-        cell.datas(self.datas);
-        [cell setDelegate:self];
-        return cell;
+    YQTTagListBaseCell *cell;
+    if (!indexPath.row) {
+        cell = [YQTTagListCell TagListCellWithTableView:tableView];
+    }else{
+        cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
     }
-    return nil;
-    
+    cell.datas(self.datas);
+    [cell setDelegate:self];
+    return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
