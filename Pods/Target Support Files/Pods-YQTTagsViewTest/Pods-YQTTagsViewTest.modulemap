@@ -1,0 +1,6 @@
+framework module Pods_YQTTagsViewTest {
+  umbrella header "Pods-YQTTagsViewTest-umbrella.h"
+
+  export *
+  module * { export * }
+}

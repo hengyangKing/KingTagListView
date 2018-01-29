@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0957FE82201ECC22007F270B /* YQTTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE80201ECC22007F270B /* YQTTagView.m */; };
+		0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE86201EE7D3007F270B /* YQTRowTagView.m */; };
+		09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B552019E40F001DB26D /* AppDelegate.m */; };
+		09EB3B592019E40F001DB26D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B582019E40F001DB26D /* ViewController.m */; };
+		09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EB3B5D2019E40F001DB26D /* Assets.xcassets */; };
+		09EB3B642019E40F001DB26D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B632019E40F001DB26D /* main.m */; };
+		09EB3B8B201AD89E001DB26D /* YQTTagsViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B86201AD89E001DB26D /* YQTTagsViewConfig.m */; };
+		09EB3B93201AD99C001DB26D /* TTGTagCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B92201AD99C001DB26D /* TTGTagCollectionView.m */; };
+		09EB3B9B201AE0D1001DB26D /* YQTTagListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B9A201AE0D1001DB26D /* YQTTagListHeaderView.m */; };
+		09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B9E201AE169001DB26D /* YQTTagViewBaseConfig.m */; };
+		09EB3BA2201AE2DF001DB26D /* YQTTagListHeaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BA1201AE2DF001DB26D /* YQTTagListHeaderConfig.m */; };
+		09EB3BAF201C56C4001DB26D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BAE201C56C4001DB26D /* TestViewController.m */; };
+		09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BB1201C6859001DB26D /* YQTTagZoomButton.m */; };
+		09EB3BBD201D13BC001DB26D /* YQTTagListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BBB201D13BC001DB26D /* YQTTagListCell.m */; };
+		09EB3BC0201D13C9001DB26D /* YQTTagListBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */; };
+		09EB3BCC201D3A56001DB26D /* YQTTagRectangleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */; };
+		09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */; };
+		09EB3BD2201D3B31001DB26D /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BD1201D3B31001DB26D /* UIColor+Image.m */; };
+		09EB3BD5201D3BA0001DB26D /* NSAttributedString+tagSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */; };
+		7AB6B26BB551E1FDA33714D1 /* Pods_YQTTagsViewTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0957FE80201ECC22007F270B /* YQTTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagView.m; sourceTree = "<group>"; };
+		0957FE81201ECC22007F270B /* YQTTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagView.h; sourceTree = "<group>"; };
+		0957FE85201EE7D3007F270B /* YQTRowTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRowTagView.h; sourceTree = "<group>"; };
+		0957FE86201EE7D3007F270B /* YQTRowTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRowTagView.m; sourceTree = "<group>"; };
+		09EB3B512019E40F001DB26D /* YQTTagsViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQTTagsViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09EB3B542019E40F001DB26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		09EB3B552019E40F001DB26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		09EB3B572019E40F001DB26D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		09EB3B582019E40F001DB26D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		09EB3B5D2019E40F001DB26D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		09EB3B622019E40F001DB26D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09EB3B632019E40F001DB26D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		09EB3B86201AD89E001DB26D /* YQTTagsViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagsViewConfig.m; sourceTree = "<group>"; };
+		09EB3B89201AD89E001DB26D /* YQTTagsViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagsViewConfig.h; sourceTree = "<group>"; };
+		09EB3B91201AD99C001DB26D /* TTGTagCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGTagCollectionView.h; sourceTree = "<group>"; };
+		09EB3B92201AD99C001DB26D /* TTGTagCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGTagCollectionView.m; sourceTree = "<group>"; };
+		09EB3B99201AE0D1001DB26D /* YQTTagListHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListHeaderView.h; sourceTree = "<group>"; };
+		09EB3B9A201AE0D1001DB26D /* YQTTagListHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListHeaderView.m; sourceTree = "<group>"; };
+		09EB3B9D201AE169001DB26D /* YQTTagViewBaseConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagViewBaseConfig.h; sourceTree = "<group>"; };
+		09EB3B9E201AE169001DB26D /* YQTTagViewBaseConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagViewBaseConfig.m; sourceTree = "<group>"; };
+		09EB3BA0201AE2DF001DB26D /* YQTTagListHeaderConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListHeaderConfig.h; sourceTree = "<group>"; };
+		09EB3BA1201AE2DF001DB26D /* YQTTagListHeaderConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListHeaderConfig.m; sourceTree = "<group>"; };
+		09EB3BAD201C56C4001DB26D /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		09EB3BAE201C56C4001DB26D /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		09EB3BB0201C6859001DB26D /* YQTTagZoomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagZoomButton.h; sourceTree = "<group>"; };
+		09EB3BB1201C6859001DB26D /* YQTTagZoomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagZoomButton.m; sourceTree = "<group>"; };
+		09EB3BBB201D13BC001DB26D /* YQTTagListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagListCell.m; sourceTree = "<group>"; };
+		09EB3BBC201D13BC001DB26D /* YQTTagListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListCell.h; sourceTree = "<group>"; };
+		09EB3BBE201D13C9001DB26D /* YQTTagListBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListBaseCell.h; sourceTree = "<group>"; };
+		09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBaseCell.m; sourceTree = "<group>"; };
+		09EB3BC3201D1834001DB26D /* YQTTagListCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListCommon.h; sourceTree = "<group>"; };
+		09EB3BCA201D3A56001DB26D /* YQTTagRectangleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagRectangleCell.h; sourceTree = "<group>"; };
+		09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagRectangleCell.m; sourceTree = "<group>"; };
+		09EB3BCD201D3A60001DB26D /* YQTTagRowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagRowCell.h; sourceTree = "<group>"; };
+		09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagRowCell.m; sourceTree = "<group>"; };
+		09EB3BD0201D3B30001DB26D /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
+		09EB3BD1201D3B31001DB26D /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
+		09EB3BD3201D3BA0001DB26D /* NSAttributedString+tagSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+tagSize.h"; sourceTree = "<group>"; };
+		09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+tagSize.m"; sourceTree = "<group>"; };
+		256B3A3F4345AC92C51A869E /* Pods-YQTTagsViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.release.xcconfig"; sourceTree = "<group>"; };
+		736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQTTagsViewTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CB4547AE134F916F4E1A5CB /* Pods-YQTTagsViewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09EB3B4E2019E40F001DB26D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AB6B26BB551E1FDA33714D1 /* Pods_YQTTagsViewTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0957FE7F201ECC22007F270B /* YQTTagView */ = {
+			isa = PBXGroup;
+			children = (
+				0957FE81201ECC22007F270B /* YQTTagView.h */,
+				0957FE80201ECC22007F270B /* YQTTagView.m */,
+			);
+			path = YQTTagView;
+			sourceTree = "<group>";
+		};
+		0957FE83201ECC4D007F270B /* YQTRectangleTagView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YQTRectangleTagView;
+			sourceTree = "<group>";
+		};
+		0957FE84201ECC53007F270B /* YQTRowTagView */ = {
+			isa = PBXGroup;
+			children = (
+				0957FE85201EE7D3007F270B /* YQTRowTagView.h */,
+				0957FE86201EE7D3007F270B /* YQTRowTagView.m */,
+			);
+			path = YQTRowTagView;
+			sourceTree = "<group>";
+		};
+		09EB3B482019E40F001DB26D = {
+			isa = PBXGroup;
+			children = (
+				09EB3B532019E40F001DB26D /* YQTTagsViewTest */,
+				09EB3B522019E40F001DB26D /* Products */,
+				CD37997E675338D06446FF73 /* Pods */,
+				11D751C93EA28AFBE5D92BB9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		09EB3B522019E40F001DB26D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3B512019E40F001DB26D /* YQTTagsViewTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09EB3B532019E40F001DB26D /* YQTTagsViewTest */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3B81201AD86A001DB26D /* YQTTagListView */,
+				09EB3B542019E40F001DB26D /* AppDelegate.h */,
+				09EB3B552019E40F001DB26D /* AppDelegate.m */,
+				09EB3B572019E40F001DB26D /* ViewController.h */,
+				09EB3B582019E40F001DB26D /* ViewController.m */,
+				09EB3BAD201C56C4001DB26D /* TestViewController.h */,
+				09EB3BAE201C56C4001DB26D /* TestViewController.m */,
+				09EB3B5D2019E40F001DB26D /* Assets.xcassets */,
+				09EB3B622019E40F001DB26D /* Info.plist */,
+				09EB3B632019E40F001DB26D /* main.m */,
+			);
+			path = YQTTagsViewTest;
+			sourceTree = "<group>";
+		};
+		09EB3B81201AD86A001DB26D /* YQTTagListView */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3BC4201D364B001DB26D /* YQTTagViewTool */,
+				09EB3BB9201D13BC001DB26D /* YQTTagListBaseCell */,
+				09EB3B9C201AE15D001DB26D /* YQTTagViewBaseConfig */,
+				09EB3B98201AE0C9001DB26D /* YQTTagListHeaderView */,
+				09EB3B8D201AD960001DB26D /* YQTTagListView */,
+				09EB3B83201AD89E001DB26D /* YQTTagView */,
+			);
+			path = YQTTagListView;
+			sourceTree = "<group>";
+		};
+		09EB3B83201AD89E001DB26D /* YQTTagView */ = {
+			isa = PBXGroup;
+			children = (
+				0957FE84201ECC53007F270B /* YQTRowTagView */,
+				0957FE83201ECC4D007F270B /* YQTRectangleTagView */,
+				0957FE7F201ECC22007F270B /* YQTTagView */,
+				09EB3B89201AD89E001DB26D /* YQTTagsViewConfig.h */,
+				09EB3B86201AD89E001DB26D /* YQTTagsViewConfig.m */,
+			);
+			path = YQTTagView;
+			sourceTree = "<group>";
+		};
+		09EB3B8D201AD960001DB26D /* YQTTagListView */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3B91201AD99C001DB26D /* TTGTagCollectionView.h */,
+				09EB3B92201AD99C001DB26D /* TTGTagCollectionView.m */,
+			);
+			path = YQTTagListView;
+			sourceTree = "<group>";
+		};
+		09EB3B98201AE0C9001DB26D /* YQTTagListHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3B99201AE0D1001DB26D /* YQTTagListHeaderView.h */,
+				09EB3B9A201AE0D1001DB26D /* YQTTagListHeaderView.m */,
+				09EB3BA0201AE2DF001DB26D /* YQTTagListHeaderConfig.h */,
+				09EB3BA1201AE2DF001DB26D /* YQTTagListHeaderConfig.m */,
+				09EB3BB0201C6859001DB26D /* YQTTagZoomButton.h */,
+				09EB3BB1201C6859001DB26D /* YQTTagZoomButton.m */,
+			);
+			path = YQTTagListHeaderView;
+			sourceTree = "<group>";
+		};
+		09EB3B9C201AE15D001DB26D /* YQTTagViewBaseConfig */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3B9D201AE169001DB26D /* YQTTagViewBaseConfig.h */,
+				09EB3B9E201AE169001DB26D /* YQTTagViewBaseConfig.m */,
+				09EB3BC3201D1834001DB26D /* YQTTagListCommon.h */,
+			);
+			path = YQTTagViewBaseConfig;
+			sourceTree = "<group>";
+		};
+		09EB3BB9201D13BC001DB26D /* YQTTagListBaseCell */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3BC9201D3A2F001DB26D /* YQTTagRectangleCell */,
+				09EB3BC8201D3A2F001DB26D /* YQTTagRowCell */,
+				09EB3BBA201D13BC001DB26D /* YQTTagListCell */,
+				09EB3BBE201D13C9001DB26D /* YQTTagListBaseCell.h */,
+				09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */,
+			);
+			name = YQTTagListBaseCell;
+			path = YQTTagsViewTest/YQTTagListBaseCell;
+			sourceTree = SOURCE_ROOT;
+		};
+		09EB3BBA201D13BC001DB26D /* YQTTagListCell */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3BBC201D13BC001DB26D /* YQTTagListCell.h */,
+				09EB3BBB201D13BC001DB26D /* YQTTagListCell.m */,
+			);
+			path = YQTTagListCell;
+			sourceTree = "<group>";
+		};
+		09EB3BC4201D364B001DB26D /* YQTTagViewTool */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3BD3201D3BA0001DB26D /* NSAttributedString+tagSize.h */,
+				09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */,
+				09EB3BD0201D3B30001DB26D /* UIColor+Image.h */,
+				09EB3BD1201D3B31001DB26D /* UIColor+Image.m */,
+			);
+			path = YQTTagViewTool;
+			sourceTree = "<group>";
+		};
+		09EB3BC8201D3A2F001DB26D /* YQTTagRowCell */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3BCD201D3A60001DB26D /* YQTTagRowCell.h */,
+				09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */,
+			);
+			path = YQTTagRowCell;
+			sourceTree = "<group>";
+		};
+		09EB3BC9201D3A2F001DB26D /* YQTTagRectangleCell */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3BCA201D3A56001DB26D /* YQTTagRectangleCell.h */,
+				09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */,
+			);
+			path = YQTTagRectangleCell;
+			sourceTree = "<group>";
+		};
+		11D751C93EA28AFBE5D92BB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD37997E675338D06446FF73 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7CB4547AE134F916F4E1A5CB /* Pods-YQTTagsViewTest.debug.xcconfig */,
+				256B3A3F4345AC92C51A869E /* Pods-YQTTagsViewTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09EB3B502019E40F001DB26D /* YQTTagsViewTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09EB3B672019E40F001DB26D /* Build configuration list for PBXNativeTarget "YQTTagsViewTest" */;
+			buildPhases = (
+				AE09012F051DB62CCE44B4E5 /* [CP] Check Pods Manifest.lock */,
+				09EB3B4D2019E40F001DB26D /* Sources */,
+				09EB3B4E2019E40F001DB26D /* Frameworks */,
+				09EB3B4F2019E40F001DB26D /* Resources */,
+				A839CF30C2BED40E0DE00667 /* [CP] Embed Pods Frameworks */,
+				351FCC521406B46FB5D52DC5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YQTTagsViewTest;
+			productName = YQTTagsViewTest;
+			productReference = 09EB3B512019E40F001DB26D /* YQTTagsViewTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09EB3B492019E40F001DB26D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = J;
+				TargetAttributes = {
+					09EB3B502019E40F001DB26D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 09EB3B4C2019E40F001DB26D /* Build configuration list for PBXProject "YQTTagsViewTest" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09EB3B482019E40F001DB26D;
+			productRefGroup = 09EB3B522019E40F001DB26D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09EB3B502019E40F001DB26D /* YQTTagsViewTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09EB3B4F2019E40F001DB26D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		351FCC521406B46FB5D52DC5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A839CF30C2BED40E0DE00667 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE09012F051DB62CCE44B4E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YQTTagsViewTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09EB3B4D2019E40F001DB26D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09EB3BC0201D13C9001DB26D /* YQTTagListBaseCell.m in Sources */,
+				09EB3BAF201C56C4001DB26D /* TestViewController.m in Sources */,
+				0957FE82201ECC22007F270B /* YQTTagView.m in Sources */,
+				0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */,
+				09EB3BA2201AE2DF001DB26D /* YQTTagListHeaderConfig.m in Sources */,
+				09EB3B9B201AE0D1001DB26D /* YQTTagListHeaderView.m in Sources */,
+				09EB3BD5201D3BA0001DB26D /* NSAttributedString+tagSize.m in Sources */,
+				09EB3B93201AD99C001DB26D /* TTGTagCollectionView.m in Sources */,
+				09EB3B592019E40F001DB26D /* ViewController.m in Sources */,
+				09EB3B642019E40F001DB26D /* main.m in Sources */,
+				09EB3BD2201D3B31001DB26D /* UIColor+Image.m in Sources */,
+				09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */,
+				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,
+				09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */,
+				09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */,
+				09EB3B8B201AD89E001DB26D /* YQTTagsViewConfig.m in Sources */,
+				09EB3BBD201D13BC001DB26D /* YQTTagListCell.m in Sources */,
+				09EB3BCC201D3A56001DB26D /* YQTTagRectangleCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		09EB3B652019E40F001DB26D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		09EB3B662019E40F001DB26D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		09EB3B682019E40F001DB26D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CB4547AE134F916F4E1A5CB /* Pods-YQTTagsViewTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YQTTagsViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.king.YQTTagsViewTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		09EB3B692019E40F001DB26D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 256B3A3F4345AC92C51A869E /* Pods-YQTTagsViewTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YQTTagsViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.king.YQTTagsViewTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09EB3B4C2019E40F001DB26D /* Build configuration list for PBXProject "YQTTagsViewTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09EB3B652019E40F001DB26D /* Debug */,
+				09EB3B662019E40F001DB26D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09EB3B672019E40F001DB26D /* Build configuration list for PBXNativeTarget "YQTTagsViewTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09EB3B682019E40F001DB26D /* Debug */,
+				09EB3B692019E40F001DB26D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09EB3B492019E40F001DB26D /* Project object */;
+}
