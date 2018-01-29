@@ -14,6 +14,8 @@
 #define TagListHeaderH 24.f //headerView 高度
 #define ListTagPadding 16.f //tagview边距
 
+#define YQTFONT(A) [UIFont fontWithName:@"PingFangSC-Regular"size:A]
+
 //上部tag 列表排列方式
 typedef NS_ENUM(NSUInteger, YQTTagListArrangeType) {
     YQTTagListArrangeTypeIsTag,//tag 排列

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0950550A201F3246006FE16E /* YQTRectangleTagConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505509201F3246006FE16E /* YQTRectangleTagConfig.m */; };
 		0950550D201F3E70006FE16E /* YQTRectangleTagContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950550C201F3E70006FE16E /* YQTRectangleTagContentView.m */; };
+		09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */; };
+		0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505519201F4B87006FE16E /* YQTBottomBarButton.m */; };
 		0957FE82201ECC22007F270B /* YQTTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE80201ECC22007F270B /* YQTTagView.m */; };
 		0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE86201EE7D3007F270B /* YQTRowTagView.m */; };
 		0957FE8A201EF62C007F270B /* YQTTagBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE89201EF62C007F270B /* YQTTagBaseView.m */; };
@@ -42,6 +44,10 @@
 		09505509201F3246006FE16E /* YQTRectangleTagConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRectangleTagConfig.m; sourceTree = "<group>"; };
 		0950550B201F3E70006FE16E /* YQTRectangleTagContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRectangleTagContentView.h; sourceTree = "<group>"; };
 		0950550C201F3E70006FE16E /* YQTRectangleTagContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRectangleTagContentView.m; sourceTree = "<group>"; };
+		09505515201F49A6006FE16E /* YQTBottomBarButtonConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTBottomBarButtonConfig.h; sourceTree = "<group>"; };
+		09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTBottomBarButtonConfig.m; sourceTree = "<group>"; };
+		09505518201F4B87006FE16E /* YQTBottomBarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTBottomBarButton.h; sourceTree = "<group>"; };
+		09505519201F4B87006FE16E /* YQTBottomBarButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTBottomBarButton.m; sourceTree = "<group>"; };
 		0957FE80201ECC22007F270B /* YQTTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagView.m; sourceTree = "<group>"; };
 		0957FE81201ECC22007F270B /* YQTTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagView.h; sourceTree = "<group>"; };
 		0957FE85201EE7D3007F270B /* YQTRowTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRowTagView.h; sourceTree = "<group>"; };
@@ -109,6 +115,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0950550F201F4630006FE16E /* YQTTagListBottomBar */ = {
+			isa = PBXGroup;
+			children = (
+				09505510201F4741006FE16E /* YQTBottomBarButton */,
+				09505511201F4741006FE16E /* YQTTagListBottomBar */,
+			);
+			path = YQTTagListBottomBar;
+			sourceTree = "<group>";
+		};
+		09505510201F4741006FE16E /* YQTBottomBarButton */ = {
+			isa = PBXGroup;
+			children = (
+				09505515201F49A6006FE16E /* YQTBottomBarButtonConfig.h */,
+				09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */,
+				09505518201F4B87006FE16E /* YQTBottomBarButton.h */,
+				09505519201F4B87006FE16E /* YQTBottomBarButton.m */,
+			);
+			path = YQTBottomBarButton;
+			sourceTree = "<group>";
+		};
+		09505511201F4741006FE16E /* YQTTagListBottomBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YQTTagListBottomBar;
+			sourceTree = "<group>";
+		};
 		0957FE7F201ECC22007F270B /* YQTTagView */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +215,7 @@
 		09EB3B532019E40F001DB26D /* YQTTagsViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				0950550F201F4630006FE16E /* YQTTagListBottomBar */,
 				09EB3B81201AD86A001DB26D /* YQTTagListView */,
 				09EB3B542019E40F001DB26D /* AppDelegate.h */,
 				09EB3B552019E40F001DB26D /* AppDelegate.m */,
@@ -464,12 +498,14 @@
 				0957FEA7201F26D5007F270B /* UIColor+Image.m in Sources */,
 				0957FE9D201F266B007F270B /* NSString+YQKit.m in Sources */,
 				09EB3BD5201D3BA0001DB26D /* NSAttributedString+tagSize.m in Sources */,
+				09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */,
 				09EB3B93201AD99C001DB26D /* TTGTagCollectionView.m in Sources */,
 				09EB3B592019E40F001DB26D /* ViewController.m in Sources */,
 				0957FE8A201EF62C007F270B /* YQTTagBaseView.m in Sources */,
 				09EB3B642019E40F001DB26D /* main.m in Sources */,
 				0950550A201F3246006FE16E /* YQTRectangleTagConfig.m in Sources */,
 				09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */,
+				0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */,
 				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,
 				09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */,
 				09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */,

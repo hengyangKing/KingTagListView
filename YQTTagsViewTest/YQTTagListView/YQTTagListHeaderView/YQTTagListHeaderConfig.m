@@ -12,9 +12,9 @@
 +(instancetype)defaultConfig {
     YQTTagListHeaderConfig *config = [[YQTTagListHeaderConfig alloc]init];
     //基类
-    config.titleFont([UIFont fontWithName:@"PingFangSC-Regular"size:14]).radius(6.f).titleColor([UIColor colorWithHex:@"F333333"]);
+    config.titleFont(YQTFONT(14)).radius(6.f).titleColor([UIColor colorWithHex:@"F333333"]);
     //
-    config.buttonFont([UIFont fontWithName:@"PingFangSC-Regular"size:12]).borderWidth(1.f).tintColor([UIColor colorWithHex:@"#15A6EE"]).needHiddenButton(NO).normalTitle(@"全选").selectedTitle(@"取消全选");
+    config.buttonFont(YQTFONT(12)).borderWidth(1.f).tintColor([UIColor colorWithHex:@"#15A6EE"]).needHiddenButton(NO).normalTitle(@"全选").selectedTitle(@"取消全选");
     return config;
 }
 #pragma mark set
