@@ -33,24 +33,8 @@
 
 @end
 
-///YQTTagListBaseCell 数据源协议 子类必须实现
-@protocol YQTTagListCellDataSource <NSObject>
-///需要返回Size
-- (CGSize)tagSizeForTagAtIndex:(NSUInteger)index;
-///返回Count
-- (NSUInteger)numberOfTagsInTag;
-///返回contentView
-- (UIView *)tagViewForIndex:(NSUInteger)index;
 
-///选中某tagview调用 需要在实现时调用父类的delegate
-- (void)tagViewdidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
 
-@optional
-
-///将要选中某tagview调用 需要在实现时调用父类的delegate 
-- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
-
-@end
 @interface YQTTagListBaseCell : UITableViewCell
 ///id
 +(NSString *)YQTTagViewCellID ;
@@ -60,9 +44,6 @@
 
 ///代理 父类声明 子类调用
 @property(nonatomic,weak)id<YQTTagListCellDelegate> delegate;
-
-///数据源协议 子类必须遵循 并且实现
-@property(nonatomic,weak)id<YQTTagListCellDataSource> dataSource;
 
 ///父类子类通信
 ///headerButton 点击后 调用block 父类通知子类

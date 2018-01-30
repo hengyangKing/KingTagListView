@@ -9,7 +9,10 @@
 #import "YQTTagRectangleCell.h"
 #import "YQTRectangleTagView.h"
 #import "NSAttributedString+tagSize.h"
-@interface YQTTagRectangleCell()<YQTTagListCellDataSource>
+//遵循非正式协议
+#import "YQTTagListBaseCell+DataSource.h"
+
+@interface YQTTagRectangleCell()
 @property(nonatomic,strong)NSMutableArray<YQTRectangleTagView *> *tags;
 @end
 @implementation YQTTagRectangleCell
@@ -19,14 +22,6 @@
         cell = [[YQTTagRectangleCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:[self YQTTagViewCellID]];
     }
     return cell;
-}
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        //重置代理
-        self.dataSource = self;
-    }
-    return self;
 }
 #pragma mark -- lazy
 -(NSMutableArray *)tags {

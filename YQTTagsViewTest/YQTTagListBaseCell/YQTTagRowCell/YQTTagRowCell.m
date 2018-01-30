@@ -9,8 +9,10 @@
 #import "YQTTagRowCell.h"
 #import "YQTRowTagView.h"
 #import "NSAttributedString+tagSize.h"
+//遵循非正式协议
+#import "YQTTagListBaseCell+DataSource.h"
 
-@interface YQTTagRowCell()<YQTTagListCellDataSource>
+@interface YQTTagRowCell()
 @property(nonatomic,strong)NSMutableArray<YQTRowTagView *> *tags;
 @end
 @implementation YQTTagRowCell
@@ -22,14 +24,7 @@
     }
     return cell;
 }
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        //重置代理
-        self.dataSource = self;
-    }
-    return self;
-}
+
 #pragma mark -- lazy
 -(NSMutableArray *)tags {
     if (!_tags) {

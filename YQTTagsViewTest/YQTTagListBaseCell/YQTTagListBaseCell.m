@@ -11,6 +11,7 @@
 #import "YQTTagBaseView.h"
 #import "Masonry.h"
 
+#import "YQTTagListBaseCell+DataSource.h"//声明非正式协议
 @interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource>
 @property(nonatomic,strong)TTGTagCollectionView *taglistView;
 @property(nonatomic,strong)YQTTagListHeaderView *header;
@@ -123,25 +124,30 @@
         [self.taglistView reload];
     };
 }
-#pragma mark - TTGTagCollectionViewDelegate
+#pragma mark - TTGTagCollectionViewDelegate 需子类遵循父类非正式协议数据源
+
 - (CGSize)tagCollectionView:(TTGTagCollectionView *)tagCollectionView sizeForTagAtIndex:(NSUInteger)index {
-    return [self.dataSource tagSizeForTagAtIndex:index];
+    
+    return [self tagSizeForTagAtIndex:index];
 }
 - (void)tagCollectionView:(TTGTagCollectionView *)tagCollectionView didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-    [self.dataSource tagViewdidSelectTag:tagView atIndex:index];
+    [self tagViewdidSelectTag:tagView atIndex:index];
 }
 - (BOOL)tagCollectionView:(TTGTagCollectionView *)tagCollectionView shouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-   return [self.dataSource tagViewShouldSelectTag:tagView atIndex:index];
+    if ([self respondsToSelector:@selector(tagViewShouldSelectTag:atIndex:)]) {
+        return [self tagViewShouldSelectTag:tagView atIndex:index];
+    }
+    return YES;
 }
 
 #pragma mark - TTGTagCollectionViewDataSource
 
 - (NSUInteger)numberOfTagsInTagCollectionView:(TTGTagCollectionView *)tagCollectionView {
-    return [self.dataSource numberOfTagsInTag];
+    return [self numberOfTagsInTag];
 }
 
 - (UIView *)tagCollectionView:(TTGTagCollectionView *)tagCollectionView tagViewForIndex:(NSUInteger)index {
-    return [self.dataSource tagViewForIndex:index];
+    return [self tagViewForIndex:index];
 }
 
 
