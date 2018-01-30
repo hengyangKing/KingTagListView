@@ -39,11 +39,6 @@
         self.layer.borderWidth = self.config.borderWidth;
         self.layer.borderColor = self.config.borderColor.CGColor;
     }
-    if (self.config.cornerRadius) {
-        self.layer.cornerRadius = self.config.cornerRadius;
-        self.layer.masksToBounds = YES;
-    }
 }
-
 
 @end

@@ -19,14 +19,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YQTTagsViewTest/YQTTagListView/YQTTagView/YQTTagView/YQTTagView.m"
-            timestampString = "538992036.682988"
+            filePath = "YQTTagsViewTest/YQTTagListBottomBar/YQTTagListBottomBar/YQTTagListBottomBar.m"
+            timestampString = "538999398.8597209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-setup"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-updateConstraints"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[YQTTagListBottomBar updateConstraints]"
+                  moduleName = "YQTTagsViewTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/J/Documents/17ZUOYE/17_King&apos;s_Storage/YQTTagsViewTest/YQTTagsViewTest/YQTTagListBottomBar/YQTTagListBottomBar/YQTTagListBottomBar.m"
+                  timestampString = "538999398.9180779"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "443">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[YQTTagListBottomBar updateConstraints]_block_invoke.52"
+                  moduleName = "YQTTagsViewTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/J/Documents/17ZUOYE/17_King&apos;s_Storage/YQTTagsViewTest/YQTTagsViewTest/YQTTagListBottomBar/YQTTagListBottomBar/YQTTagListBottomBar.m"
+                  timestampString = "538999398.924238"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -15,7 +15,17 @@
 
 @property(nonatomic,strong,readonly)UIColor *bgColor;
 
+@property(nonatomic,assign,readonly)UIEdgeInsets contentInset;
+
+@property(nonatomic,assign,readonly)BOOL needCornerRadius;
+
+
 @property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^bottomBarCostom)(UIView *);
+
 @property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^bottomBarBGColor)(UIColor *);
+
+@property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^costomInset)(UIEdgeInsets contentInset);
+
+@property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^needCostomCornerRadius)(BOOL needRadius);
 
 @end

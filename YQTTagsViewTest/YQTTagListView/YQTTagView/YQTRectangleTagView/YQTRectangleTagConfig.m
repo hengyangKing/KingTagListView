@@ -15,9 +15,8 @@
 }
 -(instancetype)init{
     self = [super init];
-    if (self) {
-        
-        self.rectTagTintColor([UIColor colorWithHex:@"#E4E4E6"]).rectTagSelectTintColor([UIColor colorWithHex:@"#90969E"]).rectTagBorderW(.5f);
+    if (self) {        
+        self.rectTagTintColor([UIColor colorWithHex:@"#15A6EE"]).rectTagSelectTintColor([UIColor colorWithHex:@"#E4E4E6"]).rectTagBorderW(.5f);
         self.titleColor([UIColor colorWithHex:@"#3EA7DB"]);
         self.selectedTitleTextColor([UIColor colorWithHex:@"#90969E"]);
     }

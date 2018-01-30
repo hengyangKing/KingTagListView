@@ -13,7 +13,7 @@
 +(instancetype)defaultConfig {
     
     YQTBottomBarButtonConfig *config = [[YQTBottomBarButtonConfig alloc]init];
-    config.YQTButtonTitleColor([UIColor colorWithHex:@"#FFFFFF"]).YQTButtonBGColor([UIColor colorWithHex:@"#15A6EE"]).YQTButtonShowBorder(NO).YQTButtonBorderWidth(1).YQTButtonBorderColor([UIColor colorWithHex:@"#15A6EE"]).YQTButtonBorderCornerRadius(50.f).YQTButtonTitleFont(YQTFONT(18));
+    config.YQTButtonTitleColor([UIColor colorWithHex:@"#FFFFFF"]).YQTButtonBGColor([UIColor colorWithHex:@"#15A6EE"]).YQTButtonShowBorder(NO).YQTButtonBorderWidth(1).YQTButtonBorderColor([UIColor colorWithHex:@"#15A6EE"]).YQTButtonTitleFont(YQTFONT(18));
     
     return config;
 }
@@ -46,9 +46,7 @@
 -(void)setBorderColor:(UIColor *)borderColor {
     _borderColor = borderColor;
 }
--(void)setCornerRadius:(CGFloat)cornerRadius {
-    _cornerRadius = cornerRadius;
-}
+
 -(void)setFont:(UIFont *)font {
     _font = font;
 }
@@ -106,13 +104,6 @@
 -(YQTBottomBarButtonConfig *(^)(UIColor *))YQTButtonBorderColor {
     return ^(UIColor *color){
         self.borderColor = color;
-        return self;
-    };
-}
-
--(YQTBottomBarButtonConfig *(^)(CGFloat))YQTButtonBorderCornerRadius {
-    return ^(CGFloat radius){
-        self.cornerRadius = radius;
         return self;
     };
 }

@@ -23,22 +23,20 @@
 @property(nonatomic,assign,readonly,getter=isShowBorder)BOOL showBorder;
 @property(nonatomic,assign,readonly)CGFloat borderWidth;
 @property(nonatomic,strong,readonly)UIColor *borderColor;
-@property(nonatomic,assign,readonly)CGFloat cornerRadius;
 @property(nonatomic,strong,readonly)UIFont *font;
 
 
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonTarget)(id target);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonSEL)(SEL sel);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonTitle)(NSString *title);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonBGColor)(UIColor *color);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonImage)(NSString *name);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonTitleColor)(UIColor *color);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonTitleFont)(UIFont *font);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonTarget)(id target);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonSEL)(SEL sel);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonTitle)(NSString *title);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonBGColor)(UIColor *color);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonImage)(NSString *name);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonTitleColor)(UIColor *color);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonTitleFont)(UIFont *font);
 
 //Border
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonShowBorder)(BOOL showBorder);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonBorderWidth)(CGFloat borderWidth);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonBorderColor)(UIColor *color);
-@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQYButtonBorderCornerRadius)(CGFloat cornerRadius);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonShowBorder)(BOOL showBorder);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonBorderWidth)(CGFloat borderWidth);
+@property(nonatomic,copy,readonly)YQTBottomBarButtonConfig *(^YQTButtonBorderColor)(UIColor *color);
 
 @end

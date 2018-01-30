@@ -84,7 +84,7 @@
     model.datas = [self.tags copy];
     model.hiddenHeaderButton = YES;
     model.contentHSpacing = 0.f;
-    model.contentVSpacing = 14.f;
+    model.contentVSpacing = 6.f;
     self.layoutSubview(model);
 
 }

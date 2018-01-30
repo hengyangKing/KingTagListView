@@ -72,10 +72,16 @@
 - (void)tagListCellSelectAllTag:(YQTTagListCell *)cell {
     [self.deleteTags removeAllObjects];
     [self.deleteTags addObjectsFromArray:[self.datas copy]];
+    NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
+    NSLog(@"%@",indexPath);
+    
+    
 }
 
 - (void)tagListCellUnselectAllTag:(YQTTagListCell *)cell {
     [self.deleteTags removeAllObjects];
+    NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
+    NSLog(@"%@",indexPath);
 }
 
 #pragma mark tableviewDatasource

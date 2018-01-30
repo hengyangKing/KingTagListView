@@ -11,5 +11,8 @@
 #import "Masonry.h"
 
 @interface YQTTagListBottomBar : UIView
++(instancetype)createBottomBarWithConfig:(void (^)(YQTTagListBottomBarConfig *))config ;
+
+
 
 @end

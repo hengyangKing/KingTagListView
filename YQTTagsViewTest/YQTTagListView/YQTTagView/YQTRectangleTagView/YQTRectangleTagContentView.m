@@ -51,5 +51,4 @@
         self.layer.borderWidth = self.config.borderW;
     }
 }
-
 @end

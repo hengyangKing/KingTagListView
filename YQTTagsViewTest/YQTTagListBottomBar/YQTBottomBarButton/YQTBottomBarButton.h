@@ -12,4 +12,5 @@
 @interface YQTBottomBarButton : UIButton
 +(instancetype)createBottomBarButtonWithConfig:(void (^)(YQTBottomBarButtonConfig *))config;
 
+@property(nonatomic,assign,readonly)CGFloat cornerRadius;
 @end

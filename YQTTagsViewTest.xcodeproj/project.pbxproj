@@ -276,7 +276,7 @@
 			children = (
 				0950552520201CDE006FE16E /* YQTTagListCommon */,
 				09EB3BC4201D364B001DB26D /* YQTTagViewTool */,
-				09EB3BB9201D13BC001DB26D /* YQTTagListBaseCell */,
+				09EB3BB9201D13BC001DB26D /* YQTTagCell */,
 				09EB3B9C201AE15D001DB26D /* YQTTagViewBaseConfig */,
 				09EB3B98201AE0C9001DB26D /* YQTTagListHeaderView */,
 				09EB3B8D201AD960001DB26D /* YQTTagListView */,
@@ -288,8 +288,8 @@
 		09EB3B83201AD89E001DB26D /* YQTTagView */ = {
 			isa = PBXGroup;
 			children = (
-				0957FE84201ECC53007F270B /* YQTRowTagView */,
 				0957FE83201ECC4D007F270B /* YQTRectangleTagView */,
+				0957FE84201ECC53007F270B /* YQTRowTagView */,
 				0957FE7F201ECC22007F270B /* YQTTagView */,
 				0957FE88201EF62C007F270B /* YQTTagBaseView.h */,
 				0957FE89201EF62C007F270B /* YQTTagBaseView.m */,
@@ -332,7 +332,7 @@
 			path = YQTTagViewBaseConfig;
 			sourceTree = "<group>";
 		};
-		09EB3BB9201D13BC001DB26D /* YQTTagListBaseCell */ = {
+		09EB3BB9201D13BC001DB26D /* YQTTagCell */ = {
 			isa = PBXGroup;
 			children = (
 				09EB3BC9201D3A2F001DB26D /* YQTTagRectangleCell */,
@@ -343,8 +343,8 @@
 				0950551E20201854006FE16E /* YQTTagListBaseCellDataSourceProtocal */,
 				0957FE92201F0B6B007F270B /* YQTTagListBaseCellModel */,
 			);
-			name = YQTTagListBaseCell;
-			path = YQTTagsViewTest/YQTTagListBaseCell;
+			name = YQTTagCell;
+			path = YQTTagsViewTest/YQTTagCell;
 			sourceTree = SOURCE_ROOT;
 		};
 		09EB3BBA201D13BC001DB26D /* YQTTagListCell */ = {

@@ -39,6 +39,7 @@
         make.trailing.mas_equalTo(weakself.contentView).mas_offset(-ListTagPadding);
         make.height.mas_equalTo(TagListHeaderH);
     }];
+    
     [self.contentView addSubview:self.taglistView];
     [self.taglistView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
