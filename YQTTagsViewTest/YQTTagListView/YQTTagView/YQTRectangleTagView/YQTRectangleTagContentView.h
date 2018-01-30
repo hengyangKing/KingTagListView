@@ -6,9 +6,9 @@
 //  Copyright © 2018年 J. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YQTTagContentButton.h"
 #import "YQTRectangleTagConfig.h"
-@interface YQTRectangleTagContentView : UIButton
+@interface YQTRectangleTagContentView : YQTTagContentButton
 +(instancetype)YQTRectangleTagContentViewWithConfig:(YQTRectangleTagConfig *)config;
 
 @end

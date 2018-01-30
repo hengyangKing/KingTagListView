@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSAttributedString (tagSize)
+@interface NSAttributedString (TagSize)
 ///tag类型数据size
 @property(nonatomic,assign,readonly)CGSize tagSize;
 ///row类型数据外部size

@@ -9,7 +9,6 @@
 #import "YQTTagListBaseCell.h"
 #import "YQTTagListHeaderView.h"
 #import "YQTTagBaseView.h"
-#import "Masonry.h"
 
 #import "YQTTagListBaseCell+DataSource.h"//声明非正式协议
 @interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource>
@@ -57,6 +56,7 @@
         _taglistView.horizontalSpacing = 14.f;
         _taglistView.delegate = self;
         _taglistView.dataSource = self;
+        _taglistView.contentInset = UIEdgeInsetsZero;
     }
     return _taglistView;
 }

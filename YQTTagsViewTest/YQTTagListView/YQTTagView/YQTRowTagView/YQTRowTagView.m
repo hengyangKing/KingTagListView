@@ -8,8 +8,7 @@
 
 #import "YQTRowTagView.h"
 #import "YQTTagView.h"
-#import "Masonry.h"
-#import "NSAttributedString+tagSize.h"
+#import "NSAttributedString+TagSize.h"
 @interface YQTRowTagView()
 @property(nonatomic,strong)YQTTagView *contentView;
 @end

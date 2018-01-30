@@ -11,8 +11,9 @@
 #import "YQTTagListCommon.h"
 @implementation YQTBottomBarButtonConfig
 +(instancetype)defaultConfig {
+    
     YQTBottomBarButtonConfig *config = [[YQTBottomBarButtonConfig alloc]init];
-    config.YQTButtonTitleColor([UIColor colorWithHex:@"#FFFFFF"]).YQTButtonBGColor([UIColor colorWithHex:@"##15A6EE"]).YQTButtonShowBorder(NO).YQTButtonBorderWidth(1).YQTButtonBorderColor([UIColor colorWithHex:@"#15A6EE"]).YQTButtonBorderCornerRadius(50.f).YQTButtonTitleFont(YQTFONT(18));
+    config.YQTButtonTitleColor([UIColor colorWithHex:@"#FFFFFF"]).YQTButtonBGColor([UIColor colorWithHex:@"#15A6EE"]).YQTButtonShowBorder(NO).YQTButtonBorderWidth(1).YQTButtonBorderColor([UIColor colorWithHex:@"#15A6EE"]).YQTButtonBorderCornerRadius(50.f).YQTButtonTitleFont(YQTFONT(18));
     
     return config;
 }

@@ -8,7 +8,6 @@
 
 #import "YQTTagListHeaderView.h"
 #import "YQTTagZoomButton.h"
-#import "Masonry.h"
 
 @interface YQTTagListHeaderView()
 @property(nonatomic,strong)YQTTagListHeaderConfig *config;

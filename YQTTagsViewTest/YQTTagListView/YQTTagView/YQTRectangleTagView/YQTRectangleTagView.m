@@ -8,7 +8,6 @@
 
 #import "YQTRectangleTagView.h"
 #import "YQTRectangleTagContentView.h"
-#import "Masonry.h"
 @interface YQTRectangleTagView()
 @property(nonatomic,strong)YQTRectangleTagContentView *contentView;
 @property(nonatomic,strong)UIImageView *mark;

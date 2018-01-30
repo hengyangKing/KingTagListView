@@ -12,6 +12,9 @@
 		09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */; };
 		0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505519201F4B87006FE16E /* YQTBottomBarButton.m */; };
 		0950551D2020183B006FE16E /* YQTTagListBaseCell+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950551C2020183B006FE16E /* YQTTagListBaseCell+DataSource.m */; };
+		0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552020201C1C006FE16E /* YQTTagListBottomBar.m */; };
+		0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */; };
+		0950552B202026AC006FE16E /* YQTTagContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552A202026AC006FE16E /* YQTTagContentButton.m */; };
 		0957FE82201ECC22007F270B /* YQTTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE80201ECC22007F270B /* YQTTagView.m */; };
 		0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE86201EE7D3007F270B /* YQTRowTagView.m */; };
 		0957FE8A201EF62C007F270B /* YQTTagBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE89201EF62C007F270B /* YQTTagBaseView.m */; };
@@ -36,7 +39,7 @@
 		09EB3BC0201D13C9001DB26D /* YQTTagListBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */; };
 		09EB3BCC201D3A56001DB26D /* YQTTagRectangleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */; };
 		09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */; };
-		09EB3BD5201D3BA0001DB26D /* NSAttributedString+tagSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */; };
+		09EB3BD5201D3BA0001DB26D /* NSAttributedString+TagSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BD4201D3BA0001DB26D /* NSAttributedString+TagSize.m */; };
 		7AB6B26BB551E1FDA33714D1 /* Pods_YQTTagsViewTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,12 @@
 		09505519201F4B87006FE16E /* YQTBottomBarButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTBottomBarButton.m; sourceTree = "<group>"; };
 		0950551B2020183B006FE16E /* YQTTagListBaseCell+DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YQTTagListBaseCell+DataSource.h"; sourceTree = "<group>"; };
 		0950551C2020183B006FE16E /* YQTTagListBaseCell+DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YQTTagListBaseCell+DataSource.m"; sourceTree = "<group>"; };
+		0950551F20201C1C006FE16E /* YQTTagListBottomBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListBottomBar.h; sourceTree = "<group>"; };
+		0950552020201C1C006FE16E /* YQTTagListBottomBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBottomBar.m; sourceTree = "<group>"; };
+		0950552220201C29006FE16E /* YQTTagListBottomBarConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListBottomBarConfig.h; sourceTree = "<group>"; };
+		0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBottomBarConfig.m; sourceTree = "<group>"; };
+		09505529202026AC006FE16E /* YQTTagContentButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagContentButton.h; sourceTree = "<group>"; };
+		0950552A202026AC006FE16E /* YQTTagContentButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagContentButton.m; sourceTree = "<group>"; };
 		0957FE80201ECC22007F270B /* YQTTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagView.m; sourceTree = "<group>"; };
 		0957FE81201ECC22007F270B /* YQTTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagView.h; sourceTree = "<group>"; };
 		0957FE85201EE7D3007F270B /* YQTRowTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRowTagView.h; sourceTree = "<group>"; };
@@ -99,8 +108,8 @@
 		09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagRectangleCell.m; sourceTree = "<group>"; };
 		09EB3BCD201D3A60001DB26D /* YQTTagRowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagRowCell.h; sourceTree = "<group>"; };
 		09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagRowCell.m; sourceTree = "<group>"; };
-		09EB3BD3201D3BA0001DB26D /* NSAttributedString+tagSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+tagSize.h"; sourceTree = "<group>"; };
-		09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+tagSize.m"; sourceTree = "<group>"; };
+		09EB3BD3201D3BA0001DB26D /* NSAttributedString+TagSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+TagSize.h"; sourceTree = "<group>"; };
+		09EB3BD4201D3BA0001DB26D /* NSAttributedString+TagSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+TagSize.m"; sourceTree = "<group>"; };
 		256B3A3F4345AC92C51A869E /* Pods-YQTTagsViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.release.xcconfig"; sourceTree = "<group>"; };
 		736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQTTagsViewTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB4547AE134F916F4E1A5CB /* Pods-YQTTagsViewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +150,10 @@
 		09505511201F4741006FE16E /* YQTTagListBottomBar */ = {
 			isa = PBXGroup;
 			children = (
+				0950551F20201C1C006FE16E /* YQTTagListBottomBar.h */,
+				0950552020201C1C006FE16E /* YQTTagListBottomBar.m */,
+				0950552220201C29006FE16E /* YQTTagListBottomBarConfig.h */,
+				0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */,
 			);
 			path = YQTTagListBottomBar;
 			sourceTree = "<group>";
@@ -152,6 +165,14 @@
 				0950551C2020183B006FE16E /* YQTTagListBaseCell+DataSource.m */,
 			);
 			path = YQTTagListBaseCellDataSourceProtocal;
+			sourceTree = "<group>";
+		};
+		0950552520201CDE006FE16E /* YQTTagListCommon */ = {
+			isa = PBXGroup;
+			children = (
+				09EB3BC3201D1834001DB26D /* YQTTagListCommon.h */,
+			);
+			path = YQTTagListCommon;
 			sourceTree = "<group>";
 		};
 		0957FE7F201ECC22007F270B /* YQTTagView */ = {
@@ -245,6 +266,7 @@
 		09EB3B81201AD86A001DB26D /* YQTTagListView */ = {
 			isa = PBXGroup;
 			children = (
+				0950552520201CDE006FE16E /* YQTTagListCommon */,
 				09EB3BC4201D364B001DB26D /* YQTTagViewTool */,
 				09EB3BB9201D13BC001DB26D /* YQTTagListBaseCell */,
 				09EB3B9C201AE15D001DB26D /* YQTTagViewBaseConfig */,
@@ -265,6 +287,8 @@
 				0957FE89201EF62C007F270B /* YQTTagBaseView.m */,
 				09EB3B89201AD89E001DB26D /* YQTTagsViewConfig.h */,
 				09EB3B86201AD89E001DB26D /* YQTTagsViewConfig.m */,
+				09505529202026AC006FE16E /* YQTTagContentButton.h */,
+				0950552A202026AC006FE16E /* YQTTagContentButton.m */,
 			);
 			path = YQTTagView;
 			sourceTree = "<group>";
@@ -296,7 +320,6 @@
 			children = (
 				09EB3B9D201AE169001DB26D /* YQTTagViewBaseConfig.h */,
 				09EB3B9E201AE169001DB26D /* YQTTagViewBaseConfig.m */,
-				09EB3BC3201D1834001DB26D /* YQTTagListCommon.h */,
 			);
 			path = YQTTagViewBaseConfig;
 			sourceTree = "<group>";
@@ -328,8 +351,8 @@
 		09EB3BC4201D364B001DB26D /* YQTTagViewTool */ = {
 			isa = PBXGroup;
 			children = (
-				09EB3BD3201D3BA0001DB26D /* NSAttributedString+tagSize.h */,
-				09EB3BD4201D3BA0001DB26D /* NSAttributedString+tagSize.m */,
+				09EB3BD3201D3BA0001DB26D /* NSAttributedString+TagSize.h */,
+				09EB3BD4201D3BA0001DB26D /* NSAttributedString+TagSize.m */,
 				0957FE9C201F266B007F270B /* NSString+YQKit.h */,
 				0957FE9B201F266A007F270B /* NSString+YQKit.m */,
 				0957FEA1201F26D5007F270B /* YQKit */,
@@ -510,8 +533,9 @@
 				09EB3B9B201AE0D1001DB26D /* YQTTagListHeaderView.m in Sources */,
 				0957FEA7201F26D5007F270B /* UIColor+Image.m in Sources */,
 				0957FE9D201F266B007F270B /* NSString+YQKit.m in Sources */,
-				09EB3BD5201D3BA0001DB26D /* NSAttributedString+tagSize.m in Sources */,
+				09EB3BD5201D3BA0001DB26D /* NSAttributedString+TagSize.m in Sources */,
 				09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */,
+				0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */,
 				09EB3B93201AD99C001DB26D /* TTGTagCollectionView.m in Sources */,
 				09EB3B592019E40F001DB26D /* ViewController.m in Sources */,
 				0957FE8A201EF62C007F270B /* YQTTagBaseView.m in Sources */,
@@ -519,11 +543,13 @@
 				0950550A201F3246006FE16E /* YQTRectangleTagConfig.m in Sources */,
 				09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */,
 				0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */,
+				0950552B202026AC006FE16E /* YQTTagContentButton.m in Sources */,
 				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,
 				09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */,
 				09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */,
 				09EB3B8B201AD89E001DB26D /* YQTTagsViewConfig.m in Sources */,
 				09EB3BBD201D13BC001DB26D /* YQTTagListCell.m in Sources */,
+				0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */,
 				0950551D2020183B006FE16E /* YQTTagListBaseCell+DataSource.m in Sources */,
 				0957FEA6201F26D5007F270B /* UIColor+YQKit.m in Sources */,
 				09EB3BCC201D3A56001DB26D /* YQTTagRectangleCell.m in Sources */,

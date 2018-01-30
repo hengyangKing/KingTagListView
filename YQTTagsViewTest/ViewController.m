@@ -52,7 +52,7 @@
 }
 
 -(void)addDatas{
-    [self.datas addObjectsFromArray:@[@"photo photo photo photo photo photo photo photo photo photo photo photo photo photo photo photo", @"assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"]];
+    [self.datas addObjectsFromArray:@[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]", @"assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"]];
     
     [self.tableview reloadData];
 }
@@ -83,7 +83,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YQTTagListBaseCell *cell;
     if (!indexPath.row) {
-        cell = [YQTTagListCell TagListCellWithTableView:tableView];
+        cell = [YQTTagRowCell TagListCellWithTableView:tableView];
     }else{
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
     }

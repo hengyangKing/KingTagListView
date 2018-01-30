@@ -7,19 +7,18 @@
 //
 
 #import "YQTTagView.h"
-#import "Masonry.h"
 #import "UIColor+Image.h"
+#import "YQTTagContentButton.h"
 @interface YQTTagView () {
     NSAttributedString *_attrStr;
     NSAttributedString *_selectedAttrStr;
 
 }
-@property(nonatomic,strong)UIView *line;
 ///config
 @property(nonatomic,strong)YQTTagsViewConfig *config;
 
 ///contentview
-@property(nonatomic,strong)UIButton *contentView;
+@property(nonatomic,strong)YQTTagContentButton *contentView;
 @end
 @implementation YQTTagView
 
@@ -37,32 +36,24 @@
         make.top.bottom.left.right.mas_equalTo(0).insets(weakself.config.contentInset);
     }];
     
-    //line
-    [self addSubview:self.line];
-    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(weakself.mas_centerY);
-        make.leading.trailing.mas_equalTo(weakself);
-        make.height.mas_equalTo(1);
-    }];
-    
+//    //line
+//    [self addSubview:self.line];
+//    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(weakself.mas_centerY);
+//        make.leading.trailing.mas_equalTo(weakself);
+//        make.height.mas_equalTo(1);
+//    }];
 }
 #pragma mark lazy
--(UIView *)line {
-    if (!_line) {
-        _line = [[UIView alloc]init];
-        [_line setHidden:!self.contentView.selected];
-        [_line setBackgroundColor:self.config.lineColor];
-    }
-    return _line;
-}
-
--(UIButton *)contentView {
+-(YQTTagContentButton *)contentView {
     if (!_contentView) {
         
-        _contentView = [UIButton buttonWithType:(UIButtonTypeCustom)];
-        _contentView.titleLabel.numberOfLines = 0;
+        _contentView = [YQTTagContentButton buttonWithType:(UIButtonTypeCustom)];
         //button
+        _contentView.titleLabel.textAlignment = NSTextAlignmentLeft;
+        
         [_contentView setBackgroundImage:self.config.normalColor.image forState:(UIControlStateNormal)];
+        
         [_contentView setBackgroundImage:self.config.selectedColor.image forState:(UIControlStateSelected)];
         
         _contentView.selected = self.config.select;
@@ -71,16 +62,13 @@
         
         [_contentView setAttributedTitle:self.selectedAttrStr forState:UIControlStateSelected];
         
-        //        [_contentView setTitle:self.config.text forState:(UIControlStateNormal)];
-        //        [_contentView setTitle:self.config.text forState:(UIControlStateSelected)];
-        
-        
         [_contentView.titleLabel setFont:self.config.font];
         
         if (self.config.cornerRadius) {
             _contentView.layer.cornerRadius = self.config.cornerRadius;
             _contentView.layer.masksToBounds = YES;
         }
+        
     }
     return _contentView;
 }

@@ -8,7 +8,7 @@
 
 #import "YQTTagListCell.h"
 #import "YQTTagView.h"
-#import "NSAttributedString+tagSize.h"
+#import "NSAttributedString+TagSize.h"
 //遵循非正式协议
 #import "YQTTagListBaseCell+DataSource.h"
 @interface YQTTagListCell()
