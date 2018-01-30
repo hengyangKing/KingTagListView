@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092D997D2020476A00EDBABA /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 092D997C2020476A00EDBABA /* UIView+Shadow.m */; };
+		092D99802020519D00EDBABA /* YQTTagShadowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 092D997F2020519D00EDBABA /* YQTTagShadowButton.m */; };
 		0950550A201F3246006FE16E /* YQTRectangleTagConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505509201F3246006FE16E /* YQTRectangleTagConfig.m */; };
 		0950550D201F3E70006FE16E /* YQTRectangleTagContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950550C201F3E70006FE16E /* YQTRectangleTagContentView.m */; };
 		09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */; };
@@ -44,6 +46,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092D997B2020476A00EDBABA /* UIView+Shadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Shadow.h"; sourceTree = "<group>"; };
+		092D997C2020476A00EDBABA /* UIView+Shadow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shadow.m"; sourceTree = "<group>"; };
+		092D997E2020519D00EDBABA /* YQTTagShadowButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagShadowButton.h; sourceTree = "<group>"; };
+		092D997F2020519D00EDBABA /* YQTTagShadowButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagShadowButton.m; sourceTree = "<group>"; };
 		09505508201F3246006FE16E /* YQTRectangleTagConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRectangleTagConfig.h; sourceTree = "<group>"; };
 		09505509201F3246006FE16E /* YQTRectangleTagConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRectangleTagConfig.m; sourceTree = "<group>"; };
 		0950550B201F3E70006FE16E /* YQTRectangleTagContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRectangleTagContentView.h; sourceTree = "<group>"; };
@@ -180,6 +186,8 @@
 			children = (
 				0957FE81201ECC22007F270B /* YQTTagView.h */,
 				0957FE80201ECC22007F270B /* YQTTagView.m */,
+				092D997E2020519D00EDBABA /* YQTTagShadowButton.h */,
+				092D997F2020519D00EDBABA /* YQTTagShadowButton.m */,
 			);
 			path = YQTTagView;
 			sourceTree = "<group>";
@@ -219,10 +227,10 @@
 		0957FEA1201F26D5007F270B /* YQKit */ = {
 			isa = PBXGroup;
 			children = (
-				0957FEA2201F26D5007F270B /* UIColor+Image.h */,
-				0957FEA3201F26D5007F270B /* UIColor+YQKit.m */,
-				0957FEA4201F26D5007F270B /* UIColor+Image.m */,
+				0957FE9C201F266B007F270B /* NSString+YQKit.h */,
+				0957FE9B201F266A007F270B /* NSString+YQKit.m */,
 				0957FEA5201F26D5007F270B /* UIColor+YQKit.h */,
+				0957FEA3201F26D5007F270B /* UIColor+YQKit.m */,
 			);
 			path = YQKit;
 			sourceTree = "<group>";
@@ -353,8 +361,10 @@
 			children = (
 				09EB3BD3201D3BA0001DB26D /* NSAttributedString+TagSize.h */,
 				09EB3BD4201D3BA0001DB26D /* NSAttributedString+TagSize.m */,
-				0957FE9C201F266B007F270B /* NSString+YQKit.h */,
-				0957FE9B201F266A007F270B /* NSString+YQKit.m */,
+				0957FEA2201F26D5007F270B /* UIColor+Image.h */,
+				0957FEA4201F26D5007F270B /* UIColor+Image.m */,
+				092D997B2020476A00EDBABA /* UIView+Shadow.h */,
+				092D997C2020476A00EDBABA /* UIView+Shadow.m */,
 				0957FEA1201F26D5007F270B /* YQKit */,
 			);
 			path = YQTTagViewTool;
@@ -528,6 +538,7 @@
 				0957FE82201ECC22007F270B /* YQTTagView.m in Sources */,
 				0950550D201F3E70006FE16E /* YQTRectangleTagContentView.m in Sources */,
 				0957FE95201F0B8C007F270B /* YQTTagListBaseCellModel.m in Sources */,
+				092D99802020519D00EDBABA /* YQTTagShadowButton.m in Sources */,
 				0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */,
 				09EB3BA2201AE2DF001DB26D /* YQTTagListHeaderConfig.m in Sources */,
 				09EB3B9B201AE0D1001DB26D /* YQTTagListHeaderView.m in Sources */,
@@ -542,6 +553,7 @@
 				09EB3B642019E40F001DB26D /* main.m in Sources */,
 				0950550A201F3246006FE16E /* YQTRectangleTagConfig.m in Sources */,
 				09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */,
+				092D997D2020476A00EDBABA /* UIView+Shadow.m in Sources */,
 				0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */,
 				0950552B202026AC006FE16E /* YQTTagContentButton.m in Sources */,
 				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,

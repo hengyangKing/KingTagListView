@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (Shadow)
+-(void)addShadowWithColor:(UIColor *)color Radius:(CGFloat)radius;
+-(void)showShadow;
+-(void)hiddenShadow;
 
 @end

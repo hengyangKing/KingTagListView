@@ -8,17 +8,17 @@
 
 #import "YQTTagView.h"
 #import "UIColor+Image.h"
-#import "YQTTagContentButton.h"
+#import "YQTTagShadowButton.h"
+
 @interface YQTTagView () {
     NSAttributedString *_attrStr;
     NSAttributedString *_selectedAttrStr;
-
 }
 ///config
 @property(nonatomic,strong)YQTTagsViewConfig *config;
 
 ///contentview
-@property(nonatomic,strong)YQTTagContentButton *contentView;
+@property(nonatomic,strong)YQTTagShadowButton *contentView;
 @end
 @implementation YQTTagView
 
@@ -29,26 +29,18 @@
     return view;
 }
 -(void)setup {
-    
     [self addSubview:self.contentView];
     __weak typeof(self) weakself = self;
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.mas_equalTo(0).insets(weakself.config.contentInset);
     }];
     
-//    //line
-//    [self addSubview:self.line];
-//    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.mas_equalTo(weakself.mas_centerY);
-//        make.leading.trailing.mas_equalTo(weakself);
-//        make.height.mas_equalTo(1);
-//    }];
 }
 #pragma mark lazy
--(YQTTagContentButton *)contentView {
+-(YQTTagShadowButton *)contentView {
     if (!_contentView) {
         
-        _contentView = [YQTTagContentButton buttonWithType:(UIButtonTypeCustom)];
+        _contentView = [YQTTagShadowButton buttonWithType:(UIButtonTypeCustom)];
         //button
         _contentView.titleLabel.textAlignment = NSTextAlignmentLeft;
         

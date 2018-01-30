@@ -11,6 +11,10 @@
 //tag maxsize
 #define MAXCONTENTSIZE CGSizeMake([UIScreen mainScreen].bounds.size.width-(2*ListTagPadding), MAXFLOAT)
 
+#define CONTENTINSET 2*TagListContentInset
+
+#define TAGMAXSIZE CGSizeMake(MAXCONTENTSIZE.width-(2*ListTagPadding) - CONTENTINSET, MAXCONTENTSIZE.height)
+
 @implementation NSAttributedString (TagSize)
 -(CGSize)tagSize {
     
@@ -18,10 +22,11 @@
     if (!attr.string.length) {
         return CGSizeZero;
     }
-    CGSize maxSize = CGSizeMake(MAXCONTENTSIZE.width-(2*ListTagPadding), MAXCONTENTSIZE.height);
-    CGSize contentSize = [attr boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
-    contentSize.width += (ListTagPadding*2)+1;//左右
-    contentSize.height += (ListTagMargin*2)+1;
+    CGSize size = TAGMAXSIZE;
+    CGSize contentSize = [attr boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    
+    contentSize.width += ((ListTagPadding*2)+1);//左右
+    contentSize.height += (ListTagMargin*2);
 
     return contentSize;
 }
@@ -31,35 +36,33 @@
     if (!attr.string.length) {
         return CGSizeZero;
     }
-    CGSize maxSize = CGSizeMake(MAXCONTENTSIZE.width-(2*ListTagPadding), MAXCONTENTSIZE.height);
     
-    CGSize contentSize = [attr boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    CGSize contentSize = [attr boundingRectWithSize:TAGMAXSIZE options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
     
     contentSize.height += (ListTagMargin*2);
-    return CGSizeMake(MAXCONTENTSIZE.width, contentSize.height);
+    return CGSizeMake(MAXCONTENTSIZE.width-CONTENTINSET, contentSize.height);
 }
 -(CGSize)rowContentSize {
     NSAttributedString *attr =self;
     if (!attr.string.length) {
         return CGSizeZero;
     }
-    CGSize maxSize = CGSizeMake(MAXCONTENTSIZE.width-(2*ListTagPadding), MAXCONTENTSIZE.height);
 
-    CGSize contentSize = [attr boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    CGSize contentSize = [attr boundingRectWithSize:TAGMAXSIZE options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
 
     NSRange range = NSMakeRange(0, 1);
     NSAttributedString *oneRowAttr = [[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]];
     
-    CGSize oneRowSize = [oneRowAttr boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    CGSize oneRowSize = [oneRowAttr boundingRectWithSize:TAGMAXSIZE options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
     
     if (contentSize.height > oneRowSize.height) {
         //多行
         CGFloat hight = contentSize.height;
         hight += (ListTagMargin*2);
-        return CGSizeMake(MAXCONTENTSIZE.width, hight);
+        return CGSizeMake(MAXCONTENTSIZE.width-CONTENTINSET, hight);
     }
     //单行
-    contentSize.width += ((ListTagPadding*2)+4);
+    contentSize.width += ((ListTagPadding*2)+2);
     contentSize.height += (ListTagMargin*2);
     return contentSize;
 }

@@ -83,7 +83,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YQTTagListBaseCell *cell;
     if (!indexPath.row) {
-        cell = [YQTTagRowCell TagListCellWithTableView:tableView];
+        cell = [YQTTagListCell TagListCellWithTableView:tableView];
     }else{
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
     }

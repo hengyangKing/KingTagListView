@@ -15,6 +15,8 @@
 #define TagListHeaderH 24.f //headerView 高度
 #define ListTagPadding 15.f //tagview 左右内边距 和 contentview 的外边距
 #define ListTagMargin 8.f //tagview 上下内边距
+#define TagListContentInset 2.f //contentview内边距
+
 
 #define YQTFONT(A) [UIFont fontWithName:@"PingFangSC-Regular"size:A]
 

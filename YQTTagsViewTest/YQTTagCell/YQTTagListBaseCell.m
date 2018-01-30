@@ -41,8 +41,8 @@
     }];
     [self.contentView addSubview:self.taglistView];
     [self.taglistView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.mas_equalTo(weakself.header.mas_leading);
-        make.trailing.mas_equalTo(weakself.header.mas_trailing);
+        make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
+        make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
         make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(15.f);
         make.bottom.mas_equalTo(weakself.contentView.mas_bottom).mas_offset(-32.5f);
     }];
@@ -56,7 +56,7 @@
         _taglistView.horizontalSpacing = 14.f;
         _taglistView.delegate = self;
         _taglistView.dataSource = self;
-        _taglistView.contentInset = UIEdgeInsetsZero;
+        _taglistView.contentInset = UIEdgeInsetsMake(TagListContentInset, TagListContentInset, TagListContentInset, TagListContentInset);
     }
     return _taglistView;
 }

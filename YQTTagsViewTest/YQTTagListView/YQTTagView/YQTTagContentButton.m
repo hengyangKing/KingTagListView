@@ -27,7 +27,7 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.top.bottom.trailing.mas_equalTo(self).insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
     }];
-
 }
+
 
 @end
