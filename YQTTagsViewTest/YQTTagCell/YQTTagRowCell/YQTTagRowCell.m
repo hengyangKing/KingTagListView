@@ -14,6 +14,7 @@
 
 @interface YQTTagRowCell()
 @property(nonatomic,strong)NSMutableArray<YQTRowTagView *> *tags;
+@property(nonatomic,copy)NSArray *nowDatas;
 @end
 @implementation YQTTagRowCell
 
@@ -36,15 +37,18 @@
 #pragma mark -- 实现父类声明方法
 -(void (^)(NSArray<NSString *> *))datas {
     return ^(NSArray <NSString *>*datas){
-        [self.tags removeAllObjects];
-        for (NSString *str in datas) {
-            if (str.length) {
-                [self.tags addObject:[YQTRowTagView YQTRowTagWithConfig:^(YQTTagsViewConfig *config) {
-                    config.titleText(str);
-                }]];
+        if (![datas isEqualToArray:self.nowDatas]) {
+            self.nowDatas = [datas copy];
+            [self.tags removeAllObjects];
+            for (NSString *str in datas) {
+                if (str.length) {
+                    [self.tags addObject:[YQTRowTagView YQTRowTagWithConfig:^(YQTTagsViewConfig *config) {
+                        config.titleText(str);
+                    }]];
+                }
             }
+            [self reloadSubviews];
         }
-        [self reloadSubviews];
     };
 }
 -(void (^)(TagListHeaderButtonState))headerViewClick {
@@ -79,7 +83,7 @@
     YQTTagListBaseCellModel *model = [YQTTagListBaseCellModel YQTTagListBaseCellModel];
     NSString *title = self.tags.count?@"点击划掉不用的句子":@"";
     model.headerTitle = title;
-    model.datas = [self.tags copy];
+    model.tags = [self.tags copy];
     model.contentHSpacing = 0.f;
     self.layoutSubview(model);
 }
@@ -113,14 +117,6 @@
     if ([self.delegate respondsToSelector:@selector(tagListCell:shouldSelectTag:atIndex:)]) {
         return [self.delegate tagListCell:self shouldSelectTag:tagView atIndex:index];
     }
-    return YES;
-}
-///content view horizontalSpacing
-- (CGFloat)contentViewHorizontalSpacing {
-    return -2.f;
-}
-///header view button 是否显示
-- (BOOL)hiddenHeaderButton {
     return YES;
 }
 

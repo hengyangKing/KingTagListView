@@ -42,6 +42,7 @@
 {
     [super setSelected:selected];
     
+    
     if (self.config.borderW) {
         if (!self.selected) {
             self.layer.borderColor = self.config.tintColor.CGColor;

@@ -14,6 +14,7 @@
 
 @interface YQTTagRectangleCell()
 @property(nonatomic,strong)NSMutableArray<YQTRectangleTagView *> *tags;
+@property(nonatomic,copy)NSArray *nowDatas;
 @end
 @implementation YQTTagRectangleCell
 +(instancetype)TagListCellWithTableView:(UITableView *)tableview {
@@ -34,17 +35,20 @@
 #pragma mark -- 实现父类声明方法
 -(void (^)(NSArray<NSString *> *))datas {
     return ^(NSArray <NSString *>*datas){
-        [self.tags removeAllObjects];
-        for (NSString *str in datas) {
-            if (str.length) {
-                [self.tags addObject:[YQTRectangleTagView YQTRectangleTagWithConfig:^(YQTRectangleTagConfig *config) {
-                    config.titleText(str);
-                    config.contentViewInset(UIEdgeInsetsMake(6, 0, 0, 6));
-                    config.normalBGColor([UIColor colorWithHex:@"#ECF9FF"]).selectedBGColor([UIColor colorWithHex:@"#FFFFFF"]);
-                }]];
+        if (![datas isEqualToArray:self.nowDatas]) {
+            self.nowDatas = [datas copy];
+            [self.tags removeAllObjects];
+            for (NSString *str in datas) {
+                if (str.length) {
+                    [self.tags addObject:[YQTRectangleTagView YQTRectangleTagWithConfig:^(YQTRectangleTagConfig *config) {
+                        config.titleText(str);
+                        config.contentViewInset(UIEdgeInsetsMake(6, 0, 0, 6));
+                        config.normalBGColor([UIColor colorWithHex:@"#ECF9FF"]).selectedBGColor([UIColor colorWithHex:@"#FFFFFF"]);
+                    }]];
+                }
             }
+            [self reloadSubviews];
         }
-        [self reloadSubviews];
     };
 }
 -(void (^)(TagListHeaderButtonState))headerViewClick {
@@ -81,7 +85,7 @@
     ///根据内容修改约束
     NSString *title = self.tags.count?@"选择题型":@"";
     model.headerTitle = title;
-    model.datas = [self.tags copy];
+    model.tags = [self.tags copy];
     model.hiddenHeaderButton = YES;
     model.contentHSpacing = 0.f;
     model.contentVSpacing = 6.f;

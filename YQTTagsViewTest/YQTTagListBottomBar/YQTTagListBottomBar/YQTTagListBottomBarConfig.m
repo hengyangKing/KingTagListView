@@ -16,10 +16,6 @@
     config.bottomBarBGColor([UIColor colorWithHex:@"#FFFFFF"]).costomInset(UIEdgeInsetsZero).needCostomCornerRadius(YES);
     return config;
 }
-
-
-
-
 -(YQTTagListBottomBarConfig *(^)(UIView *))bottomBarCostom {
     return ^(UIView *view){
         self.costom = view;
@@ -45,7 +41,17 @@
         return self;
     };
 }
-
+-(YQTTagListBottomBarConfig *(^)(UIImage *))bottomBarShadow
+{
+    return ^(UIImage *image){
+        self.shadow = image;
+        return self;
+    };
+}
+-(void)setShadow:(UIImage *)shadow
+{
+    _shadow = shadow;
+}
 -(void)setCostom:(UIView *)costom {
     _costom = costom;
 }

@@ -10,7 +10,7 @@
 
 @interface YQTTagListBaseCellModel : NSObject
 
-@property(nonatomic,copy)NSArray *datas;
+@property(nonatomic,copy)NSArray *tags;
 @property(nonatomic,copy)NSString *headerTitle;
 @property(nonatomic,assign)BOOL hiddenHeaderButton;
 @property(nonatomic,assign)CGFloat contentHSpacing;//横向间距

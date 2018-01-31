@@ -16,6 +16,9 @@
 @property(nonatomic,strong)YQTTagListHeaderView *header;
 @property(nonatomic,strong)NSMutableArray *tags;
 @property(nonatomic,strong)NSMutableArray *deleteTags;
+
+
+
 @end
 @implementation YQTTagListBaseCell
 +(NSString *)YQTTagViewCellID {
@@ -90,6 +93,7 @@
     }
     return _deleteTags;
 }
+
 #pragma mark -- 父类子类通信
 -(void (^)(UIView *))selectTag {
     return ^(UIView *view){
@@ -118,7 +122,7 @@
     return ^(YQTTagListBaseCellModel *model){
         self.header.headerTitle(model.headerTitle);
         [self.tags removeAllObjects];
-        [self.tags addObjectsFromArray:[model.datas copy]];
+        [self.tags addObjectsFromArray:[model.tags copy]];
         self.taglistView.horizontalSpacing = model.contentHSpacing;
         self.taglistView.verticalSpacing = model.contentVSpacing;
         self.header.hiddenHeaderButton(model.hiddenHeaderButton);

@@ -22,7 +22,7 @@
     return view;
 }
 #pragma mark -- func
--(void)setup {
+-(void)setup {    
     [self addSubview:self.contentView];
     __weak typeof(self) weakself = self;
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {

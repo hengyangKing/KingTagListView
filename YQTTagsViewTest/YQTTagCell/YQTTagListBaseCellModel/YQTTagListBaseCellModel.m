@@ -16,7 +16,7 @@
 
     model.hiddenHeaderButton = NO;
     model.headerTitle = @"";
-    model.datas = @[];
+    model.tags = @[];
     return model;
 }
 @end

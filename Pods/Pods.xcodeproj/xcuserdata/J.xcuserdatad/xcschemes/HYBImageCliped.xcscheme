@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3B735D682592E40B494D4D246E658CF4"
-               BuildableName = "Pods_YQTTagsViewTest.framework"
-               BlueprintName = "Pods-YQTTagsViewTest"
+               BlueprintIdentifier = "9AF32863B3B1EC8C9B3B03D3BAB1B674"
+               BuildableName = "HYBImageCliped.framework"
+               BlueprintName = "HYBImageCliped"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B735D682592E40B494D4D246E658CF4"
-            BuildableName = "Pods_YQTTagsViewTest.framework"
-            BlueprintName = "Pods-YQTTagsViewTest"
+            BlueprintIdentifier = "9AF32863B3B1EC8C9B3B03D3BAB1B674"
+            BuildableName = "HYBImageCliped.framework"
+            BlueprintName = "HYBImageCliped"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

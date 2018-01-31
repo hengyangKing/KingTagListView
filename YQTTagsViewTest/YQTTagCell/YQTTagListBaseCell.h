@@ -56,4 +56,5 @@
 #pragma mark 子类调用父类修改UI
 ///子类通知父类需要刷新UI 调用 子类展示的tags
 @property(nonatomic,copy,readonly)void (^layoutSubview)(YQTTagListBaseCellModel *model);
+
 @end

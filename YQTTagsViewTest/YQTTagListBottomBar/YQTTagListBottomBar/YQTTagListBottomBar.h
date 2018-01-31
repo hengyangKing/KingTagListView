@@ -13,6 +13,11 @@
 @interface YQTTagListBottomBar : UIView
 +(instancetype)createBottomBarWithConfig:(void (^)(YQTTagListBottomBarConfig *))config ;
 
+-(CGFloat)barH;
+
+-(void)dismiss;
+
+-(void)show;
 
 
 @end

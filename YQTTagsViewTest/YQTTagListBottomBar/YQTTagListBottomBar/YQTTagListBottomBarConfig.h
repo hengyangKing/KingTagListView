@@ -19,13 +19,19 @@
 
 @property(nonatomic,assign,readonly)BOOL needCornerRadius;
 
+@property(nonatomic,strong,readonly)UIImage *shadow;
 
 @property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^bottomBarCostom)(UIView *);
 
 @property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^bottomBarBGColor)(UIColor *);
 
+@property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^bottomBarShadow)(UIImage *);
+
+
 @property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^costomInset)(UIEdgeInsets contentInset);
 
 @property(nonatomic,copy,readonly)YQTTagListBottomBarConfig *(^needCostomCornerRadius)(BOOL needRadius);
+
+
 
 @end

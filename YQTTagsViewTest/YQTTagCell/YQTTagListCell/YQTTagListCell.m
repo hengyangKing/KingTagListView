@@ -13,6 +13,7 @@
 #import "YQTTagListBaseCell+DataSource.h"
 @interface YQTTagListCell()
 @property(nonatomic,strong)NSMutableArray<YQTTagView *> *tags;
+@property(nonatomic,copy)NSArray *nowDatas;
 @end
 @implementation YQTTagListCell
 +(instancetype)TagListCellWithTableView:(UITableView *)tableview {
@@ -30,15 +31,18 @@
 }
 -(void (^)(NSArray<NSString *> *))datas {
     return ^(NSArray <NSString *>*datas){
-        [self.tags removeAllObjects];
-        for (NSString *str in datas) {
-            if (str.length) {
-                [self.tags addObject:[YQTTagView YQTTagWithConfig:^(YQTTagsViewConfig *config) {
-                    config.titleText(str);
-                }]];
+        if (![datas isEqualToArray:self.nowDatas]) {
+            self.nowDatas  = [datas copy];
+            [self.tags removeAllObjects];
+            for (NSString *str in datas) {
+                if (str.length) {
+                    [self.tags addObject:[YQTTagView YQTTagWithConfig:^(YQTTagsViewConfig *config) {
+                        config.titleText(str);
+                    }]];
+                }
             }
+            [self reloadSubviews];
         }
-        [self reloadSubviews];
     };
 }
 -(void (^)(TagListHeaderButtonState))headerViewClick {
@@ -106,7 +110,7 @@
     
     NSString *title = self.tags.count?@"点击划掉不用的单词":@"";
     model.headerTitle = title;
-    model.datas = [self.tags copy];
+    model.tags = [self.tags copy];
     self.layoutSubview(model);
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
