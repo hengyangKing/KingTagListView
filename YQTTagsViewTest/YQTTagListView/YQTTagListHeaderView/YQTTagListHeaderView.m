@@ -14,7 +14,7 @@
 @property(nonatomic,strong)YQTTagZoomButton *button;
 @property(nonatomic,strong)UILabel *title;
 @property(nonatomic,assign)TagListHeaderButtonState state;
-@property(nonatomic,copy)void (^buttonClick)(TagListHeaderButtonState state);
+@property(nonatomic,copy)void (^buttonClick)(TagListHeaderButtonState willState);
 @end
 @implementation YQTTagListHeaderView
 
@@ -107,8 +107,8 @@
     };
 }
 -(void)setState:(TagListHeaderButtonState)state {
-    _state = state;    
-    self.button.selected = (_state == ButtonStateIsSelectAll)?NO:YES;
+    _state = state;
+    [self.button changeButtonState:(_state == ButtonStateIsSelectAll)?NO:YES];
 }
 #pragma mark -- MAS
 // tell UIKit that you are using AutoLayout

@@ -71,10 +71,10 @@
             config.needHiddenButton(NO);
             config.radius(TagListHeaderH/2.0f);
             
-        } andButtonClick:^(TagListHeaderButtonState state) {
-            !weakself.headerViewClick?:weakself.headerViewClick(state);
+        } andButtonClick:^(TagListHeaderButtonState willState) {
+            !weakself.headerViewClick?:weakself.headerViewClick(willState);
             [self.deleteTags removeAllObjects];
-            if (state == ButtonStateIsSelectAll) {
+            if (willState == ButtonStateIsUnSelectAll) {
                 [self.deleteTags addObjectsFromArray:self.tags];
             }
         }];
@@ -97,23 +97,25 @@
 #pragma mark -- 父类子类通信
 -(void (^)(UIView *))selectTag {
     return ^(UIView *view){
-        if ([self.deleteTags containsObject:view]) {
-            //包含
-            [self.deleteTags removeObject:view];
-        }else{
-            //不包含
-            [self.deleteTags addObject:view];
-        }
-        if (!self.deleteTags.count) {
-            //没有一个需要删除 需要全选
-            self.header.changeBtnState(ButtonStateIsSelectAll);
-        }
-        if (self.deleteTags.count == self.tags.count) {
-            //数量相同 取消全选
-            self.header.changeBtnState(ButtonStateIsUnSelectAll);
-        }else{
-            //没有一个需要删除 需要全选
-            self.header.changeBtnState(ButtonStateIsSelectAll);
+        @synchronized (self){
+            if ([self.deleteTags containsObject:view]) {
+                //包含
+                [self.deleteTags removeObject:view];
+            }else{
+                //不包含
+                [self.deleteTags addObject:view];
+            }
+            if (!self.deleteTags.count) {
+                //没有一个需要删除 需要全选
+                self.header.changeBtnState(ButtonStateIsSelectAll);
+            }
+            if (self.deleteTags.count == self.tags.count) {
+                //数量相同 取消全选
+                self.header.changeBtnState(ButtonStateIsUnSelectAll);
+            }else{
+                //没有一个需要删除 需要全选
+                self.header.changeBtnState(ButtonStateIsSelectAll);
+            }
         }
     };
 }

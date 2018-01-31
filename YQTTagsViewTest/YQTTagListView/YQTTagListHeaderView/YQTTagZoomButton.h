@@ -20,6 +20,8 @@
  */
 +(instancetype)zoomButtonAnimateWidth:(CGFloat (^)(void))animate andClickCompletion:(void (^)(BOOL nowSelect))completion ;
 
+///外界调用改变button状态
+-(void)changeButtonState:(BOOL)selelcted;
 
 
 @end
