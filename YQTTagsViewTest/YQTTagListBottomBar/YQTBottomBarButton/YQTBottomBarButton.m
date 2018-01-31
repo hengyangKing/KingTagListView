@@ -7,7 +7,7 @@
 //
 
 #import "YQTBottomBarButton.h"
-#import "UIColor+Image.h"
+#import "HYBImageCliped.h"
 @interface YQTBottomBarButton()
 @property(nonatomic,strong)YQTBottomBarButtonConfig *config;
 
@@ -19,16 +19,14 @@
     [button setup];
     return button;
 }
--(YQTBottomBarButtonConfig *)config
-{
+-(YQTBottomBarButtonConfig *)config {
     if (!_config) {
         _config = [YQTBottomBarButtonConfig defaultConfig];
     }
     return _config;
 }
 -(void)setup {
-
-    [self setBackgroundImage:self.config.bgColor.image forState:(UIControlStateNormal)];
+    [self setBackgroundColor:self.config.bgColor];
     [self setTitleColor:self.config.titleColor forState:(UIControlStateNormal)];
     [self setTitle:self.config.title forState:(UIControlStateNormal)];
     [self setImage:self.config.image forState:(UIControlStateNormal)];
@@ -36,8 +34,8 @@
     [self addTarget:self.config.target action:self.config.sel forControlEvents:(UIControlEventTouchUpInside)];
     
     if (self.config.isShowBorder) {
-        self.layer.borderWidth = self.config.borderWidth;
-        self.layer.borderColor = self.config.borderColor.CGColor;
+        self.hyb_borderWidth = self.config.borderWidth;
+        self.hyb_borderColor = self.config.borderColor;
     }
 }
 

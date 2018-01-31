@@ -27,7 +27,7 @@
 {
     self = [super init];
     if (self) {
-        self.tagConfig.rectTagTintColor([UIColor colorWithHex:@"#15A6EE"]).rectTagSelectTintColor([UIColor colorWithHex:@"#E4E4E6"]).rectTagBorderW(.5f);
+        self.tagConfig.rectTagTintColor([UIColor colorWithHex:@"#15A6EE"]).rectTagSelectTintColor([UIColor colorWithHex:@"#E4E4E6"]).rectTagBorderW(.8f);
         self.tagConfig.titleColor([UIColor colorWithHex:@"#3EA7DB"]);
         self.tagConfig.selectedTitleTextColor([UIColor colorWithHex:@"#90969E"]);
     }
@@ -40,9 +40,8 @@
     [self.bgImage mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.mas_equalTo(0).insets(weakself.tagConfig.contentInset);
     }];
-    
-    
-    //mark
+    self.bgImage.hyb_borderWidth = self.tagConfig.borderW;
+
     [self addSubview:self.mark];
     [self.mark mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat w = 24;
@@ -88,5 +87,9 @@
         self.tagConfig.isSelect(self.selected);
         [self.mark setHidden:self.nowState];
     };
+}
+-(void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    self.bgImage.hyb_borderColor = (selected?self.tagConfig.selectTintColor:self.tagConfig.tintColor);
 }
 @end

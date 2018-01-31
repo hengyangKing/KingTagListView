@@ -62,7 +62,7 @@
     self.margin.backgroundColor = self.config.bgColor;
     self.backgroundColor = self.config.bgColor;
     [self addSubview:self.config.costom];
-    
+    [self.config.costom hyb_addCornerRadius:50.f];
     [self setNeedsUpdateConstraints];
 }
 -(void)didMoveToSuperview {
@@ -90,11 +90,6 @@
         make.trailing.mas_equalTo(weakself).mas_offset(-insets.right);
         make.bottom.mas_equalTo(weakself.margin.mas_top).mas_offset(-insets.bottom);
     }];
-    if (self.config.needCornerRadius) {
-        CGFloat H = BOTTOMBARH - MARGINH - insets.top - insets.bottom;
-        self.config.costom.layer.cornerRadius =H/2.0f;
-        self.config.costom.layer.masksToBounds = YES;
-    }
     [super updateConstraints];
 }
 #pragma mark -- get

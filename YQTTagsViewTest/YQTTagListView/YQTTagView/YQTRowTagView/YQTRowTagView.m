@@ -14,22 +14,14 @@
     YQTRowTagView *view = [[YQTRowTagView alloc]init];
     !config?:config(view.tagConfig);
     [view setupUI];
-    
     return view;
 }
 -(void)setupUI {
-    self.backgroundColor = [UIColor yellowColor];
-//    return;
     __weak typeof(self) weakself = self;
     [self.bgImage mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.mas_equalTo(weakself);
         make.width.mas_equalTo(weakself.attrTitle.rowContentSize.width);
     }];
-   
-//    [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.bottom.mas_equalTo(weakself);
-//        make.width.mas_equalTo(weakself.attrTitle.rowContentSize.width);
-//    }];
     [self layoutUI];
 }
 @end

@@ -110,9 +110,6 @@
     _state = state;    
     self.button.selected = (_state == ButtonStateIsSelectAll)?NO:YES;
 }
-
-
-
 #pragma mark -- MAS
 // tell UIKit that you are using AutoLayout
 + (BOOL)requiresConstraintBasedLayout {
@@ -127,7 +124,7 @@
         __weak typeof(self) weakself = self;
         [self mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(TagListHeaderH);
-            if (self.config.cornerRadius) {
+            if (weakself.config.cornerRadius) {
                 weakself.button.layer.cornerRadius = weakself.config.cornerRadius;
                 weakself.button.layer.masksToBounds = YES;
             }
