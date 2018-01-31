@@ -7,6 +7,8 @@
 //
 
 #import "YQTTagBaseView.h"
+#import "UIColor+Image.h"
+
 @interface YQTTagBaseView() {
     UILabel *_titleLabel;
 }
@@ -14,6 +16,7 @@
 @property(nonatomic,assign)QTTagStates state;
 @property(nonatomic,strong)NSMutableDictionary *imageDic;
 @property(nonatomic,strong)NSMutableDictionary *titleDic;
+@property(nonatomic,strong)YQTTagsViewConfig *baseTagConfig;
 
 @end
 
@@ -21,6 +24,7 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
+        [self setup];
     }
     return self;
 }
@@ -72,6 +76,13 @@
     }
     return _titleDic;
 }
+-(void (^)(YQTTagsViewConfig *))baseConfig
+{
+    return ^(YQTTagsViewConfig *config){
+        [self setBaseTagConfig:config];
+    };
+}
+
 #pragma mark  -- set
 -(void)setSelected:(BOOL)selected
 {
@@ -100,11 +111,15 @@
 -(void)setAttr:(NSAttributedString *)attr withState:(QTTagStates)state {
     [self.titleDic setValue:attr forKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithUnsignedInteger:state]]];
 }
-
-
+-(void)setBaseTagConfig:(YQTTagsViewConfig *)baseTagConfig
+{
+    _baseTagConfig = baseTagConfig;
+    [self setbgImage:_baseTagConfig.normalColor.image withState:(QTTagStateNormal)];
+    
+    [self setbgImage:_baseTagConfig.selectedColor.image withState:(QTTagStateSelected)];
+    [self setSelected:_baseTagConfig.select];
+}
 -(BOOL)nowState {
     return  self.selected;
 }
-
-
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "YQTTagView.h"
-#import "UIColor+Image.h"
 #import "YQTTagShadowButton.h"
 #import "HYBImageCliped.h"
 
@@ -26,10 +25,11 @@
 +(instancetype)YQTTagWithConfig:(void (^)(YQTTagsViewConfig *config))config {
     YQTTagView *view = [[YQTTagView alloc]init];
     !config?:config(view.config);
-    [view setup];
+    [view setupUI];
     return view;
 }
--(void)setup {
+
+-(void)setupUI {
 //    [self addSubview:self.contentView];
 //    __weak typeof(self) weakself = self;
 //    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -39,16 +39,12 @@
     //button
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     
-    [self setbgImage:self.config.normalColor.image withState:(QTTagStateNormal)];
-    
-    [self setbgImage:self.config.selectedColor.image withState:(QTTagStateSelected)];
-
     [self setAttr:self.attrStr withState:QTTagStateNormal];
     
-    
     [self setAttr:self.selectedAttrStr withState:QTTagStateSelected];
+    
+    self.baseConfig(self.config);
 
-    [self.titleLabel setFont:self.config.font];
 }
 //#pragma mark lazy
 //-(YQTTagShadowButton *)contentView {

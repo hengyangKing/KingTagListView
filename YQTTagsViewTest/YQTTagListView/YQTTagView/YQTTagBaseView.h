@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "YQTTagsViewConfig.h"
 
+
+
 typedef NS_ENUM(NSUInteger, QTTagStates) {
     QTTagStateNormal,//tag 正常状态
     QTTagStateSelected,// tag 选中状态
@@ -39,7 +41,7 @@ typedef NS_ENUM(NSUInteger, QTTagStates) {
 -(void)setAttr:(NSAttributedString *)attr withState:(QTTagStates)state;
 
 
-
-
+///外观
+@property(nonatomic,strong,readonly)void (^baseConfig)(YQTTagsViewConfig *config);
 
 @end
