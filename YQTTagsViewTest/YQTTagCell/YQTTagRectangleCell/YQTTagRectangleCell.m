@@ -40,7 +40,7 @@
             [self.tags removeAllObjects];
             for (NSString *str in datas) {
                 if (str.length) {
-                    [self.tags addObject:[YQTRectangleTagView YQTRectangleTagWithConfig:^(YQTRectangleTagConfig *config) {
+                    [self.tags addObject:[YQTRectangleTagView YQTRectangleTagWithConfig:^(YQTTagsViewConfig *config) {
                         config.titleText(str);
                         config.contentViewInset(UIEdgeInsetsMake(6, 0, 0, 6));
                         config.normalBGColor([UIColor colorWithHex:@"#ECF9FF"]).selectedBGColor([UIColor colorWithHex:@"#FFFFFF"]);
@@ -101,7 +101,7 @@
 
 - (CGSize)tagSizeForTagAtIndex:(NSUInteger)index {
     YQTRectangleTagView *view = self.tags[index];
-    return view.attrStr.rectangleSize;
+    return view.attrTitle.rectangleSize;
 }
 
 - (UIView *)tagViewForIndex:(NSUInteger)index {

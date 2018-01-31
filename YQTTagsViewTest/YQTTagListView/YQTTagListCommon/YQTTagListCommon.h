@@ -10,6 +10,7 @@
 #define YQTTagListCommon_h
 
 #import "TTGTagCollectionView.h"
+#import "HYBImageCliped.h"
 #import "Masonry.h"
 
 #define TagListHeaderH 24.f //headerView 高度

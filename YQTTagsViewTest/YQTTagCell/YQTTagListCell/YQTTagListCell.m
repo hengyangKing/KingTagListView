@@ -72,7 +72,7 @@
 #pragma mark - YQTTagListBaseCellDataSource
 - (CGSize)tagSizeForTagAtIndex:(NSUInteger)index {
     YQTTagView *view = self.tags[index];
-    return view.attrStr.tagSize;
+    return view.attrTitle.tagSize;
 }
 ///返回Count
 - (NSUInteger)numberOfTagsInTag {

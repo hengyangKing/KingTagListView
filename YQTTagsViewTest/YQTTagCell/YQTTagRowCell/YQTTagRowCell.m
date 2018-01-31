@@ -94,7 +94,7 @@
 
 - (CGSize)tagSizeForTagAtIndex:(NSUInteger)index {
     YQTRowTagView *view = self.tags[index];
-    return view.attrStr.rowSize;
+    return view.attrTitle.rowSize;
 }
 
 - (UIView *)tagViewForIndex:(NSUInteger)index {

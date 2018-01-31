@@ -11,12 +11,15 @@
 
 @interface YQTTagBaseView() {
     UILabel *_titleLabel;
+    UIImageView *_bgImage;
+    NSAttributedString *_attrTitle;
+    NSAttributedString *_selectedAttrTitle;
+    YQTTagsViewConfig *_tagConfig;
+    
 }
-@property(nonatomic,strong)UIImageView *bgImage;
 @property(nonatomic,assign)QTTagStates state;
 @property(nonatomic,strong)NSMutableDictionary *imageDic;
 @property(nonatomic,strong)NSMutableDictionary *titleDic;
-@property(nonatomic,strong)YQTTagsViewConfig *baseTagConfig;
 
 @end
 
@@ -24,11 +27,11 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        [self setup];
+        [self setBaseView];
     }
     return self;
 }
--(void)setup {
+-(void)setBaseView {
     self.userInteractionEnabled = NO;
 
     [self addSubview:self.bgImage];
@@ -40,7 +43,8 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.top.bottom.trailing.mas_equalTo(self).insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
     }];
-    
+    //圆角
+    [self.bgImage hyb_addCornerRadius:6.f];
 }
 #pragma mark -- lazy
 -(UIImageView *)bgImage
@@ -76,16 +80,38 @@
     }
     return _titleDic;
 }
--(void (^)(YQTTagsViewConfig *))baseConfig
-{
-    return ^(YQTTagsViewConfig *config){
-        [self setBaseTagConfig:config];
-    };
+-(YQTTagsViewConfig *)tagConfig{
+    if (!_tagConfig) {
+        _tagConfig = [YQTTagsViewConfig defaultConfig];
+    }
+    return _tagConfig;
 }
-
+-(NSAttributedString *)attrTitle{
+    if (!_attrTitle) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
+        [dic setValue:self.tagConfig.textColor forKey:NSForegroundColorAttributeName];
+        
+        _attrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.text.length?self.tagConfig.text:@"" attributes:dic];
+    }
+    return _attrTitle;
+}
+-(NSAttributedString *)selectedAttrTitle{
+    
+    if (!_selectedAttrTitle) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
+        [dic setValue:self.tagConfig.selectedTitleColor forKey:NSForegroundColorAttributeName];
+        
+        [dic setValue:self.tagConfig.lineColor forKey:NSStrikethroughColorAttributeName];
+        
+        [dic setValue:@(NSUnderlineStyleSingle|NSUnderlinePatternSolid) forKey:NSStrikethroughStyleAttributeName];
+        _selectedAttrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.text.length?self.tagConfig.text:@"" attributes:dic];
+    }
+    return _selectedAttrTitle;
+}
 #pragma mark  -- set
--(void)setSelected:(BOOL)selected
-{
+-(void)setSelected:(BOOL)selected {
     _selected = selected;
     [self setState:_selected?QTTagStateSelected:QTTagStateNormal];
 }
@@ -101,6 +127,27 @@
         [self.titleLabel setAttributedText:attr];
     }
 }
+#pragma mark -- readonly
+-(BOOL)nowState {
+    return  self.selected;
+}
+#pragma mark -- func
+-(void)layoutUI {
+    
+    [self setbgImage:self.tagConfig.normalColor.image withState:(QTTagStateNormal)];
+    
+    [self setbgImage:self.tagConfig.selectedColor.image withState:(QTTagStateSelected)];
+    
+    [self setAttr:self.attrTitle withState:QTTagStateNormal];
+    
+    [self setAttr:self.selectedAttrTitle withState:QTTagStateSelected];
+    
+    [self setSelected:self.tagConfig.select];
+    
+}
+
+
+
 ///设置背景图片
 -(void)setbgImage:(UIImage *)image withState:(QTTagStates)state {
     [self.imageDic setValue:image forKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithUnsignedInteger:state]]];
@@ -111,15 +158,14 @@
 -(void)setAttr:(NSAttributedString *)attr withState:(QTTagStates)state {
     [self.titleDic setValue:attr forKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithUnsignedInteger:state]]];
 }
--(void)setBaseTagConfig:(YQTTagsViewConfig *)baseTagConfig
-{
-    _baseTagConfig = baseTagConfig;
-    [self setbgImage:_baseTagConfig.normalColor.image withState:(QTTagStateNormal)];
-    
-    [self setbgImage:_baseTagConfig.selectedColor.image withState:(QTTagStateSelected)];
-    [self setSelected:_baseTagConfig.select];
+
+
+-(void (^)(void))clickTagView {
+    return ^(){
+        self.selected = !self.selected;
+        self.tagConfig.isSelect(self.selected);
+    };
 }
--(BOOL)nowState {
-    return  self.selected;
-}
+
+
 @end

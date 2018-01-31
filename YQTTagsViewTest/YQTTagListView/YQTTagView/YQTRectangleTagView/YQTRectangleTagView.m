@@ -7,26 +7,38 @@
 //
 
 #import "YQTRectangleTagView.h"
-#import "YQTRectangleTagContentView.h"
-@interface YQTRectangleTagView()
-@property(nonatomic,strong)YQTRectangleTagContentView *contentView;
+@interface YQTRectangleTagView ()
+{
+    NSAttributedString *_attrTitle;
+    NSAttributedString *_selectedAttrTitle;
+}
+
 @property(nonatomic,strong)UIImageView *mark;
-@property(nonatomic,strong)YQTRectangleTagConfig *config;
 @end
 @implementation YQTRectangleTagView
 
-+(instancetype)YQTRectangleTagWithConfig:(void (^)(YQTRectangleTagConfig *config))config {
++(instancetype)YQTRectangleTagWithConfig:(void (^)(YQTTagsViewConfig *config))config {
     YQTRectangleTagView *view = [[YQTRectangleTagView alloc]init];
-    !config?:config(view.config);
-    [view setup];
+    !config?:config(view.tagConfig);
+    [view setupUI];
     return view;
 }
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.tagConfig.rectTagTintColor([UIColor colorWithHex:@"#15A6EE"]).rectTagSelectTintColor([UIColor colorWithHex:@"#E4E4E6"]).rectTagBorderW(.5f);
+        self.tagConfig.titleColor([UIColor colorWithHex:@"#3EA7DB"]);
+        self.tagConfig.selectedTitleTextColor([UIColor colorWithHex:@"#90969E"]);
+    }
+    return self;
+}
 #pragma mark -- func
--(void)setup {    
-    [self addSubview:self.contentView];
+-(void)setupUI {
+    
     __weak typeof(self) weakself = self;
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.right.mas_equalTo(0).insets(weakself.config.contentInset);
+    [self.bgImage mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.left.right.mas_equalTo(0).insets(weakself.tagConfig.contentInset);
     }];
     
     //mark
@@ -37,41 +49,43 @@
         make.top.mas_equalTo(weakself);
         make.width.height.mas_equalTo(w);
     }];
+    [self.mark setHidden:self.selected];
+    
+    [self layoutUI];
 }
 #pragma mark -- lazy
 -(UIImageView *)mark {
     if (!_mark) {
         _mark = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"select.mark.YQTTagView"]];
-        [_mark setHidden:self.contentView.selected];
     }
     return _mark;
 }
--(YQTRectangleTagContentView *)contentView {
-    if (!_contentView) {
-        _contentView = [YQTRectangleTagContentView YQTRectangleTagContentViewWithConfig:self.config];
+#pragma mark -- 重写
+-(NSAttributedString *)attrTitle{
+    if (!_attrTitle) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
+        [dic setValue:self.tagConfig.textColor forKey:NSForegroundColorAttributeName];
+
+        _attrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.text attributes:dic];
     }
-    return _contentView;
+    return _attrTitle;
 }
--(YQTRectangleTagConfig *)config {
-    if (!_config) {
-        _config = [YQTRectangleTagConfig defaultConfig];
+-(NSAttributedString *)selectedAttrTitle{
+
+    if (!_selectedAttrTitle) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
+        [dic setValue:self.tagConfig.selectedTitleColor forKey:NSForegroundColorAttributeName];
+        _selectedAttrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.text attributes:dic];
     }
-    return _config;
+    return _selectedAttrTitle;
 }
 -(void (^)(void))clickTagView {
     return ^(){
-        self.contentView.selected = !self.contentView.selected;
-        self.config.isSelect(self.contentView.selected);
-        [self.mark setHidden:self.contentView.selected];
+        self.selected = !self.selected;
+        self.tagConfig.isSelect(self.selected);
+        [self.mark setHidden:self.nowState];
     };
 }
-
--(BOOL)nowState {
-    return  self.contentView.selected;
-}
-
--(NSAttributedString *)attrStr {
-    return [[NSAttributedString alloc]initWithString:self.config.text];
-}
-
 @end

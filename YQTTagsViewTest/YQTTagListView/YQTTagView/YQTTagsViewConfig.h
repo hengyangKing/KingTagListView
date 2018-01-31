@@ -49,4 +49,24 @@
 
 +(instancetype)defaultConfig;
 
+
+#pragma mark YQTRectangle 类型增加
+
+@property(nonatomic,strong,readonly)UIColor *tintColor;
+
+@property(nonatomic,strong,readonly)UIColor *selectTintColor;
+///边框宽度
+@property(nonatomic,assign,readonly)CGFloat borderW;
+
+
+///风格颜色 其为边框颜色
+@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^rectTagTintColor)(UIColor *color);
+@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^rectTagSelectTintColor)(UIColor *color);
+///边框宽度
+@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^rectTagBorderW)(CGFloat width);
+
+
+
+
+
 @end

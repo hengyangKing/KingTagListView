@@ -21,7 +21,6 @@
 }
 -(void)setContentView:(YQTTagView *)contentView {
     self.backgroundColor = [UIColor yellowColor];
-
     _contentView = contentView;
     [self addSubview:_contentView];
     __weak typeof(self) weakself = self;
@@ -29,12 +28,10 @@
         make.top.left.bottom.mas_equalTo(weakself);
         make.width.mas_equalTo(weakself.attrStr.rowContentSize.width);
     }];
-
 }
-
 #pragma mark -- func
 -(NSAttributedString *)attrStr {
-    return self.contentView.attrStr;
+    return self.contentView.attrTitle;
 }
 
 -(void (^)(void))clickTagView {

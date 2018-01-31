@@ -93,4 +93,41 @@
     };
 }
 
+
+
+#pragma mark
+-(void)setTintColor:(UIColor *)tintColor {
+    _tintColor = tintColor;
+}
+
+-(void)setSelectTintColor:(UIColor *)selectTintColor {
+    _selectTintColor = selectTintColor;
+}
+-(void)setBorderW:(CGFloat)borderW {
+    _borderW = borderW;
+}
+
+#pragma mark get
+-(YQTTagsViewConfig *(^)(UIColor *))rectTagTintColor {
+    return ^(UIColor *color){
+        self.tintColor = color;
+        return self;
+    };
+}
+
+-(YQTTagsViewConfig *(^)(UIColor *))rectTagSelectTintColor {
+    return ^(UIColor *color){
+        self.selectTintColor = color;
+        return self;
+    };
+}
+
+-(YQTTagsViewConfig *(^)(CGFloat))rectTagBorderW {
+    return ^(CGFloat w){
+        self.borderW = w;
+        return self;
+    };
+}
+
+
 @end

@@ -7,8 +7,7 @@
 //
 
 #import "YQTTagBaseView.h"
-#import "YQTRectangleTagConfig.h"
 @interface YQTRectangleTagView : YQTTagBaseView
-+(instancetype)YQTRectangleTagWithConfig:(void (^)(YQTRectangleTagConfig *config))config;
++(instancetype)YQTRectangleTagWithConfig:(void (^)(YQTTagsViewConfig *config))config;
 
 @end
