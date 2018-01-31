@@ -14,6 +14,8 @@
 @end
 @implementation UIView (Shadow)
 -(void)addShadowWithColor:(UIColor *)color Radius:(CGFloat)radius {
+#pragma mark 效率问题 暂时不加阴影
+    return;
     if (self.shadowContainer != nil) {
         [self.shadowContainer removeFromSuperview];
     }

@@ -9,6 +9,7 @@
 #import "YQTRowTagView.h"
 #import "YQTTagView.h"
 #import "NSAttributedString+TagSize.h"
+
 @interface YQTRowTagView()
 @property(nonatomic,strong)YQTTagView *contentView;
 @end
@@ -28,6 +29,7 @@
         make.top.left.bottom.mas_equalTo(weakself);
         make.width.mas_equalTo(weakself.attrStr.rowContentSize.width);
     }];
+
 }
 
 #pragma mark -- func

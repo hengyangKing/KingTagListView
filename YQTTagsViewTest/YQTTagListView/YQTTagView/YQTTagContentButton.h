@@ -7,7 +7,6 @@
 //  tagview contentview 基类
 
 #import <UIKit/UIKit.h>
-
+#import "YQTTagsViewConfig.h"
 @interface YQTTagContentButton : UIButton
-
 @end

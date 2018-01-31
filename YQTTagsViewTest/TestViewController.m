@@ -111,7 +111,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 1;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

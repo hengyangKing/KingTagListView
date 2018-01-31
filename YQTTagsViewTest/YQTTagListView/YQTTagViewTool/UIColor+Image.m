@@ -8,6 +8,7 @@
 
 #import "UIColor+Image.h"
 #import <objc/runtime.h>
+
 @implementation UIColor (Image)
 
 -(UIImage *)image {
@@ -20,4 +21,8 @@
     UIGraphicsEndImageContext();
     return theImage;
 }
+
+
+
+
 @end

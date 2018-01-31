@@ -30,11 +30,11 @@
     [contentView setTitleColor:contentView.config.selectedTitleColor forState:(UIControlStateSelected)];
     
     [contentView.titleLabel setFont:contentView.config.font];
-    
-    if (contentView.config.cornerRadius) {
-        contentView.layer.cornerRadius = contentView.config.cornerRadius;
-        contentView.layer.masksToBounds = YES;
-    }
+#pragma mark 效率问题
+//    if (contentView.config.cornerRadius) {
+//        contentView.layer.cornerRadius = contentView.config.cornerRadius;
+//        contentView.layer.masksToBounds = YES;
+//    }
 
     return contentView;
 }

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "YQTTagsViewConfig.h"
+
+typedef NS_ENUM(NSUInteger, QTTagStates) {
+    QTTagStateNormal,//tag 正常状态
+    QTTagStateSelected,// tag 选中状态
+};
+
 @interface YQTTagBaseView : UIView
 
 //反选当前Tag状态
@@ -16,7 +22,24 @@
 ///用于计算内容
 @property(nonatomic,copy,readonly)NSAttributedString *attrStr;
 
-///当前tag是否被选中
+///当前tag 状态
 @property(nonatomic,assign,readonly)BOOL nowState;
+
+
+///设置当前选中状态
+@property(nonatomic,assign)BOOL selected;
+
+///titlelabel
+@property(nonatomic,strong,readonly)UILabel *titleLabel;
+
+///设置背景图片
+-(void)setbgImage:(UIImage *)image withState:(QTTagStates)state;
+
+///设置符文本字体
+-(void)setAttr:(NSAttributedString *)attr withState:(QTTagStates)state;
+
+
+
+
 
 @end

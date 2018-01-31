@@ -9,6 +9,7 @@
 #import "YQTTagView.h"
 #import "UIColor+Image.h"
 #import "YQTTagShadowButton.h"
+#import "HYBImageCliped.h"
 
 @interface YQTTagView () {
     NSAttributedString *_attrStr;
@@ -18,7 +19,7 @@
 @property(nonatomic,strong)YQTTagsViewConfig *config;
 
 ///contentview
-@property(nonatomic,strong)YQTTagShadowButton *contentView;
+//@property(nonatomic,strong)YQTTagShadowButton *contentView;
 @end
 @implementation YQTTagView
 
@@ -29,41 +30,55 @@
     return view;
 }
 -(void)setup {
-    [self addSubview:self.contentView];
-    __weak typeof(self) weakself = self;
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.right.mas_equalTo(0).insets(weakself.config.contentInset);
-    }];
+//    [self addSubview:self.contentView];
+//    __weak typeof(self) weakself = self;
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.bottom.left.right.mas_equalTo(0).insets(weakself.config.contentInset);
+//    }];
     
+    //button
+    self.titleLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [self setbgImage:self.config.normalColor.image withState:(QTTagStateNormal)];
+    
+    [self setbgImage:self.config.selectedColor.image withState:(QTTagStateSelected)];
+
+    [self setAttr:self.attrStr withState:QTTagStateNormal];
+    
+    
+    [self setAttr:self.selectedAttrStr withState:QTTagStateSelected];
+
+    [self.titleLabel setFont:self.config.font];
 }
-#pragma mark lazy
--(YQTTagShadowButton *)contentView {
-    if (!_contentView) {
-        
-        _contentView = [YQTTagShadowButton buttonWithType:(UIButtonTypeCustom)];
-        //button
-        _contentView.titleLabel.textAlignment = NSTextAlignmentLeft;
-        
-        [_contentView setBackgroundImage:self.config.normalColor.image forState:(UIControlStateNormal)];
-        
-        [_contentView setBackgroundImage:self.config.selectedColor.image forState:(UIControlStateSelected)];
-        
-        _contentView.selected = self.config.select;
-        
-        [_contentView setAttributedTitle:self.attrStr forState:UIControlStateNormal];
-        
-        [_contentView setAttributedTitle:self.selectedAttrStr forState:UIControlStateSelected];
-        
-        [_contentView.titleLabel setFont:self.config.font];
-        
-        if (self.config.cornerRadius) {
-            _contentView.layer.cornerRadius = self.config.cornerRadius;
-            _contentView.layer.masksToBounds = YES;
-        }
-        
-    }
-    return _contentView;
-}
+//#pragma mark lazy
+//-(YQTTagShadowButton *)contentView {
+//    if (!_contentView) {
+//
+//        _contentView = [YQTTagShadowButton buttonWithType:(UIButtonTypeCustom)];
+//        //button
+//        _contentView.titleLabel.textAlignment = NSTextAlignmentLeft;
+//
+//        [_contentView setBackgroundImage:self.config.normalColor.image forState:(UIControlStateNormal)];
+//
+//        [_contentView setBackgroundImage:self.config.selectedColor.image forState:(UIControlStateSelected)];
+//
+//        _contentView.selected = self.config.select;
+//
+//        [_contentView setAttributedTitle:self.attrStr forState:UIControlStateNormal];
+//
+//        [_contentView setAttributedTitle:self.selectedAttrStr forState:UIControlStateSelected];
+//
+//        [_contentView.titleLabel setFont:self.config.font];
+//
+//#pragma mark 效率问题
+////        if (self.config.cornerRadius) {
+////            _contentView.layer.cornerRadius = self.config.cornerRadius;
+////            _contentView.layer.masksToBounds = YES;
+////        }
+//
+//    }
+//    return _contentView;
+//}
 -(YQTTagsViewConfig *)config {
     if (!_config) {
         _config = [YQTTagsViewConfig defaultConfig];
@@ -96,12 +111,8 @@
 }
 -(void (^)(void))clickTagView {
     return ^(){
-        self.contentView.selected = !self.contentView.selected;
-        self.config.isSelect(self.contentView.selected);
+        self.selected = !self.selected;
+        self.config.isSelect(self.selected);
     };
-}
-
--(BOOL)nowState {
-    return  self.contentView.selected;
 }
 @end

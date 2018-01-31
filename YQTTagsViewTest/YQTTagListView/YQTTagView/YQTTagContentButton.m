@@ -8,6 +8,8 @@
 
 #import "YQTTagContentButton.h"
 #import "YQTTagListCommon.h"
+
+
 @implementation YQTTagContentButton
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -17,6 +19,7 @@
     }
     return self;
 }
+
 -(void)setup {
     self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     
@@ -29,5 +32,10 @@
     }];
 }
 
-
+//-(void)layoutSublayersOfLayer:(CALayer *)layer{
+//    [super layoutSublayersOfLayer:layer];
+//
+//
+//    
+//}
 @end
