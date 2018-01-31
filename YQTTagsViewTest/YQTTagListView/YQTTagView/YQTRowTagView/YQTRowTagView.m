@@ -9,40 +9,27 @@
 #import "YQTRowTagView.h"
 #import "YQTTagView.h"
 #import "NSAttributedString+TagSize.h"
-
-@interface YQTRowTagView()
-@property(nonatomic,strong)YQTTagView *contentView;
-@end
 @implementation YQTRowTagView
 +(instancetype)YQTRowTagWithConfig:(void (^)(YQTTagsViewConfig *config))config {
-    YQTRowTagView *rowTagView = [[YQTRowTagView alloc]init];
-    rowTagView.contentView = [YQTTagView YQTTagWithConfig:config];
-    return rowTagView;
+    YQTRowTagView *view = [[YQTRowTagView alloc]init];
+    !config?:config(view.tagConfig);
+    [view setupUI];
+    
+    return view;
 }
--(void)setContentView:(YQTTagView *)contentView {
+-(void)setupUI {
     self.backgroundColor = [UIColor yellowColor];
-    _contentView = contentView;
-    [self addSubview:_contentView];
+//    return;
     __weak typeof(self) weakself = self;
-    [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bgImage mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.mas_equalTo(weakself);
-        make.width.mas_equalTo(weakself.attrStr.rowContentSize.width);
+        make.width.mas_equalTo(weakself.attrTitle.rowContentSize.width);
     }];
+   
+//    [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.bottom.mas_equalTo(weakself);
+//        make.width.mas_equalTo(weakself.attrTitle.rowContentSize.width);
+//    }];
+    [self layoutUI];
 }
-#pragma mark -- func
--(NSAttributedString *)attrStr {
-    return self.contentView.attrTitle;
-}
-
--(void (^)(void))clickTagView {
-    return self.contentView.clickTagView;
-}
-
--(BOOL)nowState {
-    return  self.contentView.nowState;
-}
-
-
-
-
 @end

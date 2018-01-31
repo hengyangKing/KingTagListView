@@ -20,27 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YQTTagsViewTest/YQTTagListView/YQTTagView/YQTRectangleTagView/YQTRectangleTagView.m"
-            timestampString = "539077345.777813"
+            timestampString = "539079273.533554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "-clickTagView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YQTTagsViewTest/YQTTagListView/YQTTagView/YQTTagBaseView.m"
-            timestampString = "539077345.778904"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "-clickTagView"
             landmarkType = "7">
          </BreakpointContent>

@@ -33,7 +33,7 @@
 }
 -(void)setBaseView {
     self.userInteractionEnabled = NO;
-
+    __weak typeof(self) weakself = self;
     [self addSubview:self.bgImage];
     [self.bgImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.top.bottom.mas_equalTo(0);
@@ -41,7 +41,7 @@
     
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.top.bottom.trailing.mas_equalTo(self).insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
+        make.leading.top.bottom.trailing.mas_equalTo(weakself.bgImage).insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
     }];
     //圆角
     [self.bgImage hyb_addCornerRadius:6.f];
@@ -59,9 +59,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        
+        _titleLabel.textAlignment = NSTextAlignmentLeft;        
         _titleLabel.numberOfLines = 0;
     }
     return _titleLabel;

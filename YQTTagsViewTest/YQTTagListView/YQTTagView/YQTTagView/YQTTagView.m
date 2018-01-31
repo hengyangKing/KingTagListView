@@ -25,7 +25,6 @@
 
 -(void)setupUI {
 
-    self.titleLabel.textAlignment = NSTextAlignmentLeft;
     [self layoutUI];
 }
 -(void)setSelected:(BOOL)selected {

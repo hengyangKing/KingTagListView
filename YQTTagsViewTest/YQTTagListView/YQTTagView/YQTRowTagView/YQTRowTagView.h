@@ -7,6 +7,7 @@
 //
 
 #import "YQTTagBaseView.h"
+
 @interface YQTRowTagView : YQTTagBaseView
 
 +(instancetype)YQTRowTagWithConfig:(void (^)(YQTTagsViewConfig *config))config;

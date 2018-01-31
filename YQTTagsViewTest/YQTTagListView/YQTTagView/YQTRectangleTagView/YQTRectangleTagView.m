@@ -37,9 +37,10 @@
 -(void)setupUI {
     
     __weak typeof(self) weakself = self;
-    [self.bgImage mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.bgImage mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.mas_equalTo(0).insets(weakself.tagConfig.contentInset);
     }];
+    
     
     //mark
     [self addSubview:self.mark];
