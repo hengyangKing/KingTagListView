@@ -40,15 +40,18 @@
         make.top.mas_equalTo(weakself.contentView);
         make.leading.mas_equalTo(weakself.contentView).mas_offset(ListTagPadding);
         make.trailing.mas_equalTo(weakself.contentView).mas_offset(-ListTagPadding);
-        make.height.mas_equalTo(TagListHeaderH);
+//        make.height.mas_equalTo(TagListHeaderH);
+        make.height.mas_equalTo(0);
+
     }];
     
     [self.contentView addSubview:self.taglistView];
     [self.taglistView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
         make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
-        make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(15.f);
-        make.bottom.mas_equalTo(weakself.contentView.mas_bottom).mas_offset(-32.5f);
+//        make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(15.f);
+        make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(0.f);
+ make.bottom.mas_equalTo(weakself.contentView.mas_bottom).mas_offset(0.f);
     }];
 }
 
@@ -128,6 +131,28 @@
         self.taglistView.horizontalSpacing = model.contentHSpacing;
         self.taglistView.verticalSpacing = model.contentVSpacing;
         self.header.hiddenHeaderButton(model.hiddenHeaderButton);
+        
+        
+        //刷新UI
+        __weak typeof(self) weakself = self;
+
+        [self.header mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(weakself.contentView);
+        make.leading.mas_equalTo(weakself.contentView).mas_offset(ListTagPadding);
+            make.trailing.mas_equalTo(weakself.contentView).mas_offset(-ListTagPadding);
+            make.height.mas_equalTo(TagListHeaderH);
+            
+        }];
+        
+        [self.taglistView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
+            make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
+            make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(15.f);
+            make.bottom.mas_equalTo(weakself.contentView.mas_bottom).mas_offset(-32.f);
+        }];
+        
+        
+        
         [self.taglistView reload];
     };
 }

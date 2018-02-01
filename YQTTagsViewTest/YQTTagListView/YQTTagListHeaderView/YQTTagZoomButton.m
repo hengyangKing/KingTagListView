@@ -16,13 +16,8 @@
 @property(nonatomic,copy)void (^completionBlock)(BOOL nowSelect);
 @property(nonatomic,copy)CGFloat (^animateBlock)(void);
 
-
 ///用户行为列表
 @property(nonatomic,strong)NSMutableArray<NSNumber *> *userActions;
-
-
-
-
 
 @end
 @implementation YQTTagZoomButton
@@ -39,8 +34,7 @@
     }
     return button;
 }
--(NSMutableArray<NSNumber *> *)userActions
-{
+-(NSMutableArray<NSNumber *> *)userActions {
     if (!_userActions) {
         _userActions = [NSMutableArray array];
     }

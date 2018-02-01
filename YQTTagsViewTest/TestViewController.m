@@ -46,7 +46,7 @@
         _tableview.contentInset = UIEdgeInsetsMake(MAXNAVY, 0, self.bar.barH, 0);
         _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableview.rowHeight = UITableViewAutomaticDimension;
-        _tableview.estimatedRowHeight = 15;
+        _tableview.estimatedRowHeight = 0.1f;
     }
     return _tableview;
 }
