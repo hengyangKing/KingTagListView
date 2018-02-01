@@ -107,17 +107,16 @@
     }else if (indexPath.row == 2){
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
     }
-    cell.datas(self.datas);
+    
+    !cell.datas?:cell.datas(self.datas);
     [cell setDelegate:self];
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 0;
 }
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
+
 -(void)foo
 {
     NSLog(@"%s",__func__);
