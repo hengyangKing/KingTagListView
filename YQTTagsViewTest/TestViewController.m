@@ -102,9 +102,7 @@
     YQTTagListBaseCell *cell;
     if (!indexPath.row) {
         cell = [YQTTagListCell TagListCellWithTableView:tableView];
-    }else if(indexPath.row == 1){
-        cell = [YQTTagRowCell TagListCellWithTableView:tableView];
-    }else if (indexPath.row == 2){
+    }else {
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
     }
     
@@ -114,7 +112,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 1;
 }
 
 -(void)foo
