@@ -13,7 +13,7 @@
 #import "YQTTagListCell.h"
 #import "YQTTagRowCell.h"
 #import "YQTTagRectangleCell.h"
-
+#import "YQTAssignVocabularyOptionsModel.h"
 
 #define kStatusBarHeight [[UIApplication sharedApplication]statusBarFrame].size.height
 
@@ -23,10 +23,14 @@
 
 @interface TestViewController ()<YQTTagListCellDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView *tableview;
-@property(nonatomic,strong)NSMutableArray *datas;
-///存放需要被删除的tag
-@property(nonatomic,strong)NSMutableArray *deleteTags;
+
 @property(nonatomic,strong)YQTTagListBottomBar *bar;
+
+
+@property(nonatomic,strong)YQTAssignVocabularyOptionsModel *dataSource;
+
+
+
 @end
 
 @implementation TestViewController
@@ -50,73 +54,94 @@
     }
     return _tableview;
 }
--(NSMutableArray *)datas {
-    if (!_datas) {
-        _datas = [NSMutableArray array];
-    }
-    return _datas;
-}
--(NSMutableArray *)deleteTags {
-    if (!_deleteTags) {
-        _deleteTags = [NSMutableArray array];
-    }
-    return _deleteTags;
-}
-
 -(void)addDatas{
-    [self.datas addObjectsFromArray:@[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]", @"assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"]];
+    self.dataSource = [[YQTAssignVocabularyOptionsModel alloc]init];
+    NSArray *datas = @[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]", @"assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"];
+    
+    NSMutableArray *words = [NSMutableArray array];
+    NSMutableArray *types = [NSMutableArray array];
+    for (NSString *str in datas) {
+        YQTAssignVocabularyOptionsContentType *content = [[YQTAssignVocabularyOptionsContentType alloc]init];
+        content.name = str;
+        [types addObject:content];
+        
+        YQTAssignVocabularyOptionsWord *word = [[YQTAssignVocabularyOptionsWord alloc]init];
+        word.entext = str;
+        
+        [words addObject:word];
+    }
+    self.dataSource.words = [words copy];
+//    self.dataSource.content_types = [types copy];
     [self.bar show];
     [self.tableview reloadData];
 }
 #pragma mark tagListCellDelegate
 
-- (void)tagListCell:(YQTTagListCell *)cell didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-    id data = self.datas[index];
-    if ([self.deleteTags containsObject:data]) {
-        //包含
-        [self.deleteTags removeObject:data];
+///选中某tagview调用
+- (void)tagListCell:(YQTTagListBaseCell *)cell didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+    
+    if ([cell isMemberOfClass:[YQTTagListCell class]]||[cell isMemberOfClass:[YQTTagRowCell class]]) {
+        [self.dataSource selectWord:index];
     }else{
-        //不包含
-        [self.deleteTags addObject:data];
+        [self.dataSource selectContent_type:index];
     }
 }
 
-- (void)tagListCellSelectAllTag:(YQTTagListCell *)cell {
-    [self.deleteTags removeAllObjects];
-    [self.deleteTags addObjectsFromArray:[self.datas copy]];
-    NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
-    NSLog(@"%@",indexPath);
-    
-    
+///全部取消的回调
+-(void)tagListCellUnselectAllTag:(YQTTagListBaseCell *)cell {
+    [self.dataSource selectAllWords];
 }
 
-- (void)tagListCellUnselectAllTag:(YQTTagListCell *)cell {
-    [self.deleteTags removeAllObjects];
-    NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
-    NSLog(@"%@",indexPath);
+///全部选中的回调
+-(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell {
+    [self.dataSource unSelectAllWords];
 }
+
 
 #pragma mark tableviewDatasource
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YQTTagListBaseCell *cell;
     if (!indexPath.row) {
+        NSMutableArray *datas = [NSMutableArray array];
+        [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+            model.title = obj.entext;
+            model.selected = obj.selected;
+            [datas addObject:model];
+        }];
         cell = [YQTTagListCell TagListCellWithTableView:tableView];
-    }else if(indexPath.row == 1){
-        cell = [YQTTagRowCell TagListCellWithTableView:tableView];
-    }else if (indexPath.row == 2){
+        cell.datas(datas);
+        [cell setDelegate:self];
+        
+    }else{
+        NSMutableArray *datas = [NSMutableArray array];
+        [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+            model.title = obj.name;
+            model.selected = obj.selected;
+            [datas addObject:model];
+        }];
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+        cell.datas(datas);
+        [cell setDelegate:self];
     }
-    cell.datas(self.datas);
-    [cell setDelegate:self];
     return cell;
+    
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return [self cellCount];
 }
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+-(NSUInteger)cellCount {
+    NSInteger count = 0;
+    if (self.dataSource.words.count) {
+        count = count+1;
+    }
+    if (self.dataSource.content_types.count) {
+        count = count+1;
+    }
+    return count;
 }
 -(void)foo
 {
@@ -134,6 +159,121 @@
     [self.view addSubview:self.tableview];
     [self.view addSubview:self.bar];
     [self performSelector:@selector(addDatas) withObject:self afterDelay:3.0];
+}
+
+
+-(void)fooooo{
+    /*
+     YQTTagListBaseCell *cell ;
+     NSMutableArray *datas = [NSMutableArray array];
+     
+     if (self.dataSource.words.count && self.dataSource.content_types.count) {
+     if (!indexPath.row) {
+     cell = [YQTTagListCell TagListCellWithTableView:tableView];
+     [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+     model.title = obj.entext;
+     model.selected = obj.selected;
+     [datas addObject:model];
+     }];
+     }else{
+     cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+     [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+     model.title = obj.name;
+     model.selected = obj.selected;
+     [datas addObject:model];
+     }];
+     }
+     }else if (self.dataSource.words.count&&(!self.dataSource.content_types.count)) {
+     cell = [YQTTagListCell TagListCellWithTableView:tableView];
+     
+     [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+     model.title = obj.entext;
+     model.selected = obj.selected;
+     [datas addObject:model];
+     }];
+     }else if ((!self.dataSource.words.count)&&self.dataSource.content_types.count) {
+     cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+     
+     [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+     model.title = obj.name;
+     model.selected = obj.selected;
+     [datas addObject:model];
+     }];
+     }
+     cell.datas(datas);
+     [cell setDelegate:self];
+     return cell;
+     
+     
+     
+     
+     if (self.dataSource.words.count && self.dataSource.content_types.count) {
+     ///正常情况
+     if (!indexPath.row) {
+     YQTTagListCell *cell = [YQTTagListCell TagListCellWithTableView:tableView];
+     NSMutableArray *words = [NSMutableArray array];
+     [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+     model.title = obj.entext;
+     model.selected = obj.selected;
+     [words addObject:model];
+     }];
+     cell.datas([words copy]);
+     [cell setDelegate:self];
+     
+     return cell;
+     }else{
+     YQTTagRectangleCell *cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+     
+     NSMutableArray *content_types = [NSMutableArray array];
+     [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+     model.title = obj.name;
+     model.selected = obj.selected;
+     [content_types addObject:model];
+     }];
+     cell.datas([content_types copy]);
+     [cell setDelegate:self];
+     
+     return cell;
+     }
+     }else if(self.dataSource.words.count&&(!self.dataSource.content_types.count)) {
+     //只有tag
+     YQTTagListCell *cell = [YQTTagListCell TagListCellWithTableView:tableView];
+     
+     NSMutableArray *words = [NSMutableArray array];
+     [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+     model.title = obj.entext;
+     model.selected = obj.selected;
+     [words addObject:model];
+     }];
+     cell.datas([words copy]);
+     [cell setDelegate:self];
+     return cell;
+     }else if((!self.dataSource.words.count)&&self.dataSource.content_types.count) {
+     //只有content_type
+     YQTTagRectangleCell *cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+     
+     NSMutableArray *content_types = [NSMutableArray array];
+     [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
+     model.title = obj.name;
+     model.selected = obj.selected;
+     [content_types addObject:model];
+     }];
+     cell.datas([content_types copy]);
+     [cell setDelegate:self];
+     return cell;
+     }else{
+     return nil;
+     }
+     */
+    
 }
 
 @end

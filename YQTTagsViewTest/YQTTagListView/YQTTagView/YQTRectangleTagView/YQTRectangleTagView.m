@@ -27,6 +27,7 @@
 {
     self = [super init];
     if (self) {
+        
         self.tagConfig.rectTagTintColor([UIColor colorWithHex:@"#15A6EE"]).rectTagSelectTintColor([UIColor colorWithHex:@"#E4E4E6"]).rectTagBorderW(.8f);
         self.tagConfig.titleColor([UIColor colorWithHex:@"#3EA7DB"]);
         self.tagConfig.selectedTitleTextColor([UIColor colorWithHex:@"#90969E"]);
@@ -36,6 +37,7 @@
 #pragma mark -- func
 -(void)setupUI {
     
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
     __weak typeof(self) weakself = self;
     [self.bgImage mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.mas_equalTo(0).insets(weakself.tagConfig.contentInset);
