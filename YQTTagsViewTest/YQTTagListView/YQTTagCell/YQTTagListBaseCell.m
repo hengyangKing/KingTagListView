@@ -44,7 +44,6 @@
         make.height.mas_equalTo(0);
     }];
     
-    
     [self.contentView addSubview:self.taglistView];
     [self.taglistView mas_makeConstraints:^(MASConstraintMaker *make){
         make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
@@ -130,6 +129,8 @@
         self.taglistView.horizontalSpacing = model.contentHSpacing;
         self.taglistView.verticalSpacing = model.contentVSpacing;
         self.header.hiddenHeaderButton(model.hiddenHeaderButton);
+        [self.taglistView reload];
+
         //刷新UI
         __weak typeof(self) weakself = self;
         
@@ -145,9 +146,8 @@
             make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
             make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
             make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(15.f);
-            make.bottom.mas_equalTo(weakself.contentView.mas_bottom).mas_offset(-32.f);
+            make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
         }];
-        [self.taglistView reload];
     };
 }
 #pragma mark - TTGTagCollectionViewDelegate 需子类遵循父类非正式协议数据源

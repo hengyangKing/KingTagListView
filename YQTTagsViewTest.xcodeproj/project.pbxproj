@@ -151,9 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				092D9B882023332D00EDBABA /* YQTTagListBaseCell.h */,
+				092D9B8F2023332D00EDBABA /* YQTTagListBaseCell.m */,
 				092D9B892023332D00EDBABA /* YQTTagListBaseCellModel */,
 				092D9B8C2023332D00EDBABA /* YQTTagRowCell */,
-				092D9B8F2023332D00EDBABA /* YQTTagListBaseCell.m */,
 				092D9B902023332D00EDBABA /* YQTTagRectangleCell */,
 				092D9B932023332D00EDBABA /* YQTTagListCell */,
 				092D9B962023332D00EDBABA /* YQTTagListBaseCellDataSourceProtocal */,

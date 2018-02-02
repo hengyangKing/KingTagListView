@@ -50,7 +50,6 @@
         _tableview.contentInset = UIEdgeInsetsMake(MAXNAVY, 0, self.bar.barH, 0);
         _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableview.rowHeight = UITableViewAutomaticDimension;
-        _tableview.estimatedRowHeight = 0.1f;
     }
     return _tableview;
 }
@@ -71,7 +70,7 @@
         [words addObject:word];
     }
     self.dataSource.words = [words copy];
-//    self.dataSource.content_types = [types copy];
+    self.dataSource.content_types = [types copy];
     [self.bar show];
     [self.tableview reloadData];
 }
@@ -96,53 +95,58 @@
 -(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell {
     [self.dataSource unSelectAllWords];
 }
-
-
 #pragma mark tableviewDatasource
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
     YQTTagListBaseCell *cell;
-    if (!indexPath.row) {
-        NSMutableArray *datas = [NSMutableArray array];
+    if (!indexPath.section) {
+        cell = [YQTTagListCell TagListCellWithTableView:tableView];
+    }else {
+        cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+    }
+    !cell.datas?:cell.datas([self getCellModels:indexPath]);
+    [cell setDelegate:self];
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return section ?[UIView new]:nil;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return section?32.f:0;
+}
+
+
+-(NSArray <YQTTagCellModel *>*)getCellModels:(NSIndexPath *)indexpath {
+    NSMutableArray *datas = [NSMutableArray array];
+    
+    if (!indexpath.row) {
         [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
             model.title = obj.entext;
             model.selected = obj.selected;
             [datas addObject:model];
         }];
-        cell = [YQTTagListCell TagListCellWithTableView:tableView];
-        cell.datas(datas);
-        [cell setDelegate:self];
-        
+        return datas;
     }else{
-        NSMutableArray *datas = [NSMutableArray array];
         [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
             model.title = obj.name;
             model.selected = obj.selected;
             [datas addObject:model];
         }];
-        cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
-        cell.datas(datas);
-        [cell setDelegate:self];
+        return datas;
     }
-    return cell;
-    
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self cellCount];
-}
--(NSUInteger)cellCount {
-    NSInteger count = 0;
-    if (self.dataSource.words.count) {
-        count = count+1;
-    }
-    if (self.dataSource.content_types.count) {
-        count = count+1;
-    }
-    return count;
-}
+
 -(void)foo
 {
     NSLog(@"%s",__func__);
@@ -160,120 +164,4 @@
     [self.view addSubview:self.bar];
     [self performSelector:@selector(addDatas) withObject:self afterDelay:3.0];
 }
-
-
--(void)fooooo{
-    /*
-     YQTTagListBaseCell *cell ;
-     NSMutableArray *datas = [NSMutableArray array];
-     
-     if (self.dataSource.words.count && self.dataSource.content_types.count) {
-     if (!indexPath.row) {
-     cell = [YQTTagListCell TagListCellWithTableView:tableView];
-     [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
-     model.title = obj.entext;
-     model.selected = obj.selected;
-     [datas addObject:model];
-     }];
-     }else{
-     cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
-     [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
-     model.title = obj.name;
-     model.selected = obj.selected;
-     [datas addObject:model];
-     }];
-     }
-     }else if (self.dataSource.words.count&&(!self.dataSource.content_types.count)) {
-     cell = [YQTTagListCell TagListCellWithTableView:tableView];
-     
-     [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
-     model.title = obj.entext;
-     model.selected = obj.selected;
-     [datas addObject:model];
-     }];
-     }else if ((!self.dataSource.words.count)&&self.dataSource.content_types.count) {
-     cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
-     
-     [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
-     model.title = obj.name;
-     model.selected = obj.selected;
-     [datas addObject:model];
-     }];
-     }
-     cell.datas(datas);
-     [cell setDelegate:self];
-     return cell;
-     
-     
-     
-     
-     if (self.dataSource.words.count && self.dataSource.content_types.count) {
-     ///正常情况
-     if (!indexPath.row) {
-     YQTTagListCell *cell = [YQTTagListCell TagListCellWithTableView:tableView];
-     NSMutableArray *words = [NSMutableArray array];
-     [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
-     model.title = obj.entext;
-     model.selected = obj.selected;
-     [words addObject:model];
-     }];
-     cell.datas([words copy]);
-     [cell setDelegate:self];
-     
-     return cell;
-     }else{
-     YQTTagRectangleCell *cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
-     
-     NSMutableArray *content_types = [NSMutableArray array];
-     [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
-     model.title = obj.name;
-     model.selected = obj.selected;
-     [content_types addObject:model];
-     }];
-     cell.datas([content_types copy]);
-     [cell setDelegate:self];
-     
-     return cell;
-     }
-     }else if(self.dataSource.words.count&&(!self.dataSource.content_types.count)) {
-     //只有tag
-     YQTTagListCell *cell = [YQTTagListCell TagListCellWithTableView:tableView];
-     
-     NSMutableArray *words = [NSMutableArray array];
-     [self.dataSource.words enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsWord * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
-     model.title = obj.entext;
-     model.selected = obj.selected;
-     [words addObject:model];
-     }];
-     cell.datas([words copy]);
-     [cell setDelegate:self];
-     return cell;
-     }else if((!self.dataSource.words.count)&&self.dataSource.content_types.count) {
-     //只有content_type
-     YQTTagRectangleCell *cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
-     
-     NSMutableArray *content_types = [NSMutableArray array];
-     [self.dataSource.content_types enumerateObjectsUsingBlock:^(YQTAssignVocabularyOptionsContentType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-     YQTTagCellModel *model = [[YQTTagCellModel alloc]init];
-     model.title = obj.name;
-     model.selected = obj.selected;
-     [content_types addObject:model];
-     }];
-     cell.datas([content_types copy]);
-     [cell setDelegate:self];
-     return cell;
-     }else{
-     return nil;
-     }
-     */
-    
-}
-
 @end

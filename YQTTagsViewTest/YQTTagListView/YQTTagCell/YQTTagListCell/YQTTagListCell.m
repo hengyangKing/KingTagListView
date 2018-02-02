@@ -62,6 +62,9 @@
 }
 -(void)setNowDatas:(NSArray *)nowDatas {
     _nowDatas = nowDatas;
+    if (!_nowDatas.count) {
+        return;
+    }
     [self.tags removeAllObjects];
     for (YQTTagCellModel *model in _nowDatas) {
         if (model.title.length) {
