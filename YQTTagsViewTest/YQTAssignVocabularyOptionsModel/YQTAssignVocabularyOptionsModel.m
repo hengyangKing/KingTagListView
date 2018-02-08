@@ -72,7 +72,7 @@
 ///全选某类tag
 -(void)selectAllWords {
     //刷新数据
-    [self.words performSelector:@selector(setSelector:) withObject:@(YES)];
+    [self.words makeObjectsPerformSelector:@selector(setSelected:) withObject:@(YES)];
     [self.deleteModel.words removeAllObjects];
     [self.deleteModel.words addObjectsFromArray:[self.words copy]];
     
@@ -80,7 +80,7 @@
 ///全部反选某类tag
 -(void)unSelectAllWords {
     //刷新数据
-    [self.words performSelector:@selector(setSelector:) withObject:@(NO)];
+    [self.words makeObjectsPerformSelector:@selector(setIsSelect:) withObject:@(NO)];
     [self.deleteModel.words removeAllObjects];
 }
 -(NSDictionary *)commitPar {
