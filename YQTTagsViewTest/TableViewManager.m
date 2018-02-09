@@ -30,9 +30,9 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YQTTagListBaseCell *cell;
     if (!indexPath.section) {
-        cell =  [YQTTagRowCell TagListCellWithTableView:tableView];
+        cell =  [YQTTagListCell TagListCellWithTableView:tableView];
     }else if(indexPath.section == 1) {
-        cell = [YQTTagListCell TagListCellWithTableView:tableView];
+        cell = [YQTTagRowCell TagListCellWithTableView:tableView];
     }else{
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
     }
@@ -44,7 +44,7 @@
     return 1;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSource.allKeys.count;
+    return 3;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
@@ -67,7 +67,7 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 50;
+    self.tableView.estimatedRowHeight = 2;
     self.tableView.delegate =self;
     self.tableView.dataSource = self;
 }

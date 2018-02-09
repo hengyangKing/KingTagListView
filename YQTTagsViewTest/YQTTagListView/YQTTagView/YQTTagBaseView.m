@@ -35,6 +35,7 @@
     self.userInteractionEnabled = NO;
     __weak typeof(self) weakself = self;
     [self addSubview:self.bgImage];
+
     [self.bgImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.top.bottom.mas_equalTo(weakself);
     }];
@@ -42,13 +43,6 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.top.bottom.trailing.mas_equalTo(weakself.bgImage)
         .insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
-//        {top, left, bottom, right};
-//        make.top.mas_equalTo(weakself).mas_offset(ListTagMargin);
-//        make.leading.mas_equalTo(weakself).mas_offset(ListTagPadding);
-//
-//        make.bottom.mas_equalTo(weakself).mas_offset(-ListTagMargin);
-//        make.trailing.mas_equalTo(weakself).mas_offset(-ListTagPadding);
-        
         
     }];
     //圆角
@@ -148,7 +142,6 @@
     [self setAttr:self.selectedAttrTitle withState:QTTagStateSelected];
     
     [self setSelected:self.tagConfig.select];
-    
 }
 
 

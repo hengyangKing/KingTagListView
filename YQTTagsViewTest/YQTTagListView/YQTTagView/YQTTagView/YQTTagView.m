@@ -21,8 +21,7 @@
     return view;
 }
 
--(void)setupUI {
-
+-(void)setupUI {    
     [self layoutUI];
 }
 -(void)setSelected:(BOOL)selected {

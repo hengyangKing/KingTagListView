@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self performSelector:@selector(touchesBegan:withEvent:) withObject:self afterDelay:.5f];
+
     return;
     [self.view addSubview:self.tableview];
     self.tableview.rowHeight = UITableViewAutomaticDimension;
@@ -84,8 +86,6 @@
     [self.deleteTags addObjectsFromArray:[self.datas copy]];
     NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
     NSLog(@"%@",indexPath);
-    
-    
 }
 
 - (void)tagListCellUnselectAllTag:(YQTTagListCell *)cell {
