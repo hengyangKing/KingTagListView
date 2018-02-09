@@ -11,13 +11,11 @@
 #import "YQTTagRowCell.h"
 #import "YQTTagRectangleCell.h"
 #import "TestViewController.h"
-@interface ViewController ()<YQTTagListCellDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<YQTTagListCellDelegate>
 @property(strong,nonatomic)UITableView *tableview;
 @property(nonatomic,strong)NSMutableArray *datas;
 ///存放需要被删除的tag
 @property(nonatomic,strong)NSMutableArray *deleteTags;
-
-
 
 @end
 
@@ -26,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self performSelector:@selector(touchesBegan:withEvent:) withObject:self afterDelay:.5f];
+
     return;
     [self.view addSubview:self.tableview];
     self.tableview.rowHeight = UITableViewAutomaticDimension;
@@ -86,8 +86,6 @@
     [self.deleteTags addObjectsFromArray:[self.datas copy]];
     NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
     NSLog(@"%@",indexPath);
-    
-    
 }
 
 - (void)tagListCellUnselectAllTag:(YQTTagListCell *)cell {

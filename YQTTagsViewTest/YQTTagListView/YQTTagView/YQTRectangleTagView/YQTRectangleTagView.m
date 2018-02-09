@@ -27,21 +27,24 @@
 {
     self = [super init];
     if (self) {
-        self.tagConfig.rectTagTintColor([UIColor colorWithHex:@"#15A6EE"]).rectTagSelectTintColor([UIColor colorWithHex:@"#E4E4E6"]).rectTagBorderW(.8f);
-        self.tagConfig.titleColor([UIColor colorWithHex:@"#3EA7DB"]);
-        self.tagConfig.selectedTitleTextColor([UIColor colorWithHex:@"#90969E"]);
+        
+        self.tagConfig.rectTagTintColor(Color(@"#15A6EE")).rectTagSelectTintColor(Color(@"#E4E4E6")).rectTagBorderW(.8f);
+        self.tagConfig.titleColor(Color(@"#3EA7DB"));
+        self.tagConfig.selectedTitleTextColor(Color(@"#90969E"));
     }
     return self;
 }
 #pragma mark -- func
 -(void)setupUI {
     
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
     __weak typeof(self) weakself = self;
     [self.bgImage mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.mas_equalTo(0).insets(weakself.tagConfig.contentInset);
     }];
+    self.bgImage.hyb_shouldRefreshCache = YES;
     self.bgImage.hyb_borderWidth = self.tagConfig.borderW;
-
+    self.bgImage.hyb_borderColor = (self.tagConfig.select?self.tagConfig.selectTintColor:self.tagConfig.tintColor);
     [self addSubview:self.mark];
     [self.mark mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat w = 24;
@@ -49,7 +52,7 @@
         make.top.mas_equalTo(weakself);
         make.width.height.mas_equalTo(w);
     }];
-    [self.mark setHidden:self.selected];
+    [self.mark setHidden:self.tagConfig.select];
     
     [self layoutUI];
 }
@@ -86,10 +89,20 @@
         self.selected = !self.selected;
         self.tagConfig.isSelect(self.selected);
         [self.mark setHidden:self.nowState];
+        self.bgImage.hyb_shouldRefreshCache = YES;
+        self.bgImage.hyb_borderWidth = 0;
+        self.bgImage.hyb_borderColor = [UIColor clearColor];
+        [self.bgImage hyb_addCornerRadius:0];
+        self.bgImage.hyb_borderWidth = self.tagConfig.borderW;;
+        self.bgImage.hyb_borderColor = (self.selected?self.tagConfig.selectTintColor:self.tagConfig.tintColor);
+        [self.bgImage hyb_addCornerRadius:6.f];
+        
+        
+//        self.bgImage.hyb_borderColor = (self.selected?self.tagConfig.selectTintColor:self.tagConfig.tintColor);
     };
 }
 -(void)setSelected:(BOOL)selected {
     [super setSelected:selected];
-    self.bgImage.hyb_borderColor = (selected?self.tagConfig.selectTintColor:self.tagConfig.tintColor);
+    
 }
 @end

@@ -35,13 +35,15 @@
     self.userInteractionEnabled = NO;
     __weak typeof(self) weakself = self;
     [self addSubview:self.bgImage];
+
     [self.bgImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.top.bottom.mas_equalTo(0);
+        make.leading.trailing.top.bottom.mas_equalTo(weakself);
     }];
-    
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.top.bottom.trailing.mas_equalTo(weakself.bgImage).insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
+        make.leading.top.bottom.trailing.mas_equalTo(weakself.bgImage)
+        .insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
+        
     }];
     //圆角
     [self.bgImage hyb_addCornerRadius:6.f];
@@ -135,13 +137,11 @@
     [self setbgImage:self.tagConfig.normalColor.image withState:(QTTagStateNormal)];
     
     [self setbgImage:self.tagConfig.selectedColor.image withState:(QTTagStateSelected)];
-    
     [self setAttr:self.attrTitle withState:QTTagStateNormal];
     
     [self setAttr:self.selectedAttrTitle withState:QTTagStateSelected];
     
     [self setSelected:self.tagConfig.select];
-    
 }
 
 
@@ -164,6 +164,4 @@
         self.tagConfig.isSelect(self.selected);
     };
 }
-
-
 @end

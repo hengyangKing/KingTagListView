@@ -8,8 +8,6 @@
 
 #import "YQTTagView.h"
 #import "HYBImageCliped.h"
-#import "UIView+Shadow.h"
-#import "UIColor+YQKit.h"
 
 @interface YQTTagView () 
 
@@ -23,8 +21,7 @@
     return view;
 }
 
--(void)setupUI {
-
+-(void)setupUI {    
     [self layoutUI];
 }
 -(void)setSelected:(BOOL)selected {

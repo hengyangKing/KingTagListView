@@ -7,21 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090588B2202C48C2005A7CDF /* YQTTagBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588AF202C48C2005A7CDF /* YQTTagBaseView.m */; };
+		090588B3202C48C2005A7CDF /* YQTTagsViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588B0202C48C2005A7CDF /* YQTTagsViewConfig.m */; };
+		090588B7202C48D2005A7CDF /* YQTRectangleTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588B5202C48D2005A7CDF /* YQTRectangleTagView.m */; };
+		090588B8202C48D2005A7CDF /* select.mark.YQTTagView.png in Resources */ = {isa = PBXBuildFile; fileRef = 090588B6202C48D2005A7CDF /* select.mark.YQTTagView.png */; };
+		090588BB202C48E7005A7CDF /* YQTTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588B9202C48E6005A7CDF /* YQTTagView.m */; };
+		090588BE202C48F0005A7CDF /* YQTRowTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588BC202C48F0005A7CDF /* YQTRowTagView.m */; };
+		090588C1202C4E0F005A7CDF /* YQTTagListBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588C0202C4E0F005A7CDF /* YQTTagListBaseCell.m */; };
+		090588C4202C4E23005A7CDF /* YQTTagListBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588C3202C4E23005A7CDF /* YQTTagListBaseCellModel.m */; };
+		090588C7202C4E2C005A7CDF /* YQTTagRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588C6202C4E2C005A7CDF /* YQTTagRowCell.m */; };
+		090588CA202C4E34005A7CDF /* YQTTagRectangleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588C9202C4E34005A7CDF /* YQTTagRectangleCell.m */; };
+		090588CD202C4E3E005A7CDF /* YQTTagListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588CC202C4E3D005A7CDF /* YQTTagListCell.m */; };
+		090588D0202C4E48005A7CDF /* YQTTagListBaseCell+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588CE202C4E47005A7CDF /* YQTTagListBaseCell+DataSource.m */; };
+		090588D6202C4FB6005A7CDF /* TableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588D5202C4FB6005A7CDF /* TableViewManager.m */; };
+		090588D9202C6369005A7CDF /* TTGTagCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588D8202C6369005A7CDF /* TTGTagCollectionView.m */; };
 		092D997D2020476A00EDBABA /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 092D997C2020476A00EDBABA /* UIView+Shadow.m */; };
 		092D998320207C3800EDBABA /* YQTTagListBottomBarShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 092D998220207C3800EDBABA /* YQTTagListBottomBarShadowView.m */; };
 		092D99862020806300EDBABA /* YQTTagListBottomBar+CreateBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 092D99852020806300EDBABA /* YQTTagListBottomBar+CreateBar.m */; };
 		092D998820208D5C00EDBABA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 092D998720208D5C00EDBABA /* Default-568h@2x.png */; };
 		09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */; };
 		0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505519201F4B87006FE16E /* YQTBottomBarButton.m */; };
-		0950551D2020183B006FE16E /* YQTTagListBaseCell+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950551C2020183B006FE16E /* YQTTagListBaseCell+DataSource.m */; };
 		0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552020201C1C006FE16E /* YQTTagListBottomBar.m */; };
 		0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */; };
-		0957FE82201ECC22007F270B /* YQTTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE80201ECC22007F270B /* YQTTagView.m */; };
-		0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE86201EE7D3007F270B /* YQTRowTagView.m */; };
-		0957FE8A201EF62C007F270B /* YQTTagBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE89201EF62C007F270B /* YQTTagBaseView.m */; };
-		0957FE8D201EFF76007F270B /* YQTRectangleTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE8C201EFF76007F270B /* YQTRectangleTagView.m */; };
-		0957FE95201F0B8C007F270B /* YQTTagListBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE94201F0B8B007F270B /* YQTTagListBaseCellModel.m */; };
-		0957FE97201F17C9007F270B /* select.mark.YQTTagView.png in Resources */ = {isa = PBXBuildFile; fileRef = 0957FE96201F17C9007F270B /* select.mark.YQTTagView.png */; };
 		0957FE9D201F266B007F270B /* NSString+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE9B201F266A007F270B /* NSString+YQKit.m */; };
 		0957FEA6201F26D5007F270B /* UIColor+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FEA3201F26D5007F270B /* UIColor+YQKit.m */; };
 		0957FEA7201F26D5007F270B /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FEA4201F26D5007F270B /* UIColor+Image.m */; };
@@ -29,22 +36,43 @@
 		09EB3B592019E40F001DB26D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B582019E40F001DB26D /* ViewController.m */; };
 		09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EB3B5D2019E40F001DB26D /* Assets.xcassets */; };
 		09EB3B642019E40F001DB26D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B632019E40F001DB26D /* main.m */; };
-		09EB3B8B201AD89E001DB26D /* YQTTagsViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B86201AD89E001DB26D /* YQTTagsViewConfig.m */; };
-		09EB3B93201AD99C001DB26D /* TTGTagCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B92201AD99C001DB26D /* TTGTagCollectionView.m */; };
 		09EB3B9B201AE0D1001DB26D /* YQTTagListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B9A201AE0D1001DB26D /* YQTTagListHeaderView.m */; };
 		09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B9E201AE169001DB26D /* YQTTagViewBaseConfig.m */; };
 		09EB3BA2201AE2DF001DB26D /* YQTTagListHeaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BA1201AE2DF001DB26D /* YQTTagListHeaderConfig.m */; };
 		09EB3BAF201C56C4001DB26D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BAE201C56C4001DB26D /* TestViewController.m */; };
 		09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BB1201C6859001DB26D /* YQTTagZoomButton.m */; };
-		09EB3BBD201D13BC001DB26D /* YQTTagListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BBB201D13BC001DB26D /* YQTTagListCell.m */; };
-		09EB3BC0201D13C9001DB26D /* YQTTagListBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */; };
-		09EB3BCC201D3A56001DB26D /* YQTTagRectangleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */; };
-		09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */; };
 		09EB3BD5201D3BA0001DB26D /* NSAttributedString+TagSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BD4201D3BA0001DB26D /* NSAttributedString+TagSize.m */; };
 		7AB6B26BB551E1FDA33714D1 /* Pods_YQTTagsViewTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090588AE202C48C2005A7CDF /* YQTTagBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagBaseView.h; sourceTree = "<group>"; };
+		090588AF202C48C2005A7CDF /* YQTTagBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagBaseView.m; sourceTree = "<group>"; };
+		090588B0202C48C2005A7CDF /* YQTTagsViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagsViewConfig.m; sourceTree = "<group>"; };
+		090588B1202C48C2005A7CDF /* YQTTagsViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagsViewConfig.h; sourceTree = "<group>"; };
+		090588B4202C48D1005A7CDF /* YQTRectangleTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTRectangleTagView.h; sourceTree = "<group>"; };
+		090588B5202C48D2005A7CDF /* YQTRectangleTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTRectangleTagView.m; sourceTree = "<group>"; };
+		090588B6202C48D2005A7CDF /* select.mark.YQTTagView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select.mark.YQTTagView.png; sourceTree = "<group>"; };
+		090588B9202C48E6005A7CDF /* YQTTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagView.m; sourceTree = "<group>"; };
+		090588BA202C48E7005A7CDF /* YQTTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagView.h; sourceTree = "<group>"; };
+		090588BC202C48F0005A7CDF /* YQTRowTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTRowTagView.m; sourceTree = "<group>"; };
+		090588BD202C48F0005A7CDF /* YQTRowTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTRowTagView.h; sourceTree = "<group>"; };
+		090588BF202C4E0F005A7CDF /* YQTTagListBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListBaseCell.h; sourceTree = "<group>"; };
+		090588C0202C4E0F005A7CDF /* YQTTagListBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBaseCell.m; sourceTree = "<group>"; };
+		090588C2202C4E23005A7CDF /* YQTTagListBaseCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListBaseCellModel.h; sourceTree = "<group>"; };
+		090588C3202C4E23005A7CDF /* YQTTagListBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBaseCellModel.m; sourceTree = "<group>"; };
+		090588C5202C4E2C005A7CDF /* YQTTagRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagRowCell.h; sourceTree = "<group>"; };
+		090588C6202C4E2C005A7CDF /* YQTTagRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagRowCell.m; sourceTree = "<group>"; };
+		090588C8202C4E34005A7CDF /* YQTTagRectangleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagRectangleCell.h; sourceTree = "<group>"; };
+		090588C9202C4E34005A7CDF /* YQTTagRectangleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagRectangleCell.m; sourceTree = "<group>"; };
+		090588CB202C4E3D005A7CDF /* YQTTagListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListCell.h; sourceTree = "<group>"; };
+		090588CC202C4E3D005A7CDF /* YQTTagListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagListCell.m; sourceTree = "<group>"; };
+		090588CE202C4E47005A7CDF /* YQTTagListBaseCell+DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YQTTagListBaseCell+DataSource.m"; sourceTree = "<group>"; };
+		090588CF202C4E48005A7CDF /* YQTTagListBaseCell+DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YQTTagListBaseCell+DataSource.h"; sourceTree = "<group>"; };
+		090588D4202C4FB6005A7CDF /* TableViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewManager.h; sourceTree = "<group>"; };
+		090588D5202C4FB6005A7CDF /* TableViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewManager.m; sourceTree = "<group>"; };
+		090588D7202C6369005A7CDF /* TTGTagCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGTagCollectionView.h; sourceTree = "<group>"; };
+		090588D8202C6369005A7CDF /* TTGTagCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGTagCollectionView.m; sourceTree = "<group>"; };
 		092D997B2020476A00EDBABA /* UIView+Shadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Shadow.h"; sourceTree = "<group>"; };
 		092D997C2020476A00EDBABA /* UIView+Shadow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shadow.m"; sourceTree = "<group>"; };
 		092D998120207C3800EDBABA /* YQTTagListBottomBarShadowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListBottomBarShadowView.h; sourceTree = "<group>"; };
@@ -56,23 +84,10 @@
 		09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTBottomBarButtonConfig.m; sourceTree = "<group>"; };
 		09505518201F4B87006FE16E /* YQTBottomBarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTBottomBarButton.h; sourceTree = "<group>"; };
 		09505519201F4B87006FE16E /* YQTBottomBarButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTBottomBarButton.m; sourceTree = "<group>"; };
-		0950551B2020183B006FE16E /* YQTTagListBaseCell+DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YQTTagListBaseCell+DataSource.h"; sourceTree = "<group>"; };
-		0950551C2020183B006FE16E /* YQTTagListBaseCell+DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YQTTagListBaseCell+DataSource.m"; sourceTree = "<group>"; };
 		0950551F20201C1C006FE16E /* YQTTagListBottomBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListBottomBar.h; sourceTree = "<group>"; };
 		0950552020201C1C006FE16E /* YQTTagListBottomBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBottomBar.m; sourceTree = "<group>"; };
 		0950552220201C29006FE16E /* YQTTagListBottomBarConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListBottomBarConfig.h; sourceTree = "<group>"; };
 		0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBottomBarConfig.m; sourceTree = "<group>"; };
-		0957FE80201ECC22007F270B /* YQTTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagView.m; sourceTree = "<group>"; };
-		0957FE81201ECC22007F270B /* YQTTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagView.h; sourceTree = "<group>"; };
-		0957FE85201EE7D3007F270B /* YQTRowTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRowTagView.h; sourceTree = "<group>"; };
-		0957FE86201EE7D3007F270B /* YQTRowTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRowTagView.m; sourceTree = "<group>"; };
-		0957FE88201EF62C007F270B /* YQTTagBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagBaseView.h; sourceTree = "<group>"; };
-		0957FE89201EF62C007F270B /* YQTTagBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagBaseView.m; sourceTree = "<group>"; };
-		0957FE8B201EFF76007F270B /* YQTRectangleTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTRectangleTagView.h; sourceTree = "<group>"; };
-		0957FE8C201EFF76007F270B /* YQTRectangleTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTRectangleTagView.m; sourceTree = "<group>"; };
-		0957FE93201F0B8B007F270B /* YQTTagListBaseCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListBaseCellModel.h; sourceTree = "<group>"; };
-		0957FE94201F0B8B007F270B /* YQTTagListBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBaseCellModel.m; sourceTree = "<group>"; };
-		0957FE96201F17C9007F270B /* select.mark.YQTTagView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select.mark.YQTTagView.png; sourceTree = "<group>"; };
 		0957FE9B201F266A007F270B /* NSString+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YQKit.m"; sourceTree = "<group>"; };
 		0957FE9C201F266B007F270B /* NSString+YQKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YQKit.h"; sourceTree = "<group>"; };
 		0957FEA2201F26D5007F270B /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
@@ -87,10 +102,6 @@
 		09EB3B5D2019E40F001DB26D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09EB3B622019E40F001DB26D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09EB3B632019E40F001DB26D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		09EB3B86201AD89E001DB26D /* YQTTagsViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagsViewConfig.m; sourceTree = "<group>"; };
-		09EB3B89201AD89E001DB26D /* YQTTagsViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagsViewConfig.h; sourceTree = "<group>"; };
-		09EB3B91201AD99C001DB26D /* TTGTagCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGTagCollectionView.h; sourceTree = "<group>"; };
-		09EB3B92201AD99C001DB26D /* TTGTagCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGTagCollectionView.m; sourceTree = "<group>"; };
 		09EB3B99201AE0D1001DB26D /* YQTTagListHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListHeaderView.h; sourceTree = "<group>"; };
 		09EB3B9A201AE0D1001DB26D /* YQTTagListHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListHeaderView.m; sourceTree = "<group>"; };
 		09EB3B9D201AE169001DB26D /* YQTTagViewBaseConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagViewBaseConfig.h; sourceTree = "<group>"; };
@@ -101,15 +112,7 @@
 		09EB3BAE201C56C4001DB26D /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		09EB3BB0201C6859001DB26D /* YQTTagZoomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagZoomButton.h; sourceTree = "<group>"; };
 		09EB3BB1201C6859001DB26D /* YQTTagZoomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagZoomButton.m; sourceTree = "<group>"; };
-		09EB3BBB201D13BC001DB26D /* YQTTagListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTTagListCell.m; sourceTree = "<group>"; };
-		09EB3BBC201D13BC001DB26D /* YQTTagListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListCell.h; sourceTree = "<group>"; };
-		09EB3BBE201D13C9001DB26D /* YQTTagListBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListBaseCell.h; sourceTree = "<group>"; };
-		09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBaseCell.m; sourceTree = "<group>"; };
 		09EB3BC3201D1834001DB26D /* YQTTagListCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListCommon.h; sourceTree = "<group>"; };
-		09EB3BCA201D3A56001DB26D /* YQTTagRectangleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagRectangleCell.h; sourceTree = "<group>"; };
-		09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagRectangleCell.m; sourceTree = "<group>"; };
-		09EB3BCD201D3A60001DB26D /* YQTTagRowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagRowCell.h; sourceTree = "<group>"; };
-		09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagRowCell.m; sourceTree = "<group>"; };
 		09EB3BD3201D3BA0001DB26D /* NSAttributedString+TagSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+TagSize.h"; sourceTree = "<group>"; };
 		09EB3BD4201D3BA0001DB26D /* NSAttributedString+TagSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+TagSize.m"; sourceTree = "<group>"; };
 		256B3A3F4345AC92C51A869E /* Pods-YQTTagsViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +132,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092D9B872023332D00EDBABA /* YQTTagCell */ = {
+			isa = PBXGroup;
+			children = (
+				090588BF202C4E0F005A7CDF /* YQTTagListBaseCell.h */,
+				090588C0202C4E0F005A7CDF /* YQTTagListBaseCell.m */,
+				092D9B892023332D00EDBABA /* YQTTagListBaseCellModel */,
+				092D9B8C2023332D00EDBABA /* YQTTagRowCell */,
+				092D9B902023332D00EDBABA /* YQTTagRectangleCell */,
+				092D9B932023332D00EDBABA /* YQTTagListCell */,
+				092D9B962023332D00EDBABA /* YQTTagListBaseCellDataSourceProtocal */,
+			);
+			path = YQTTagCell;
+			sourceTree = "<group>";
+		};
+		092D9B892023332D00EDBABA /* YQTTagListBaseCellModel */ = {
+			isa = PBXGroup;
+			children = (
+				090588C2202C4E23005A7CDF /* YQTTagListBaseCellModel.h */,
+				090588C3202C4E23005A7CDF /* YQTTagListBaseCellModel.m */,
+			);
+			path = YQTTagListBaseCellModel;
+			sourceTree = "<group>";
+		};
+		092D9B8C2023332D00EDBABA /* YQTTagRowCell */ = {
+			isa = PBXGroup;
+			children = (
+				090588C5202C4E2C005A7CDF /* YQTTagRowCell.h */,
+				090588C6202C4E2C005A7CDF /* YQTTagRowCell.m */,
+			);
+			path = YQTTagRowCell;
+			sourceTree = "<group>";
+		};
+		092D9B902023332D00EDBABA /* YQTTagRectangleCell */ = {
+			isa = PBXGroup;
+			children = (
+				090588C8202C4E34005A7CDF /* YQTTagRectangleCell.h */,
+				090588C9202C4E34005A7CDF /* YQTTagRectangleCell.m */,
+			);
+			path = YQTTagRectangleCell;
+			sourceTree = "<group>";
+		};
+		092D9B932023332D00EDBABA /* YQTTagListCell */ = {
+			isa = PBXGroup;
+			children = (
+				090588CB202C4E3D005A7CDF /* YQTTagListCell.h */,
+				090588CC202C4E3D005A7CDF /* YQTTagListCell.m */,
+			);
+			path = YQTTagListCell;
+			sourceTree = "<group>";
+		};
+		092D9B962023332D00EDBABA /* YQTTagListBaseCellDataSourceProtocal */ = {
+			isa = PBXGroup;
+			children = (
+				090588CF202C4E48005A7CDF /* YQTTagListBaseCell+DataSource.h */,
+				090588CE202C4E47005A7CDF /* YQTTagListBaseCell+DataSource.m */,
+			);
+			path = YQTTagListBaseCellDataSourceProtocal;
+			sourceTree = "<group>";
+		};
 		0950550F201F4630006FE16E /* YQTTagListBottomBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,15 +226,6 @@
 			path = YQTTagListBottomBar;
 			sourceTree = "<group>";
 		};
-		0950551E20201854006FE16E /* YQTTagListBaseCellDataSourceProtocal */ = {
-			isa = PBXGroup;
-			children = (
-				0950551B2020183B006FE16E /* YQTTagListBaseCell+DataSource.h */,
-				0950551C2020183B006FE16E /* YQTTagListBaseCell+DataSource.m */,
-			);
-			path = YQTTagListBaseCellDataSourceProtocal;
-			sourceTree = "<group>";
-		};
 		0950552520201CDE006FE16E /* YQTTagListCommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +237,8 @@
 		0957FE7F201ECC22007F270B /* YQTTagView */ = {
 			isa = PBXGroup;
 			children = (
-				0957FE81201ECC22007F270B /* YQTTagView.h */,
-				0957FE80201ECC22007F270B /* YQTTagView.m */,
+				090588BA202C48E7005A7CDF /* YQTTagView.h */,
+				090588B9202C48E6005A7CDF /* YQTTagView.m */,
 			);
 			path = YQTTagView;
 			sourceTree = "<group>";
@@ -193,9 +246,9 @@
 		0957FE83201ECC4D007F270B /* YQTRectangleTagView */ = {
 			isa = PBXGroup;
 			children = (
-				0957FE8B201EFF76007F270B /* YQTRectangleTagView.h */,
-				0957FE8C201EFF76007F270B /* YQTRectangleTagView.m */,
-				0957FE96201F17C9007F270B /* select.mark.YQTTagView.png */,
+				090588B6202C48D2005A7CDF /* select.mark.YQTTagView.png */,
+				090588B4202C48D1005A7CDF /* YQTRectangleTagView.h */,
+				090588B5202C48D2005A7CDF /* YQTRectangleTagView.m */,
 			);
 			path = YQTRectangleTagView;
 			sourceTree = "<group>";
@@ -203,19 +256,10 @@
 		0957FE84201ECC53007F270B /* YQTRowTagView */ = {
 			isa = PBXGroup;
 			children = (
-				0957FE85201EE7D3007F270B /* YQTRowTagView.h */,
-				0957FE86201EE7D3007F270B /* YQTRowTagView.m */,
+				090588BD202C48F0005A7CDF /* YQTRowTagView.h */,
+				090588BC202C48F0005A7CDF /* YQTRowTagView.m */,
 			);
 			path = YQTRowTagView;
-			sourceTree = "<group>";
-		};
-		0957FE92201F0B6B007F270B /* YQTTagListBaseCellModel */ = {
-			isa = PBXGroup;
-			children = (
-				0957FE93201F0B8B007F270B /* YQTTagListBaseCellModel.h */,
-				0957FE94201F0B8B007F270B /* YQTTagListBaseCellModel.m */,
-			);
-			path = YQTTagListBaseCellModel;
 			sourceTree = "<group>";
 		};
 		0957FEA1201F26D5007F270B /* YQKit */ = {
@@ -259,6 +303,8 @@
 				09EB3B582019E40F001DB26D /* ViewController.m */,
 				09EB3BAD201C56C4001DB26D /* TestViewController.h */,
 				09EB3BAE201C56C4001DB26D /* TestViewController.m */,
+				090588D4202C4FB6005A7CDF /* TableViewManager.h */,
+				090588D5202C4FB6005A7CDF /* TableViewManager.m */,
 				09EB3B5D2019E40F001DB26D /* Assets.xcassets */,
 				09EB3B622019E40F001DB26D /* Info.plist */,
 				09EB3B632019E40F001DB26D /* main.m */,
@@ -269,9 +315,8 @@
 		09EB3B81201AD86A001DB26D /* YQTTagListView */ = {
 			isa = PBXGroup;
 			children = (
-				0950552520201CDE006FE16E /* YQTTagListCommon */,
+				092D9B872023332D00EDBABA /* YQTTagCell */,
 				09EB3BC4201D364B001DB26D /* YQTTagViewTool */,
-				09EB3BB9201D13BC001DB26D /* YQTTagCell */,
 				09EB3B9C201AE15D001DB26D /* YQTTagViewBaseConfig */,
 				09EB3B98201AE0C9001DB26D /* YQTTagListHeaderView */,
 				09EB3B8D201AD960001DB26D /* YQTTagListView */,
@@ -283,13 +328,13 @@
 		09EB3B83201AD89E001DB26D /* YQTTagView */ = {
 			isa = PBXGroup;
 			children = (
+				090588AE202C48C2005A7CDF /* YQTTagBaseView.h */,
+				090588AF202C48C2005A7CDF /* YQTTagBaseView.m */,
+				090588B1202C48C2005A7CDF /* YQTTagsViewConfig.h */,
+				090588B0202C48C2005A7CDF /* YQTTagsViewConfig.m */,
 				0957FE83201ECC4D007F270B /* YQTRectangleTagView */,
 				0957FE84201ECC53007F270B /* YQTRowTagView */,
 				0957FE7F201ECC22007F270B /* YQTTagView */,
-				0957FE88201EF62C007F270B /* YQTTagBaseView.h */,
-				0957FE89201EF62C007F270B /* YQTTagBaseView.m */,
-				09EB3B89201AD89E001DB26D /* YQTTagsViewConfig.h */,
-				09EB3B86201AD89E001DB26D /* YQTTagsViewConfig.m */,
 			);
 			path = YQTTagView;
 			sourceTree = "<group>";
@@ -297,8 +342,8 @@
 		09EB3B8D201AD960001DB26D /* YQTTagListView */ = {
 			isa = PBXGroup;
 			children = (
-				09EB3B91201AD99C001DB26D /* TTGTagCollectionView.h */,
-				09EB3B92201AD99C001DB26D /* TTGTagCollectionView.m */,
+				090588D7202C6369005A7CDF /* TTGTagCollectionView.h */,
+				090588D8202C6369005A7CDF /* TTGTagCollectionView.m */,
 			);
 			path = YQTTagListView;
 			sourceTree = "<group>";
@@ -325,33 +370,10 @@
 			path = YQTTagViewBaseConfig;
 			sourceTree = "<group>";
 		};
-		09EB3BB9201D13BC001DB26D /* YQTTagCell */ = {
-			isa = PBXGroup;
-			children = (
-				09EB3BC9201D3A2F001DB26D /* YQTTagRectangleCell */,
-				09EB3BC8201D3A2F001DB26D /* YQTTagRowCell */,
-				09EB3BBA201D13BC001DB26D /* YQTTagListCell */,
-				09EB3BBE201D13C9001DB26D /* YQTTagListBaseCell.h */,
-				09EB3BBF201D13C9001DB26D /* YQTTagListBaseCell.m */,
-				0950551E20201854006FE16E /* YQTTagListBaseCellDataSourceProtocal */,
-				0957FE92201F0B6B007F270B /* YQTTagListBaseCellModel */,
-			);
-			name = YQTTagCell;
-			path = YQTTagsViewTest/YQTTagCell;
-			sourceTree = SOURCE_ROOT;
-		};
-		09EB3BBA201D13BC001DB26D /* YQTTagListCell */ = {
-			isa = PBXGroup;
-			children = (
-				09EB3BBC201D13BC001DB26D /* YQTTagListCell.h */,
-				09EB3BBB201D13BC001DB26D /* YQTTagListCell.m */,
-			);
-			path = YQTTagListCell;
-			sourceTree = "<group>";
-		};
 		09EB3BC4201D364B001DB26D /* YQTTagViewTool */ = {
 			isa = PBXGroup;
 			children = (
+				0950552520201CDE006FE16E /* YQTTagListCommon */,
 				09EB3BD3201D3BA0001DB26D /* NSAttributedString+TagSize.h */,
 				09EB3BD4201D3BA0001DB26D /* NSAttributedString+TagSize.m */,
 				0957FEA2201F26D5007F270B /* UIColor+Image.h */,
@@ -361,24 +383,6 @@
 				0957FEA1201F26D5007F270B /* YQKit */,
 			);
 			path = YQTTagViewTool;
-			sourceTree = "<group>";
-		};
-		09EB3BC8201D3A2F001DB26D /* YQTTagRowCell */ = {
-			isa = PBXGroup;
-			children = (
-				09EB3BCD201D3A60001DB26D /* YQTTagRowCell.h */,
-				09EB3BCE201D3A60001DB26D /* YQTTagRowCell.m */,
-			);
-			path = YQTTagRowCell;
-			sourceTree = "<group>";
-		};
-		09EB3BC9201D3A2F001DB26D /* YQTTagRectangleCell */ = {
-			isa = PBXGroup;
-			children = (
-				09EB3BCA201D3A56001DB26D /* YQTTagRectangleCell.h */,
-				09EB3BCB201D3A56001DB26D /* YQTTagRectangleCell.m */,
-			);
-			path = YQTTagRectangleCell;
 			sourceTree = "<group>";
 		};
 		11D751C93EA28AFBE5D92BB9 /* Frameworks */ = {
@@ -460,8 +464,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */,
-				0957FE97201F17C9007F270B /* select.mark.YQTTagView.png in Resources */,
 				092D998820208D5C00EDBABA /* Default-568h@2x.png in Resources */,
+				090588B8202C48D2005A7CDF /* select.mark.YQTTagView.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,37 +532,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09EB3BC0201D13C9001DB26D /* YQTTagListBaseCell.m in Sources */,
+				090588CA202C4E34005A7CDF /* YQTTagRectangleCell.m in Sources */,
 				09EB3BAF201C56C4001DB26D /* TestViewController.m in Sources */,
-				0957FE8D201EFF76007F270B /* YQTRectangleTagView.m in Sources */,
-				0957FE82201ECC22007F270B /* YQTTagView.m in Sources */,
 				092D99862020806300EDBABA /* YQTTagListBottomBar+CreateBar.m in Sources */,
-				0957FE95201F0B8C007F270B /* YQTTagListBaseCellModel.m in Sources */,
-				0957FE87201EE7D4007F270B /* YQTRowTagView.m in Sources */,
+				090588D9202C6369005A7CDF /* TTGTagCollectionView.m in Sources */,
 				09EB3BA2201AE2DF001DB26D /* YQTTagListHeaderConfig.m in Sources */,
 				09EB3B9B201AE0D1001DB26D /* YQTTagListHeaderView.m in Sources */,
+				090588C4202C4E23005A7CDF /* YQTTagListBaseCellModel.m in Sources */,
 				0957FEA7201F26D5007F270B /* UIColor+Image.m in Sources */,
 				0957FE9D201F266B007F270B /* NSString+YQKit.m in Sources */,
 				09EB3BD5201D3BA0001DB26D /* NSAttributedString+TagSize.m in Sources */,
+				090588D0202C4E48005A7CDF /* YQTTagListBaseCell+DataSource.m in Sources */,
+				090588C7202C4E2C005A7CDF /* YQTTagRowCell.m in Sources */,
+				090588D6202C4FB6005A7CDF /* TableViewManager.m in Sources */,
 				09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */,
+				090588B7202C48D2005A7CDF /* YQTRectangleTagView.m in Sources */,
 				0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */,
-				09EB3B93201AD99C001DB26D /* TTGTagCollectionView.m in Sources */,
+				090588CD202C4E3E005A7CDF /* YQTTagListCell.m in Sources */,
+				090588B2202C48C2005A7CDF /* YQTTagBaseView.m in Sources */,
 				09EB3B592019E40F001DB26D /* ViewController.m in Sources */,
-				0957FE8A201EF62C007F270B /* YQTTagBaseView.m in Sources */,
 				09EB3B642019E40F001DB26D /* main.m in Sources */,
+				090588C1202C4E0F005A7CDF /* YQTTagListBaseCell.m in Sources */,
+				090588B3202C48C2005A7CDF /* YQTTagsViewConfig.m in Sources */,
 				09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */,
 				092D997D2020476A00EDBABA /* UIView+Shadow.m in Sources */,
 				0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */,
+				090588BE202C48F0005A7CDF /* YQTRowTagView.m in Sources */,
 				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,
 				09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */,
-				09EB3BCF201D3A60001DB26D /* YQTTagRowCell.m in Sources */,
 				092D998320207C3800EDBABA /* YQTTagListBottomBarShadowView.m in Sources */,
-				09EB3B8B201AD89E001DB26D /* YQTTagsViewConfig.m in Sources */,
-				09EB3BBD201D13BC001DB26D /* YQTTagListCell.m in Sources */,
+				090588BB202C48E7005A7CDF /* YQTTagView.m in Sources */,
 				0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */,
-				0950551D2020183B006FE16E /* YQTTagListBaseCell+DataSource.m in Sources */,
 				0957FEA6201F26D5007F270B /* UIColor+YQKit.m in Sources */,
-				09EB3BCC201D3A56001DB26D /* YQTTagRectangleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

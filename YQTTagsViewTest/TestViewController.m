@@ -9,10 +9,7 @@
 #import "TestViewController.h"
 ///快速构造方法调用
 #import "YQTTagListBottomBar+CreateBar.h"
-
-#import "YQTTagListCell.h"
-#import "YQTTagRowCell.h"
-#import "YQTTagRectangleCell.h"
+#import "TableViewManager.h"
 
 
 #define kStatusBarHeight [[UIApplication sharedApplication]statusBarFrame].size.height
@@ -21,12 +18,23 @@
 
 #define MAXNAVY (kStatusBarHeight + kNavBarHeight)//导航栏高
 
-@interface TestViewController ()<YQTTagListCellDelegate,UITableViewDelegate,UITableViewDataSource>
+
+
+@interface TestViewController ()<YQTTagListCellDelegate>
+
 @property(strong,nonatomic)UITableView *tableview;
-@property(nonatomic,strong)NSMutableArray *datas;
-///存放需要被删除的tag
-@property(nonatomic,strong)NSMutableArray *deleteTags;
+
 @property(nonatomic,strong)YQTTagListBottomBar *bar;
+
+
+///key == indexpath value == 可变数组数据源
+@property(nonatomic,strong)NSMutableDictionary *datas;
+
+///key == indexpath value == 删除的可变数组
+@property(nonatomic,strong)NSMutableDictionary *delectDatas;
+
+@property(nonatomic,strong)TableViewManager *manager;
+
 @end
 
 @implementation TestViewController
@@ -36,58 +44,94 @@
     }
     return _bar;
 }
+-(NSMutableDictionary *)datas {
+    if (!_datas) {
+        _datas = [NSMutableDictionary dictionary];
+    }
+    return _datas;
+}
+-(NSMutableDictionary *)delectDatas {
+    if (!_delectDatas) {
+        _delectDatas = [NSMutableDictionary dictionary];
+    }
+    return _delectDatas;
+}
 -(UITableView *)tableview {
     if (!_tableview) {
         _tableview = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:(UITableViewStylePlain)];
         CGFloat color = 245.0/255.0;
         [_tableview setBackgroundColor:[UIColor colorWithRed:color green:color blue:color alpha:1.0f]];
-        _tableview.delegate = self;
-        _tableview.dataSource = self;
+        _manager = [[TableViewManager alloc]initWithTableView:_tableview delegate:self dataSource:self.datas];
         _tableview.contentInset = UIEdgeInsetsMake(MAXNAVY, 0, self.bar.barH, 0);
         _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableview.rowHeight = UITableViewAutomaticDimension;
-        _tableview.estimatedRowHeight = 0.1f;
+        _tableview.estimatedRowHeight = 44;
     }
+    
     return _tableview;
 }
--(NSMutableArray *)datas {
-    if (!_datas) {
-        _datas = [NSMutableArray array];
-    }
-    return _datas;
-}
--(NSMutableArray *)deleteTags {
-    if (!_deleteTags) {
-        _deleteTags = [NSMutableArray array];
-    }
-    return _deleteTags;
-}
-
 -(void)addDatas{
-    [self.datas addObjectsFromArray:@[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]", @"assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"]];
+//    NSArray *datas = @[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]", @"assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"];
+    NSArray *datas = @[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]",@"1",@"2",@"3",@"4",@"5"];
+    for (NSInteger i = 0; i<3; i++) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSString *str in datas) {
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            [dic setObject:str forKey:kTITLE];
+            [dic setObject:[NSNumber numberWithBool:rand()%2] forKey:kSELECTED];
+            [array addObject:dic];
+        }
+        [self.datas setValue:array forKey:[NSString stringWithFormat:@"%@",@(i)]];
+    }
+    
     [self.bar show];
-    [self.tableview reloadData];
+    [self.manager reloadDataSource:self.datas];
 }
 #pragma mark tagListCellDelegate
 
-- (void)tagListCell:(YQTTagListCell *)cell didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-    id data = self.datas[index];
-    if ([self.deleteTags containsObject:data]) {
+///选中某tagview调用
+- (void)tagListCell:(YQTTagListBaseCell *)cell didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+    if (!self.datas.allKeys.count) {
+        return;
+    }
+    
+    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
+    if (indexpath.section>(self.datas.allKeys.count-1)) {
+        return;
+    }
+    NSArray *array = [self.datas objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
+    if (index>array.count-1) {
+        return;
+    }
+    NSDictionary *obj = [array objectAtIndex:index];
+    
+    NSMutableArray *delectArr = [NSMutableArray arrayWithArray:[self.delectDatas objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]]];
+    
+    //词汇或句子
+    BOOL select = [obj objectForKey:kSELECTED];
+    [obj setValue:@(!select) forKey:kSELECTED];
+    
+    if ([delectArr containsObject:obj]) {
         //包含
-        [self.deleteTags removeObject:data];
+        [delectArr removeObject:obj];
     }else{
         //不包含
-        [self.deleteTags addObject:data];
+        [delectArr addObject:obj];
     }
+    [self.delectDatas setValue:delectArr forKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
+
 }
 
-- (void)tagListCellSelectAllTag:(YQTTagListCell *)cell {
-    [self.deleteTags removeAllObjects];
-    [self.deleteTags addObjectsFromArray:[self.datas copy]];
-    NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
-    NSLog(@"%@",indexPath);
+///全部取消的回调
+-(void)tagListCellUnselectAllTag:(YQTTagListBaseCell *)cell {
     
+    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
+    [self.delectDatas setValue:@[] forKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
     
+}
+///全部选中的回调
+-(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell {
+	    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
 }
 
 - (void)tagListCellUnselectAllTag:(YQTTagListCell *)cell {
