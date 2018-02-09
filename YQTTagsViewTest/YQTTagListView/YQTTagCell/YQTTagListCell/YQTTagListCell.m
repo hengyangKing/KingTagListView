@@ -29,8 +29,8 @@
     }
     return _tags;
 }
--(void (^)(NSArray<YQTTagCellModel *> *))datas {
-    return ^(NSArray <YQTTagCellModel *>*datas){
+-(void (^)(NSArray<YQTTagListCellModel *> *))datas {
+    return ^(NSArray <YQTTagListCellModel *>*datas){
         if (![datas isEqualToArray:self.nowDatas]) {
             self.nowDatas  = [datas copy];
         }
@@ -66,7 +66,7 @@
         return;
     }
     [self.tags removeAllObjects];
-    for (YQTTagCellModel *model in _nowDatas) {
+    for (YQTTagListCellModel *model in _nowDatas) {
         if (model.title.length) {
             [self.tags addObject:[YQTTagView YQTTagWithConfig:^(YQTTagsViewConfig *config) {
                 config.titleText(model.title).isSelect(model.selected);
@@ -106,7 +106,7 @@
     }
 }
 ///将要选中某tagview调用 需要在实现时调用父类的delegate
-- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point{
     if ([self.delegate respondsToSelector:@selector(tagListCell:shouldSelectTag:atIndex:)]) {
         return [self.delegate tagListCell:self shouldSelectTag:tagView atIndex:index];
     }

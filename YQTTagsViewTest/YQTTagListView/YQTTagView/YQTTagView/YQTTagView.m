@@ -8,8 +8,6 @@
 
 #import "YQTTagView.h"
 #import "HYBImageCliped.h"
-#import "UIView+Shadow.h"
-#import "UIColor+YQKit.h"
 
 @interface YQTTagView () 
 

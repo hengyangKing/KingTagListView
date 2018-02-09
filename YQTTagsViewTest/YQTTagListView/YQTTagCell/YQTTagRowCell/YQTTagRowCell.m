@@ -27,7 +27,7 @@
 }
 
 #pragma mark -- lazy
--(NSMutableArray *)tags {
+-(NSMutableArray<YQTRowTagView *> *)tags {
     if (!_tags) {
         _tags = [NSMutableArray array];
     }
@@ -35,8 +35,8 @@
 }
 
 #pragma mark -- 实现父类声明方法
--(void (^)(NSArray<YQTTagCellModel *> *))datas {
-    return ^(NSArray <YQTTagCellModel *>*datas){
+-(void (^)(NSArray<YQTTagListCellModel *> *))datas {
+    return ^(NSArray <YQTTagListCellModel *>*datas){
         if (![datas isEqualToArray:self.nowDatas]) {
             self.nowDatas = [datas copy];
         }
@@ -72,7 +72,7 @@
         return;
     }
     [self.tags removeAllObjects];
-    for (YQTTagCellModel *model in _nowDatas) {
+    for (YQTTagListCellModel *model in _nowDatas) {
         if (model.title.length) {
             [self.tags addObject:[YQTRowTagView YQTRowTagWithConfig:^(YQTTagsViewConfig *config) {
                 config.titleText(model.title).isSelect(model.selected);
@@ -104,8 +104,7 @@
 }
 
 - (UIView *)tagViewForIndex:(NSUInteger)index {
-    YQTRowTagView *view = self.tags[index];
-    return view;
+    return self.tags[index];
 }
 
 - (void)tagViewdidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
@@ -119,11 +118,20 @@
     }
 }
 ///将要选中某tagview调用 需要在实现时调用父类的delegate
-- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-    if ([self.delegate respondsToSelector:@selector(tagListCell:shouldSelectTag:atIndex:)]) {
-        return [self.delegate tagListCell:self shouldSelectTag:tagView atIndex:index];
+- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point{
+    
+    if ([tagView isKindOfClass:[YQTRowTagView class]]) {
+        YQTRowTagView *view = (YQTRowTagView *)tagView;
+        if (CGRectContainsPoint(view.bgImage.frame, point)) {
+            if ([self.delegate respondsToSelector:@selector(tagListCell:shouldSelectTag:atIndex:)]) {
+                return [self.delegate tagListCell:self shouldSelectTag:tagView atIndex:index];
+            }
+            //默认在 bgImage 上可点击
+            return YES;
+        }
     }
-    return YES;
+    //默认不在 bgImage 上可点击
+    return NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -29,7 +29,7 @@
 
 // optional func
 ///将要选中某tagview调用 需要在实现时调用父类的delegate
-- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+- (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point{
     return YES;
 }
 @end

@@ -17,9 +17,9 @@
     self = [super init];
     if (self) {
         //基类
-        self.titleFont(YQTFONT(15)).radius(3.f).titleColor([UIColor colorWithHex:@"#333333"]);
+        self.titleFont(YQTFONT(15)).radius(3.f).titleColor(Color(@"#333333"));
         //子类
-        self.normalBGColor([UIColor colorWithHex:@"#FFFFFF"]).selectedBGColor([UIColor colorWithHex:@"#EDEDED"]).delineColor([UIColor colorWithHex:@"#BBBBBB"]).contentViewInset(UIEdgeInsetsMake(0,0,0,0)).isSelect(NO).selectedTitleTextColor([UIColor colorWithHex:@"#BBBBBB"]);
+        self.normalBGColor(Color(@"#FFFFFF")).selectedBGColor(Color(@"#EDEDED")).delineColor(Color(@"#BBBBBB")).contentViewInset(UIEdgeInsetsMake(0,0,0,0)).isSelect(NO).selectedTitleTextColor(Color(@"#BBBBBB"));
     }
     return self;
 }

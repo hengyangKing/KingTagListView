@@ -10,8 +10,11 @@
 #import <UIKit/UIKit.h>
 #import "YQTTagListCommon.h"
 #import "YQTTagListBaseCellModel.h"
-#import "YQTTagCellModel.h"
 
+@interface YQTTagListCellModel : NSObject
+@property(nonatomic,copy)NSString *title;
+@property(nonatomic,assign)BOOL selected;
+@end
 @class YQTTagListBaseCell;
 @class YQTTagBaseView;
 
@@ -41,7 +44,7 @@
 +(NSString *)YQTTagViewCellID ;
 
 ///数据源
-@property(nonatomic,copy,readonly)void (^datas)(NSArray <YQTTagCellModel *>*);
+@property(nonatomic,copy,readonly)void (^datas)(NSArray <YQTTagListCellModel *>*);
 
 ///代理 父类声明 子类调用
 @property(nonatomic,weak)id<YQTTagListCellDelegate> delegate;

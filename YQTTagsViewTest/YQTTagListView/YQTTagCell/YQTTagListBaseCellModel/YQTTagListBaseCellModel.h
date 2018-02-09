@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "YQTTagBaseView.h"
 @interface YQTTagListBaseCellModel : NSObject
 
-@property(nonatomic,copy)NSArray *tags;
+@property(nonatomic,copy)NSArray<YQTTagBaseView *> *tags;
 @property(nonatomic,copy)NSString *headerTitle;
 @property(nonatomic,assign)BOOL hiddenHeaderButton;
 @property(nonatomic,assign)CGFloat contentHSpacing;//横向间距
 @property(nonatomic,assign)CGFloat contentVSpacing;//纵向间距
+
+
 
 +(instancetype)YQTTagListBaseCellModel;
 

@@ -11,13 +11,11 @@
 #import "YQTTagRowCell.h"
 #import "YQTTagRectangleCell.h"
 #import "TestViewController.h"
-@interface ViewController ()<YQTTagListCellDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<YQTTagListCellDelegate>
 @property(strong,nonatomic)UITableView *tableview;
 @property(nonatomic,strong)NSMutableArray *datas;
 ///存放需要被删除的tag
 @property(nonatomic,strong)NSMutableArray *deleteTags;
-
-
 
 @end
 
