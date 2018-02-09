@@ -40,14 +40,14 @@
     }];
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.leading.top.bottom.trailing.mas_equalTo(weakself.bgImage);
-//        .insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
+        make.leading.top.bottom.trailing.mas_equalTo(weakself.bgImage)
+        .insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
 //        {top, left, bottom, right};
-        make.top.mas_equalTo(weakself).mas_offset(ListTagMargin);
-        make.leading.mas_equalTo(weakself).mas_offset(ListTagPadding);
-
-        make.bottom.mas_equalTo(weakself).mas_offset(-ListTagMargin);
-        make.trailing.mas_equalTo(weakself).mas_offset(-ListTagPadding);
+//        make.top.mas_equalTo(weakself).mas_offset(ListTagMargin);
+//        make.leading.mas_equalTo(weakself).mas_offset(ListTagPadding);
+//
+//        make.bottom.mas_equalTo(weakself).mas_offset(-ListTagMargin);
+//        make.trailing.mas_equalTo(weakself).mas_offset(-ListTagPadding);
         
         
     }];
@@ -171,6 +171,4 @@
         self.tagConfig.isSelect(self.selected);
     };
 }
-
-
 @end

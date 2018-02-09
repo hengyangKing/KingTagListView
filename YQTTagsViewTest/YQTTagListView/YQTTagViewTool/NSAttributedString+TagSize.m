@@ -50,8 +50,8 @@
 
     CGSize contentSize = [attr boundingRectWithSize:TAGMAXSIZE options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
 
-    NSRange range = NSMakeRange(0, 1);
-    NSAttributedString *oneRowAttr = [[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]];
+    NSRange range = NSMakeRange(0, attr.length);
+    NSAttributedString *oneRowAttr = [[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:0 effectiveRange:&range]];
     
     CGSize oneRowSize = [oneRowAttr boundingRectWithSize:TAGMAXSIZE options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
     

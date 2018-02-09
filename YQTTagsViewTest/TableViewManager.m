@@ -30,9 +30,9 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     YQTTagListBaseCell *cell;
     if (!indexPath.section) {
-        cell =  [YQTTagListCell TagListCellWithTableView:tableView];
+        cell =  [YQTTagRowCell TagListCellWithTableView:tableView];
     }else if(indexPath.section == 1) {
-        cell = [YQTTagRowCell TagListCellWithTableView:tableView];
+        cell = [YQTTagListCell TagListCellWithTableView:tableView];
     }else{
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
     }
@@ -48,13 +48,16 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    if (section) {
+    NSArray *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
+    if (section && data.count) {
         return [UIView new];
     }
     return nil;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section) {
+    NSArray *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
+
+    if (section && data.count) {
         return 32.f;
     }
     return 0.f;
@@ -69,9 +72,14 @@
     self.tableView.dataSource = self;
 }
 - (void)reloadDataSource:(NSDictionary *)dataSource {
-    _dataSource = dataSource;
+    self.dataSource = dataSource;
     [self changeBarState];
-    [self.tableView reloadData];
+}
+-(void)setDataSource:(NSDictionary *)dataSource {
+    _dataSource = dataSource;
+    if (_dataSource) {
+        [self.tableView reloadData];
+    }
 }
 #pragma mark tableviewDatasource
 -(NSArray <YQTTagListCellModel *>*)getCellModels:(NSIndexPath *)indexpath {
