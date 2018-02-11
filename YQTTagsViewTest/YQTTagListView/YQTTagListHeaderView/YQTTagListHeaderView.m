@@ -71,10 +71,12 @@
             
         } andClickCompletion:^(BOOL nowSelect){
             
+            //调用
+            !weakself.buttonClick?:weakself.buttonClick(nowSelect?ButtonStateIsUnSelectAll:ButtonStateIsSelectAll);
+            
             //改变状态
             weakself.changeBtnState(nowSelect?ButtonStateIsSelectAll:ButtonStateIsUnSelectAll);
-            //调用
-            !weakself.buttonClick?:weakself.buttonClick(weakself.state);
+            
         }];
         
         [_button.titleLabel setFont:self.config.btnFont];

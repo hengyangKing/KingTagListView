@@ -17,7 +17,7 @@
 @property(nonatomic,strong)TTGTagCollectionView *taglistView;
 @property(nonatomic,strong)YQTTagListHeaderView *header;
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *tags;
-@property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *deleteTags;
+@property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *selectedTags;
 
 
 
@@ -74,12 +74,8 @@
             config.needHiddenButton(NO);
             config.radius(TagListHeaderH/2.0f);
             
-        } andButtonClick:^(TagListHeaderButtonState willState) {
-            !weakself.headerViewClick?:weakself.headerViewClick(willState);
-            [self.deleteTags removeAllObjects];
-            if (willState == ButtonStateIsUnSelectAll) {
-                [self.deleteTags addObjectsFromArray:self.tags];
-            }
+        } andButtonClick:^(TagListHeaderButtonState nowState) {
+            [weakself headerViewButtonClick:nowState];
         }];
     }
     return _header;
@@ -90,11 +86,11 @@
     }
     return _tags;
 }
--(NSMutableArray<YQTTagBaseView *> *)deleteTags {
-    if (!_deleteTags) {
-        _deleteTags = [NSMutableArray array];
+-(NSMutableArray<YQTTagBaseView *> *)selectedTags {
+    if (!_selectedTags) {
+        _selectedTags = [NSMutableArray array];
     }
-    return _deleteTags;
+    return _selectedTags;
 }
 
 #pragma mark -- 父类子类通信
@@ -103,24 +99,14 @@
         if ([v isKindOfClass:[YQTTagBaseView class]]) {
             YQTTagBaseView *view = (YQTTagBaseView *)v;
             @synchronized (self){
-                if ([self.deleteTags containsObject:view]) {
-                    //包含
-                    [self.deleteTags removeObject:view];
+                if ([self.selectedTags containsObject:view]) {
+                    //包含 反选
+                    [self.selectedTags removeObject:view];
                 }else{
                     //不包含
-                    [self.deleteTags addObject:view];
+                    [self.selectedTags addObject:view];
                 }
-                if (!self.deleteTags.count) {
-                    //没有一个需要删除 需要全选
-                    self.header.changeBtnState(ButtonStateIsSelectAll);
-                }
-                if (self.deleteTags.count == self.tags.count) {
-                    //数量相同 取消全选
-                    self.header.changeBtnState(ButtonStateIsUnSelectAll);
-                }else{
-                    //没有一个需要删除 需要全选
-                    self.header.changeBtnState(ButtonStateIsSelectAll);
-                }
+                [self updateHeaderBarState];
             }
         }
     };
@@ -131,6 +117,7 @@
         self.header.headerTitle(model.headerTitle);
         [self.tags removeAllObjects];
         [self.tags addObjectsFromArray:[model.tags copy]];
+        [self.selectedTags removeAllObjects];
         self.taglistView.horizontalSpacing = model.contentHSpacing;
         self.taglistView.verticalSpacing = model.contentVSpacing;
         self.header.hiddenHeaderButton(model.hiddenHeaderButton);
@@ -158,11 +145,53 @@
                 weakself.selectTag(obj);
             }
         }];
+        [self updateHeaderBarState];
         [self.taglistView reload];
     };
 }
+///header 选择 刷新子类状态
+-(void)headerViewButtonClick:(TagListHeaderButtonState )nowTitleState {
+    //刷新UI
+    [self.tags enumerateObjectsUsingBlock:^(YQTTagBaseView * _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if (nowTitleState == ButtonStateIsSelectAll && (!view.nowState)) {
+            view.clickTagView();
+        }else if(nowTitleState == ButtonStateIsUnSelectAll && view.nowState){
+            view.clickTagView();
+        }
+    }];
+    
+    if (nowTitleState == ButtonStateIsSelectAll) {
+        if ([self.delegate respondsToSelector:@selector(tagListCellSelectAllTag:)]) {
+            [self.delegate tagListCellSelectAllTag:self];
+        }
+    }else if(nowTitleState == ButtonStateIsUnSelectAll){
+        if ([self.delegate respondsToSelector:@selector(tagListCellUnselectAllTag:)]) {
+            [self.delegate tagListCellUnselectAllTag:self];
+        }
+    }
+    
+    [self.selectedTags removeAllObjects];
+    if (nowTitleState == ButtonStateIsSelectAll) {
+        [self.selectedTags addObjectsFromArray:self.tags];
+    }
+    
+}
+///更新HeaderBar state
+-(void)updateHeaderBarState{
+    if (!self.selectedTags.count) {
+        //没有一个选中 需要全选
+        self.header.changeBtnState(ButtonStateIsSelectAll);
+    }
+    if (self.selectedTags.count == self.tags.count) {
+        //数量相同 取消全选
+        self.header.changeBtnState(ButtonStateIsUnSelectAll);
+    }else{
+        //数量不相同 全选
+        self.header.changeBtnState(ButtonStateIsSelectAll);
+    }
+}
 #pragma mark - TTGTagCollectionViewDelegate 需子类遵循父类非正式协议数据源
-
 - (CGSize)tagCollectionView:(TTGTagCollectionView *)tagCollectionView sizeForTagAtIndex:(NSUInteger)index {
     
     return [self tagSizeForTagAtIndex:index];

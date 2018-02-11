@@ -50,8 +50,6 @@
 @property(nonatomic,weak)id<YQTTagListCellDelegate> delegate;
 
 ///父类子类通信
-///headerButton 点击后 调用block 父类通知子类
-@property(nonatomic,copy,readonly)void (^headerViewClick)(TagListHeaderButtonState state);
 
 ///点击tag 子类需要通知父类 修改header状态
 @property(nonatomic,copy,readonly)void (^selectTag)(UIView *);

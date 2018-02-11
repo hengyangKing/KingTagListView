@@ -134,35 +134,8 @@
 	    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
 }
 
-- (void)tagListCellUnselectAllTag:(YQTTagListCell *)cell {
-    [self.deleteTags removeAllObjects];
-    NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
-    NSLog(@"%@",indexPath);
-}
 
-#pragma mark tableviewDatasource
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    YQTTagListBaseCell *cell;
-    if (!indexPath.row) {
-        cell = [YQTTagListCell TagListCellWithTableView:tableView];
-    }else {
-        cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
-    }
-    
-    !cell.datas?:cell.datas(self.datas);
-    [cell setDelegate:self];
-    return cell;
-}
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
--(void)foo
-{
-    NSLog(@"%s",__func__);
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -176,5 +149,10 @@
     [self.view addSubview:self.bar];
     [self performSelector:@selector(addDatas) withObject:self afterDelay:3.0];
 }
+-(void)foo
+{
+    NSLog(@"%s",__func__);
+}
+
 
 @end

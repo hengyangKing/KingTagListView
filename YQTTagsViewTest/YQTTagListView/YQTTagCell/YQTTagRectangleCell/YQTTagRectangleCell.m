@@ -40,30 +40,6 @@
         }
     };
 }
--(void (^)(TagListHeaderButtonState))headerViewClick {
-    return ^(TagListHeaderButtonState needState){
-        for (YQTRectangleTagView *view in self.tags) {
-            if (needState == ButtonStateIsSelectAll) {
-                if (view.nowState) {
-                    view.clickTagView();
-                }
-            }else if(needState == ButtonStateIsUnSelectAll){
-                if (!view.nowState) {
-                    view.clickTagView();
-                }
-            }
-        }
-        if (needState == ButtonStateIsSelectAll) {
-            if ([self.delegate respondsToSelector:@selector(tagListCellSelectAllTag:)]) {
-                [self.delegate tagListCellSelectAllTag:self];
-            }
-        }else if(needState == ButtonStateIsUnSelectAll){
-            if ([self.delegate respondsToSelector:@selector(tagListCellUnselectAllTag:)]) {
-                [self.delegate tagListCellUnselectAllTag:self];
-            }
-        }
-    };
-}
 -(void)setNowDatas:(NSArray *)nowDatas {
     _nowDatas = nowDatas;
     if (!_nowDatas.count) {
