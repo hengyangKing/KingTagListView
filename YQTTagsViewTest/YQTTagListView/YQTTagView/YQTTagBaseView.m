@@ -7,14 +7,15 @@
 //
 
 #import "YQTTagBaseView.h"
-#import "UIColor+Image.h"
-
+#import "UIImage+Stretchable.h"
 @interface YQTTagBaseView() {
     UILabel *_titleLabel;
     UIImageView *_bgImage;
     NSAttributedString *_attrTitle;
     NSAttributedString *_selectedAttrTitle;
     YQTTagsViewConfig *_tagConfig;
+    UIImage *_normalBGImage;
+    UIImage *_selectBGImage;
     
 }
 @property(nonatomic,assign)QTTagStates state;
@@ -43,16 +44,12 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.top.bottom.trailing.mas_equalTo(weakself.bgImage)
         .insets(UIEdgeInsetsMake(ListTagMargin,ListTagPadding, ListTagMargin, ListTagPadding));
-        
     }];
-    //圆角
-    [self.bgImage hyb_addCornerRadius:6.f];
 }
 #pragma mark -- lazy
--(UIImageView *)bgImage
-{
+-(UIImageView *)bgImage {
     if (!_bgImage) {
-        _bgImage = [[UIImageView alloc]initWithFrame:CGRectZero];
+        _bgImage =[[UIImageView alloc]initWithFrame:CGRectZero];
     }
     return _bgImage;
 }
@@ -66,33 +63,31 @@
     }
     return _titleLabel;
 }
--(NSMutableDictionary *)imageDic
-{
+-(NSMutableDictionary *)imageDic {
     if (!_imageDic) {
         _imageDic = [NSMutableDictionary dictionary];
     }
     return _imageDic;
 }
--(NSMutableDictionary *)titleDic
-{
+-(NSMutableDictionary *)titleDic {
     if (!_titleDic) {
         _titleDic = [NSMutableDictionary dictionary];
     }
     return _titleDic;
 }
--(YQTTagsViewConfig *)tagConfig{
+-(YQTTagsViewConfig *)tagConfig {
     if (!_tagConfig) {
         _tagConfig = [YQTTagsViewConfig defaultConfig];
     }
     return _tagConfig;
 }
--(NSAttributedString *)attrTitle{
+-(NSAttributedString *)attrTitle {
     if (!_attrTitle) {
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
         [dic setValue:self.tagConfig.textColor forKey:NSForegroundColorAttributeName];
         
-        _attrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.text.length?self.tagConfig.text:@"" attributes:dic];
+        _attrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.title.length?self.tagConfig.title:@"" attributes:dic];
     }
     return _attrTitle;
 }
@@ -101,14 +96,38 @@
     if (!_selectedAttrTitle) {
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
-        [dic setValue:self.tagConfig.selectedTitleColor forKey:NSForegroundColorAttributeName];
+        [dic setValue:self.tagConfig.selectedTextColor forKey:NSForegroundColorAttributeName];
         
         [dic setValue:self.tagConfig.lineColor forKey:NSStrikethroughColorAttributeName];
         
         [dic setValue:@(NSUnderlineStyleSingle|NSUnderlinePatternSolid) forKey:NSStrikethroughStyleAttributeName];
-        _selectedAttrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.text.length?self.tagConfig.text:@"" attributes:dic];
+        _selectedAttrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.title.length?self.tagConfig.title:@"" attributes:dic];
     }
     return _selectedAttrTitle;
+}
+
+-(UIImage *)normalBGImage {
+    if (!_normalBGImage) {
+        CGSize size = CGSizeMake(1, 1);
+        if (self.tagConfig.cornerRadius) {
+            size = CGSizeMake(self.tagConfig.cornerRadius*2, self.tagConfig.cornerRadius*2);
+        }
+        UIImage *image = [UIImage hyb_imageWithColor:self.tagConfig.bgColor toSize:size cornerRadius:self.tagConfig.cornerRadius backgroundColor:self.tagConfig.bgColor borderColor:self.tagConfig.borderColor borderWidth:self.tagConfig.borderWidth];
+        _normalBGImage = image.stretchableImage;
+        
+    }
+    return _normalBGImage;
+}
+-(UIImage *)selectBGImage {
+    if (!_selectBGImage) {
+        CGSize size = CGSizeMake(1, 1);
+        if (self.tagConfig.cornerRadius) {
+            size = CGSizeMake(self.tagConfig.cornerRadius*2, self.tagConfig.cornerRadius*2);
+        }
+        UIImage *image = [UIImage hyb_imageWithColor:self.tagConfig.selectedBGColor toSize:size cornerRadius:self.tagConfig.cornerRadius backgroundColor:self.tagConfig.selectedBGColor borderColor:self.tagConfig.borderColor borderWidth:self.tagConfig.borderWidth];
+        _selectBGImage = image.stretchableImage;
+    }
+    return _selectBGImage;
 }
 #pragma mark  -- set
 -(void)setSelected:(BOOL)selected {
@@ -121,7 +140,6 @@
     if (image) {
         [self.bgImage setImage:image];
     }
-    
     NSAttributedString *attr = [self.titleDic valueForKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithUnsignedInteger:state]]];
     if (attr) {
         [self.titleLabel setAttributedText:attr];
@@ -134,9 +152,10 @@
 #pragma mark -- func
 -(void)layoutUI {
     
-    [self setbgImage:self.tagConfig.normalColor.image withState:(QTTagStateNormal)];
+    [self setbgImage:self.normalBGImage withState:(QTTagStateNormal)];
     
-    [self setbgImage:self.tagConfig.selectedColor.image withState:(QTTagStateSelected)];
+    [self setbgImage:self.selectBGImage withState:(QTTagStateSelected)];
+    
     [self setAttr:self.attrTitle withState:QTTagStateNormal];
     
     [self setAttr:self.selectedAttrTitle withState:QTTagStateSelected];

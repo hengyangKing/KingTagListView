@@ -16,23 +16,30 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        //基类
-        self.titleFont(YQTFONT(15)).radius(3.f).titleColor(Color(@"#333333"));
+         //基类
+        ///normal
+        self.normalTitleColor(Color(@"#333333"));
+        self.normalBGColor(Color(@"#FFFFFF"));
+        
+        ///select
+        self.selectTitleColor(Color(@"#BBBBBB"));
+        self.selectBGColor(Color(@"#EDEDED"));
+        
+        ///const
+        self.titleFont(YQTFONT(15));
+        self.radius(6.f);
+        self.borderW(.5f);
+        
         //子类
-        self.normalBGColor(Color(@"#FFFFFF")).selectedBGColor(Color(@"#EDEDED")).delineColor(Color(@"#BBBBBB")).contentViewInset(UIEdgeInsetsMake(0,0,0,0)).isSelect(NO).selectedTitleTextColor(Color(@"#BBBBBB"));
+        self.delineColor(Color(@"#BBBBBB"));
+        self.contentViewInset(UIEdgeInsetsMake(0,0,0,0));
+        self.isSelect(NO);
     }
     return self;
 }
 
 
 #pragma mark set
--(void)setNormalColor:(UIColor *)normalColor {
-    _normalColor = normalColor;
-}
--(void)setSelectedColor:(UIColor *)selectedColor {
-    _selectedColor = selectedColor;
-}
-
 -(void)setLineColor:(UIColor *)lineColor {
     _lineColor = lineColor;
 }
@@ -42,25 +49,9 @@
 -(void)setSelect:(BOOL)select {
     _select = select;
 }
--(void)setSelectedTitleColor:(UIColor *)selectedTitleColor {
-    _selectedTitleColor = selectedTitleColor;
-}
--(void)setText:(NSString *)text {
-    _text = text;
-}
+
 #pragma mark get
--(YQTTagsViewConfig *(^)(UIColor *))normalBGColor {
-    return ^(UIColor *color){
-        self.normalColor = color;
-        return self;
-    };
-}
--(YQTTagsViewConfig *(^)(UIColor *))selectedBGColor {
-    return ^(UIColor *color){
-        self.selectedColor = color;
-        return self;
-    };
-}
+
 -(YQTTagsViewConfig *(^)(UIColor *))delineColor {
     return ^(UIColor *color){
         self.lineColor = color;
@@ -77,54 +68,6 @@
 -(YQTTagsViewConfig *(^)(BOOL))isSelect {
     return ^(BOOL selelct){
         self.select = selelct;
-        return self;
-    };
-}
--(YQTTagsViewConfig *(^)(UIColor *))selectedTitleTextColor{
-    return ^(UIColor *color){
-        self.selectedTitleColor = color;
-        return self;
-    };
-}
--(YQTTagsViewConfig *(^)(NSString *))titleText {
-    return ^(NSString *text){
-        self.text = text;
-        return self;
-    };
-}
-
-
-
-#pragma mark
--(void)setTintColor:(UIColor *)tintColor {
-    _tintColor = tintColor;
-}
-
--(void)setSelectTintColor:(UIColor *)selectTintColor {
-    _selectTintColor = selectTintColor;
-}
--(void)setBorderW:(CGFloat)borderW {
-    _borderW = borderW;
-}
-
-#pragma mark get
--(YQTTagsViewConfig *(^)(UIColor *))rectTagTintColor {
-    return ^(UIColor *color){
-        self.tintColor = color;
-        return self;
-    };
-}
-
--(YQTTagsViewConfig *(^)(UIColor *))rectTagSelectTintColor {
-    return ^(UIColor *color){
-        self.selectTintColor = color;
-        return self;
-    };
-}
-
--(YQTTagsViewConfig *(^)(CGFloat))rectTagBorderW {
-    return ^(CGFloat w){
-        self.borderW = w;
         return self;
     };
 }

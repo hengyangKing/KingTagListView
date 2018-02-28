@@ -19,8 +19,6 @@ typedef NS_ENUM(NSUInteger, QTTagStates) {
 //反选当前Tag状态
 @property(nonatomic,readonly,copy)void (^clickTagView)(void);
 
-///当前tag 状态
-@property(nonatomic,assign,readonly)BOOL nowState;
 
 ///设置当前选中状态
 @property(nonatomic,assign)BOOL selected;
@@ -32,9 +30,9 @@ typedef NS_ENUM(NSUInteger, QTTagStates) {
 @property(nonatomic,strong,readonly)UIImageView *bgImage;
 
 
-
 /////子类设置外观调用
-//@property(nonatomic,strong,readonly)void (^baseConfig)(YQTTagsViewConfig *config);
+
+
 ///子类调用父类外观调用
 @property(nonatomic,strong,readonly)YQTTagsViewConfig *tagConfig;
 
@@ -43,13 +41,6 @@ typedef NS_ENUM(NSUInteger, QTTagStates) {
 
 ///父类使用的符文本字符串 子类可以重写
 @property(nonatomic,copy,readonly)NSAttributedString *selectedAttrTitle;
-
-
-///设置背景图片
--(void)setbgImage:(UIImage *)image withState:(QTTagStates)state;
-
-///设置符文本字体
--(void)setAttr:(NSAttributedString *)attr withState:(QTTagStates)state;
 
 //子类完成设置 通知父类刷新UI
 -(void)layoutUI;

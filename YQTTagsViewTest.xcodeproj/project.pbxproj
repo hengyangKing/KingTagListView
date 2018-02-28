@@ -21,17 +21,17 @@
 		090588D0202C4E48005A7CDF /* YQTTagListBaseCell+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588CE202C4E47005A7CDF /* YQTTagListBaseCell+DataSource.m */; };
 		090588D6202C4FB6005A7CDF /* TableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588D5202C4FB6005A7CDF /* TableViewManager.m */; };
 		090588D9202C6369005A7CDF /* TTGTagCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 090588D8202C6369005A7CDF /* TTGTagCollectionView.m */; };
-		092D997D2020476A00EDBABA /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 092D997C2020476A00EDBABA /* UIView+Shadow.m */; };
 		092D998320207C3800EDBABA /* YQTTagListBottomBarShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 092D998220207C3800EDBABA /* YQTTagListBottomBarShadowView.m */; };
 		092D99862020806300EDBABA /* YQTTagListBottomBar+CreateBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 092D99852020806300EDBABA /* YQTTagListBottomBar+CreateBar.m */; };
 		092D998820208D5C00EDBABA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 092D998720208D5C00EDBABA /* Default-568h@2x.png */; };
+		094C832220469ECE00A81671 /* YQTagViewImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 094C832120469ECE00A81671 /* YQTagViewImageTool.m */; };
+		094C83252046BB8E00A81671 /* UIImage+Stretchable.m in Sources */ = {isa = PBXBuildFile; fileRef = 094C83242046BB8E00A81671 /* UIImage+Stretchable.m */; };
 		09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */; };
 		0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505519201F4B87006FE16E /* YQTBottomBarButton.m */; };
 		0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552020201C1C006FE16E /* YQTTagListBottomBar.m */; };
 		0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */; };
 		0957FE9D201F266B007F270B /* NSString+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FE9B201F266A007F270B /* NSString+YQKit.m */; };
 		0957FEA6201F26D5007F270B /* UIColor+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FEA3201F26D5007F270B /* UIColor+YQKit.m */; };
-		0957FEA7201F26D5007F270B /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957FEA4201F26D5007F270B /* UIColor+Image.m */; };
 		09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B552019E40F001DB26D /* AppDelegate.m */; };
 		09EB3B592019E40F001DB26D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B582019E40F001DB26D /* ViewController.m */; };
 		09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EB3B5D2019E40F001DB26D /* Assets.xcassets */; };
@@ -73,13 +73,15 @@
 		090588D5202C4FB6005A7CDF /* TableViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewManager.m; sourceTree = "<group>"; };
 		090588D7202C6369005A7CDF /* TTGTagCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGTagCollectionView.h; sourceTree = "<group>"; };
 		090588D8202C6369005A7CDF /* TTGTagCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGTagCollectionView.m; sourceTree = "<group>"; };
-		092D997B2020476A00EDBABA /* UIView+Shadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Shadow.h"; sourceTree = "<group>"; };
-		092D997C2020476A00EDBABA /* UIView+Shadow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shadow.m"; sourceTree = "<group>"; };
 		092D998120207C3800EDBABA /* YQTTagListBottomBarShadowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListBottomBarShadowView.h; sourceTree = "<group>"; };
 		092D998220207C3800EDBABA /* YQTTagListBottomBarShadowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBottomBarShadowView.m; sourceTree = "<group>"; };
 		092D99842020806300EDBABA /* YQTTagListBottomBar+CreateBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YQTTagListBottomBar+CreateBar.h"; sourceTree = "<group>"; };
 		092D99852020806300EDBABA /* YQTTagListBottomBar+CreateBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YQTTagListBottomBar+CreateBar.m"; sourceTree = "<group>"; };
 		092D998720208D5C00EDBABA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		094C832020469ECE00A81671 /* YQTagViewImageTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTagViewImageTool.h; sourceTree = "<group>"; };
+		094C832120469ECE00A81671 /* YQTagViewImageTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTagViewImageTool.m; sourceTree = "<group>"; };
+		094C83232046BB8E00A81671 /* UIImage+Stretchable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Stretchable.h"; sourceTree = "<group>"; };
+		094C83242046BB8E00A81671 /* UIImage+Stretchable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Stretchable.m"; sourceTree = "<group>"; };
 		09505515201F49A6006FE16E /* YQTBottomBarButtonConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTBottomBarButtonConfig.h; sourceTree = "<group>"; };
 		09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTBottomBarButtonConfig.m; sourceTree = "<group>"; };
 		09505518201F4B87006FE16E /* YQTBottomBarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTBottomBarButton.h; sourceTree = "<group>"; };
@@ -90,9 +92,7 @@
 		0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBottomBarConfig.m; sourceTree = "<group>"; };
 		0957FE9B201F266A007F270B /* NSString+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YQKit.m"; sourceTree = "<group>"; };
 		0957FE9C201F266B007F270B /* NSString+YQKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YQKit.h"; sourceTree = "<group>"; };
-		0957FEA2201F26D5007F270B /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
 		0957FEA3201F26D5007F270B /* UIColor+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YQKit.m"; sourceTree = "<group>"; };
-		0957FEA4201F26D5007F270B /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
 		0957FEA5201F26D5007F270B /* UIColor+YQKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YQKit.h"; sourceTree = "<group>"; };
 		09EB3B512019E40F001DB26D /* YQTTagsViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQTTagsViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09EB3B542019E40F001DB26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -376,10 +376,10 @@
 				0950552520201CDE006FE16E /* YQTTagListCommon */,
 				09EB3BD3201D3BA0001DB26D /* NSAttributedString+TagSize.h */,
 				09EB3BD4201D3BA0001DB26D /* NSAttributedString+TagSize.m */,
-				0957FEA2201F26D5007F270B /* UIColor+Image.h */,
-				0957FEA4201F26D5007F270B /* UIColor+Image.m */,
-				092D997B2020476A00EDBABA /* UIView+Shadow.h */,
-				092D997C2020476A00EDBABA /* UIView+Shadow.m */,
+				094C832020469ECE00A81671 /* YQTagViewImageTool.h */,
+				094C832120469ECE00A81671 /* YQTagViewImageTool.m */,
+				094C83232046BB8E00A81671 /* UIImage+Stretchable.h */,
+				094C83242046BB8E00A81671 /* UIImage+Stretchable.m */,
 				0957FEA1201F26D5007F270B /* YQKit */,
 			);
 			path = YQTTagViewTool;
@@ -539,7 +539,6 @@
 				09EB3BA2201AE2DF001DB26D /* YQTTagListHeaderConfig.m in Sources */,
 				09EB3B9B201AE0D1001DB26D /* YQTTagListHeaderView.m in Sources */,
 				090588C4202C4E23005A7CDF /* YQTTagListBaseCellModel.m in Sources */,
-				0957FEA7201F26D5007F270B /* UIColor+Image.m in Sources */,
 				0957FE9D201F266B007F270B /* NSString+YQKit.m in Sources */,
 				09EB3BD5201D3BA0001DB26D /* NSAttributedString+TagSize.m in Sources */,
 				090588D0202C4E48005A7CDF /* YQTTagListBaseCell+DataSource.m in Sources */,
@@ -550,17 +549,18 @@
 				0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */,
 				090588CD202C4E3E005A7CDF /* YQTTagListCell.m in Sources */,
 				090588B2202C48C2005A7CDF /* YQTTagBaseView.m in Sources */,
+				094C832220469ECE00A81671 /* YQTagViewImageTool.m in Sources */,
 				09EB3B592019E40F001DB26D /* ViewController.m in Sources */,
 				09EB3B642019E40F001DB26D /* main.m in Sources */,
 				090588C1202C4E0F005A7CDF /* YQTTagListBaseCell.m in Sources */,
 				090588B3202C48C2005A7CDF /* YQTTagsViewConfig.m in Sources */,
 				09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */,
-				092D997D2020476A00EDBABA /* UIView+Shadow.m in Sources */,
 				0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */,
 				090588BE202C48F0005A7CDF /* YQTRowTagView.m in Sources */,
 				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,
 				09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */,
 				092D998320207C3800EDBABA /* YQTTagListBottomBarShadowView.m in Sources */,
+				094C83252046BB8E00A81671 /* UIImage+Stretchable.m in Sources */,
 				090588BB202C48E7005A7CDF /* YQTTagView.m in Sources */,
 				0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */,
 				0957FEA6201F26D5007F270B /* UIColor+YQKit.m in Sources */,

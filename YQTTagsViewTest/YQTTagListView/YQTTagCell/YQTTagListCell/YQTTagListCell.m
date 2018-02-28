@@ -45,8 +45,8 @@
     for (YQTTagListCellModel *model in _nowDatas) {
         if (model.title.length) {
             [self.tags addObject:[YQTTagView YQTTagWithConfig:^(YQTTagsViewConfig *config) {
-                config.titleText(model.title).isSelect(model.selected);
-                
+                config.normalTitle(model.title).selectTitle(model.title);
+                config.isSelect(model.selected);
             }]];
         }
     }

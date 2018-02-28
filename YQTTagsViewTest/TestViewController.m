@@ -132,11 +132,8 @@
 ///全部选中的回调
 -(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell {
 	    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
+    
 }
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

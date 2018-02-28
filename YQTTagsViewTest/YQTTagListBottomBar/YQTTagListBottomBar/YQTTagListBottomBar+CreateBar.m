@@ -8,7 +8,7 @@
 
 #import "YQTTagListBottomBar+CreateBar.h"
 #import "YQTBottomBarButton.h"
-#import "UIColor+Image.h"
+#import "HYBImageCliped.h"
 #import "UIColor+YQKit.h"
 
 @implementation YQTTagListBottomBar (CreateBar)
@@ -17,7 +17,8 @@
         
         config.bottomBarCostom([YQTBottomBarButton createBottomBarButtonWithConfig:^(YQTBottomBarButtonConfig *config) {
             config.YQTButtonSEL(sel).YQTButtonTarget(target).YQTButtonTitle(@"提交");
-        }]).costomInset(UIEdgeInsetsMake(15, 16, 15, 16)).bottomBarShadow([UIColor colorWithHex:@"#E2E2E2"].image);
+        }]).costomInset(UIEdgeInsetsMake(15, 16, 15, 16)).bottomBarShadow([UIImage hyb_imageWithColor:[UIColor colorWithHexString:@"#E2E2E2"] toSize:CGSizeMake(1, 1)]);
+        
     }];
 }
 @end

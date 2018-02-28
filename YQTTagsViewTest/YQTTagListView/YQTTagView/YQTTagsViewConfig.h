@@ -13,11 +13,7 @@
 @interface YQTTagsViewConfig : YQTTagViewBaseConfig
 #pragma mark getPar
 
-@property(nonatomic,strong,readonly)UIColor *normalColor;
-@property(nonatomic,strong,readonly)UIColor *selectedColor;
-@property(nonatomic,strong,readonly)UIColor *selectedTitleColor;
 @property(nonatomic,strong,readonly)UIColor *lineColor;
-
 
 // Content inset, default is UIEdgeInsetsMake(0, 0, 0, 0).
 @property(nonatomic,assign,readonly)UIEdgeInsets contentInset;
@@ -25,18 +21,9 @@
 ///当前view的选中状态
 @property(nonatomic,assign,readonly)BOOL select;
 
-///显示的文本
-@property(nonatomic,copy,readonly)NSString *text;
+
 
 #pragma mark setPar
-
-///bgColor
-@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^normalBGColor)(UIColor *color);
-///select bgColor
-@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^selectedBGColor)(UIColor *color);
-
-@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^selectedTitleTextColor)(UIColor *color);
-
 ///line color
 @property(nonatomic,copy,readonly)YQTTagsViewConfig *(^delineColor)(UIColor *color);
 
@@ -45,28 +32,8 @@
 
 @property(nonatomic,copy,readonly)YQTTagsViewConfig *(^isSelect)(BOOL select);
 
-@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^titleText)(NSString *text);
 
 +(instancetype)defaultConfig;
-
-
-#pragma mark YQTRectangle 类型增加
-
-@property(nonatomic,strong,readonly)UIColor *tintColor;
-
-@property(nonatomic,strong,readonly)UIColor *selectTintColor;
-///边框宽度
-@property(nonatomic,assign,readonly)CGFloat borderW;
-
-
-///风格颜色 其为边框颜色
-@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^rectTagTintColor)(UIColor *color);
-@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^rectTagSelectTintColor)(UIColor *color);
-///边框宽度
-@property(nonatomic,copy,readonly)YQTTagsViewConfig *(^rectTagBorderW)(CGFloat width);
-
-
-
 
 
 @end

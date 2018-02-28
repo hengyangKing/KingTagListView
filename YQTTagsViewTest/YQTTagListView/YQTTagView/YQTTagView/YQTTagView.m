@@ -17,17 +17,8 @@
 +(instancetype)YQTTagWithConfig:(void (^)(YQTTagsViewConfig *config))config {
     YQTTagView *view = [[YQTTagView alloc]init];
     !config?:config(view.tagConfig);
-    [view setupUI];
+    [view layoutUI];
     return view;
 }
-
--(void)setupUI {    
-    [self layoutUI];
-}
--(void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
-    //设置阴影
-}
-
 
 @end

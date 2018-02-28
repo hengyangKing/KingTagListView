@@ -49,9 +49,10 @@
     for (YQTTagListCellModel *model in _nowDatas) {
         if (model.title.length) {
             [self.tags addObject:[YQTRectangleTagView YQTRectangleTagWithConfig:^(YQTTagsViewConfig *config) {
-                config.titleText(model.title).isSelect(model.selected);
+                config.normalTitle(model.title).selectTitle(model.title);
                 config.contentViewInset(UIEdgeInsetsMake(6, 0, 0, 6));
-                config.normalBGColor(Color(@"#ECF9FF")).selectedBGColor(Color(@"#FFFFFF"));
+                config.isSelect(model.selected);
+                config.normalBGColor(Color(@"#ECF9FF")).selectBGColor(Color(@"#FFFFFF"));
             }]];
         }
     }

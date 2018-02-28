@@ -79,14 +79,17 @@
             
         }];
         
-        [_button.titleLabel setFont:self.config.btnFont];
-        [_button setTitleColor:self.config.tinctColor forState:(UIControlStateNormal)];
-        [_button setTitleColor:self.config.tinctColor forState:(UIControlStateSelected)];
-        [_button setTitle:self.config.btnNormalTitle forState:(UIControlStateNormal)];
-        [_button setTitle:self.config.btnSelectedTitle forState:(UIControlStateSelected)];
+        [_button.titleLabel setFont:self.config.font];
+        
+        [_button setTitleColor:self.config.textColor forState:(UIControlStateNormal)];
+        [_button setTitleColor:self.config.selectedTextColor forState:(UIControlStateSelected)];
+        
+        [_button setTitle:self.config.title forState:(UIControlStateNormal)];
+        [_button setTitle:self.config.selectedTitle forState:(UIControlStateSelected)];
+        
         if (self.config.borderW) {
-            _button.layer.borderColor = self.config.tinctColor.CGColor;
-            _button.layer.borderWidth = self.config.borderW;
+            _button.layer.borderColor = self.config.borderColor.CGColor;
+            _button.layer.borderWidth = self.config.borderWidth;
         }
     }
     return _button;

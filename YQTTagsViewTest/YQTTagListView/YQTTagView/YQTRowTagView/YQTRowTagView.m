@@ -13,16 +13,17 @@
 +(instancetype)YQTRowTagWithConfig:(void (^)(YQTTagsViewConfig *config))config {
     YQTRowTagView *view = [[YQTRowTagView alloc]init];
     !config?:config(view.tagConfig);
-    [view setupUI];
+    [view layoutUI];
     return view;
 }
--(void)setupUI {
+-(void)layoutUI {
     __weak typeof(self) weakself = self;
     [self.bgImage mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.mas_equalTo(weakself);
         make.width.mas_equalTo(weakself.attrTitle.rowContentSize.width);
     }];
-    [self layoutUI];
+    [super layoutUI];
 }
+
 
 @end

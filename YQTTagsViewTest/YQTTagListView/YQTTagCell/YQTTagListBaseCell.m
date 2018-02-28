@@ -45,7 +45,6 @@
         make.height.mas_equalTo(0);
     }];
     
-    
     [self.contentView addSubview:self.taglistView];
     [self.taglistView mas_makeConstraints:^(MASConstraintMaker *make){
         make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
@@ -154,9 +153,9 @@
     //刷新UI
     [self.tags enumerateObjectsUsingBlock:^(YQTTagBaseView * _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if (nowTitleState == ButtonStateIsSelectAll && (!view.nowState)) {
+        if (nowTitleState == ButtonStateIsSelectAll && (!view.selected)) {
             view.clickTagView();
-        }else if(nowTitleState == ButtonStateIsUnSelectAll && view.nowState){
+        }else if(nowTitleState == ButtonStateIsUnSelectAll && view.selected){
             view.clickTagView();
         }
     }];
