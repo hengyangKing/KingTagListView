@@ -26,10 +26,16 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.tagConfig.normalBorderColor(Color(@"#15A6EE"));
-        self.tagConfig.selectBorderColor(Color(@"#E4E4E6"));
-        self.tagConfig.normalTitleColor(Color(@"#3EA7DB"));
-        self.tagConfig.selectTitleColor(Color(@"#90969E"));
+        
+        self.tagConfig.normalBorderColor(Color(@"#E4E4E6"));
+        self.tagConfig.selectBorderColor(Color(@"#15A6EE"));
+        
+        self.tagConfig.normalTitleColor(Color(@"#90969E"));
+        self.tagConfig.selectTitleColor(Color(@"#3EA7DB"));
+        
+        self.tagConfig.normalBGColor(Color(@"#FFFFFF"));
+        self.tagConfig.selectBGColor(Color(@"#ECF9FF"));
+        
     }
     return self;
 }
@@ -41,9 +47,7 @@
     [self.bgImage mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.mas_equalTo(0).insets(weakself.tagConfig.contentInset);
     }];
-//    self.bgImage.hyb_shouldRefreshCache = YES;
-//    self.bgImage.hyb_borderWidth = self.tagConfig.borderW;
-//    self.bgImage.hyb_borderColor = (self.tagConfig.select?self.tagConfig.selectTintColor:self.tagConfig.tintColor);
+
     [self addSubview:self.mark];
     [self.mark mas_makeConstraints:^(MASConstraintMaker *make) {
         CGFloat w = 24;
@@ -51,8 +55,7 @@
         make.top.mas_equalTo(weakself);
         make.width.height.mas_equalTo(w);
     }];
-    [self.mark setHidden:self.tagConfig.select];
-    
+    [self.mark setHidden:!self.tagConfig.select];
     [super layoutUI];
 }
 #pragma mark -- lazy
@@ -69,7 +72,7 @@
         [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
         [dic setValue:self.tagConfig.textColor forKey:NSForegroundColorAttributeName];
 
-        _attrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.title attributes:dic];
+        _attrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.selectedTitle.length?self.tagConfig.selectedTitle:self.tagConfig.title attributes:dic];
     }
     return _attrTitle;
 }
@@ -79,26 +82,16 @@
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
         [dic setValue:self.tagConfig.selectedTextColor forKey:NSForegroundColorAttributeName];
-        _selectedAttrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.title attributes:dic];
+        _selectedAttrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.selectedTitle.length?self.tagConfig.selectedTitle:self.tagConfig.title attributes:dic];
     }
     return _selectedAttrTitle;
 }
-//-(void (^)(void))clickTagView {
-//    return ^(){
-//        self.selected = !self.selected;
-//        self.tagConfig.isSelect(self.selected);
-//        [self.mark setHidden:self.nowState];
-//        self.bgImage.hyb_shouldRefreshCache = YES;
-//        self.bgImage.hyb_borderWidth = 0;
-//        self.bgImage.hyb_borderColor = [UIColor clearColor];
-//        [self.bgImage hyb_addCornerRadius:0];
-//        self.bgImage.hyb_borderWidth = self.tagConfig.borderW;;
-//        self.bgImage.hyb_borderColor = (self.selected?self.tagConfig.selectTintColor:self.tagConfig.tintColor);
-//        [self.bgImage hyb_addCornerRadius:6.f];
-//
-//
-////        self.bgImage.hyb_borderColor = (self.selected?self.tagConfig.selectTintColor:self.tagConfig.tintColor);
-//    };
-//}
+-(void (^)(void))clickTagView {
+    return ^(){
+        self.selected = !self.selected;
+        self.tagConfig.isSelect(self.selected);
+        [self.mark setHidden:!self.selected];
+    };
+}
 
 @end

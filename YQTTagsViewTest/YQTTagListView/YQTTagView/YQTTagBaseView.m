@@ -87,7 +87,7 @@
         [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
         [dic setValue:self.tagConfig.textColor forKey:NSForegroundColorAttributeName];
         
-        _attrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.title.length?self.tagConfig.title:@"" attributes:dic];
+        _attrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.selectedTitle.length?self.tagConfig.selectedTitle:self.tagConfig.title attributes:dic];
     }
     return _attrTitle;
 }
@@ -96,12 +96,14 @@
     if (!_selectedAttrTitle) {
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         [dic setValue:self.tagConfig.font forKey:NSFontAttributeName];
+        
         [dic setValue:self.tagConfig.selectedTextColor forKey:NSForegroundColorAttributeName];
         
         [dic setValue:self.tagConfig.lineColor forKey:NSStrikethroughColorAttributeName];
         
         [dic setValue:@(NSUnderlineStyleSingle|NSUnderlinePatternSolid) forKey:NSStrikethroughStyleAttributeName];
-        _selectedAttrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.title.length?self.tagConfig.title:@"" attributes:dic];
+        
+        _selectedAttrTitle = [[NSAttributedString alloc]initWithString:self.tagConfig.selectedTitle.length?self.tagConfig.selectedTitle:self.tagConfig.title attributes:dic];
     }
     return _selectedAttrTitle;
 }
@@ -124,7 +126,7 @@
         if (self.tagConfig.cornerRadius) {
             size = CGSizeMake(self.tagConfig.cornerRadius*2, self.tagConfig.cornerRadius*2);
         }
-        UIImage *image = [UIImage hyb_imageWithColor:self.tagConfig.selectedBGColor toSize:size cornerRadius:self.tagConfig.cornerRadius backgroundColor:self.tagConfig.selectedBGColor borderColor:self.tagConfig.borderColor borderWidth:self.tagConfig.borderWidth];
+        UIImage *image = [UIImage hyb_imageWithColor:self.tagConfig.selectedBGColor toSize:size cornerRadius:self.tagConfig.cornerRadius backgroundColor:self.tagConfig.selectedBGColor borderColor:self.tagConfig.selectedBorderColor borderWidth:self.tagConfig.borderWidth];
         _selectBGImage = image.stretchableImage;
     }
     return _selectBGImage;

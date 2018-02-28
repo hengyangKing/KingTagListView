@@ -12,7 +12,8 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-        self.normalBorderColor(nil).selectBorderColor(nil);
+        self.normalBorderColor([UIColor clearColor]);
+        self.selectBorderColor([UIColor clearColor]);
     }
     return self;
 }
@@ -29,12 +30,6 @@
 -(void)setBorderColor:(UIColor *)borderColor {
     _borderColor = borderColor;
 }
-
-
-
-
-
-
 -(void)setSelectedTitle:(NSString *)selectedTitle {
     _selectedTitle = selectedTitle;
 }

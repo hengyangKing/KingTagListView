@@ -52,7 +52,7 @@
                 config.normalTitle(model.title).selectTitle(model.title);
                 config.contentViewInset(UIEdgeInsetsMake(6, 0, 0, 6));
                 config.isSelect(model.selected);
-                config.normalBGColor(Color(@"#ECF9FF")).selectBGColor(Color(@"#FFFFFF"));
+                
             }]];
         }
     }

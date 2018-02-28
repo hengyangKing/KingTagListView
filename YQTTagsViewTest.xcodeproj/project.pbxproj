@@ -332,9 +332,9 @@
 				090588AF202C48C2005A7CDF /* YQTTagBaseView.m */,
 				090588B1202C48C2005A7CDF /* YQTTagsViewConfig.h */,
 				090588B0202C48C2005A7CDF /* YQTTagsViewConfig.m */,
+				0957FE7F201ECC22007F270B /* YQTTagView */,
 				0957FE83201ECC4D007F270B /* YQTRectangleTagView */,
 				0957FE84201ECC53007F270B /* YQTRowTagView */,
-				0957FE7F201ECC22007F270B /* YQTTagView */,
 			);
 			path = YQTTagView;
 			sourceTree = "<group>";

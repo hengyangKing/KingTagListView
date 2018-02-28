@@ -71,13 +71,14 @@
     return _tableview;
 }
 -(void)addDatas{
-//    NSArray *datas = @[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]", @"assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant", @"prophet", @"reetify", @"size", @"and", @"position",@"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",@"on", @"constraints", @"placed", @"on", @"those", @"views"];
+
     NSArray *datas = @[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]",@"1",@"2",@"3",@"4",@"5"];
     for (NSInteger i = 0; i<3; i++) {
         NSMutableArray *array = [NSMutableArray array];
         for (NSString *str in datas) {
             NSMutableDictionary *dic = [NSMutableDictionary dictionary];
             [dic setObject:str forKey:kTITLE];
+            
             [dic setObject:[NSNumber numberWithBool:rand()%2] forKey:kSELECTED];
             [array addObject:dic];
         }
