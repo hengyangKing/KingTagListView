@@ -13,9 +13,13 @@
 //是否隐藏button
 @property(nonatomic,assign,readonly)BOOL hiddenButton;
 
+
+@property(nonatomic,strong,readonly)UIColor *headerTextColor;
 #pragma mark set
 ///是否隐藏button
 @property(nonatomic,copy,readonly)YQTTagListHeaderConfig *(^needHiddenButton)(BOOL hidden);
+
+@property(nonatomic,copy,readonly)YQTTagListHeaderConfig *(^HeaderTitleColor)(UIColor *color);
 
 +(instancetype)defaultConfig;
 

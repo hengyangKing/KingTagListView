@@ -26,6 +26,7 @@
 		092D998820208D5C00EDBABA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 092D998720208D5C00EDBABA /* Default-568h@2x.png */; };
 		094C832220469ECE00A81671 /* YQTagViewImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 094C832120469ECE00A81671 /* YQTagViewImageTool.m */; };
 		094C83252046BB8E00A81671 /* UIImage+Stretchable.m in Sources */ = {isa = PBXBuildFile; fileRef = 094C83242046BB8E00A81671 /* UIImage+Stretchable.m */; };
+		094C832820492A8000A81671 /* NSString+GuardStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 094C832720492A8000A81671 /* NSString+GuardStr.m */; };
 		09505517201F49A6006FE16E /* YQTBottomBarButtonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */; };
 		0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09505519201F4B87006FE16E /* YQTBottomBarButton.m */; };
 		0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552020201C1C006FE16E /* YQTTagListBottomBar.m */; };
@@ -82,6 +83,8 @@
 		094C832120469ECE00A81671 /* YQTagViewImageTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTagViewImageTool.m; sourceTree = "<group>"; };
 		094C83232046BB8E00A81671 /* UIImage+Stretchable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Stretchable.h"; sourceTree = "<group>"; };
 		094C83242046BB8E00A81671 /* UIImage+Stretchable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Stretchable.m"; sourceTree = "<group>"; };
+		094C832620492A8000A81671 /* NSString+GuardStr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+GuardStr.h"; sourceTree = "<group>"; };
+		094C832720492A8000A81671 /* NSString+GuardStr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+GuardStr.m"; sourceTree = "<group>"; };
 		09505515201F49A6006FE16E /* YQTBottomBarButtonConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTBottomBarButtonConfig.h; sourceTree = "<group>"; };
 		09505516201F49A6006FE16E /* YQTBottomBarButtonConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTBottomBarButtonConfig.m; sourceTree = "<group>"; };
 		09505518201F4B87006FE16E /* YQTBottomBarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTBottomBarButton.h; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				09EB3BAE201C56C4001DB26D /* TestViewController.m */,
 				090588D4202C4FB6005A7CDF /* TableViewManager.h */,
 				090588D5202C4FB6005A7CDF /* TableViewManager.m */,
+				094C832620492A8000A81671 /* NSString+GuardStr.h */,
+				094C832720492A8000A81671 /* NSString+GuardStr.m */,
 				09EB3B5D2019E40F001DB26D /* Assets.xcassets */,
 				09EB3B622019E40F001DB26D /* Info.plist */,
 				09EB3B632019E40F001DB26D /* main.m */,
@@ -555,6 +560,7 @@
 				090588C1202C4E0F005A7CDF /* YQTTagListBaseCell.m in Sources */,
 				090588B3202C48C2005A7CDF /* YQTTagsViewConfig.m in Sources */,
 				09EB3B9F201AE169001DB26D /* YQTTagViewBaseConfig.m in Sources */,
+				094C832820492A8000A81671 /* NSString+GuardStr.m in Sources */,
 				0950551A201F4B87006FE16E /* YQTBottomBarButton.m in Sources */,
 				090588BE202C48F0005A7CDF /* YQTRowTagView.m in Sources */,
 				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,

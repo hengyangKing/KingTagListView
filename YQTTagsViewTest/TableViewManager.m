@@ -7,6 +7,7 @@
 //
 
 #import "TableViewManager.h"
+#import "NSString+GuardStr.h"
 @interface TableViewManager()
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSDictionary *dataSource;
@@ -90,10 +91,13 @@
     }
     NSArray *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
     [data enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        YQTTagListCellModel *model = [[YQTTagListCellModel alloc]init];
-        model.title = [obj objectForKey:kTITLE];
-        model.selected = [[obj objectForKey:kSELECTED]boolValue];
-        [datas addObject:model];
+        NSString *str = (NSString *)[obj objectForKey:kTITLE];
+        if (![str isEmpty]) {
+            YQTTagListCellModel *model = [[YQTTagListCellModel alloc]init];
+            model.title = str.guardStr;
+            model.selected = [[obj objectForKey:kSELECTED]boolValue];
+            [datas addObject:model];
+        }
     }];
     return datas;
 }

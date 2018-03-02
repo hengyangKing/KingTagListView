@@ -57,7 +57,7 @@
     if (!_title) {
         _title = [[UILabel alloc]initWithFrame:CGRectZero];
         [_title setFont:self.config.font];
-        [_title setTextColor:self.config.textColor];
+        [_title setTextColor:self.config.headerTextColor];
     }
     return _title;
 }
