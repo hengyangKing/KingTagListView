@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSDictionary *dataSource;
 @property (nonatomic, weak) id<YQTTagListCellDelegate> delegate;
 @end
+
 @implementation TableViewManager
 
 - (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<YQTTagListCellDelegate>)delegate dataSource:(NSDictionary *)dataSource {
