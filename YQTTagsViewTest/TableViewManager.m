@@ -19,6 +19,7 @@
 - (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<YQTTagListCellDelegate>)delegate dataSource:(NSDictionary *)dataSource {
     self = [super init];
     if (self) {
+        
         _tableView = tableView;
         _delegate = delegate;
         _dataSource = dataSource;
@@ -47,13 +48,13 @@
     return 3;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
     YQTTagListCellDataModel *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
     if (section && data.datas.count) {
         return [UIView new];
     }
     return nil;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     YQTTagListCellDataModel *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
 
@@ -70,7 +71,7 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 2;
+    self.tableView.estimatedRowHeight = 80;
     self.tableView.delegate =self;
     self.tableView.dataSource = self;
 }

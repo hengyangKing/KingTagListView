@@ -67,7 +67,7 @@
     }
 }
 ///更新数据源
--(void)tagViewGetNewDatas:(NSArray<YQTTagListCellModel *> *)newdatas {
+-(void)tagListViewGetNewDatas:(NSArray<YQTTagListCellModel *> *)newdatas {
     if (!newdatas.count) {return;}
     [self.tags removeAllObjects];
     [newdatas enumerateObjectsUsingBlock:^(YQTTagListCellModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -78,6 +78,10 @@
             }]];
         }
     }];
+    [self reloadSubviews];
+}
+///展示全量
+-(void)tagListViewUnfoldAllDatas {
     [self reloadSubviews];
 }
 ///将要选中某tagview调用 需要在实现时调用父类的delegate

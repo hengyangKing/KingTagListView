@@ -19,7 +19,7 @@
 @property(nonatomic,copy)NSArray <YQTTagListCellModel *>*datas;
 ///展示行数 默认0
 @property(nonatomic,assign)NSUInteger numberOfLines;
-///需要缩起数据
-@property(nonatomic,assign)BOOL needTuckData;
+///刷新标识 需要展开数据
+@property(nonatomic,assign)BOOL unfoldDatas;
 
 @end

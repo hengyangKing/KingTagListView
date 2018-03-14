@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         self.numberOfLines = 0;
-        self.needTuckData = NO;
+        self.unfoldDatas = NO;
     }
     return self;
 }

@@ -20,11 +20,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YQTTagsViewTest/YQTTagListView/YQTTagCell/YQTTagListBaseCell.m"
-            timestampString = "542713708.2677031"
+            timestampString = "542719915.982409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "-layoutSubview"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YQTTagsViewTest/YQTTagListView/YQTTagCell/YQTTagListBaseCell.m"
+            timestampString = "542719915.9828891"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "-layoutSubview"
             landmarkType = "7">
          </BreakpointContent>

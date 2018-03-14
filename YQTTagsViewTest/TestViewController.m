@@ -137,8 +137,11 @@
 }
 ///点击展开全部的回调
 -(void)tagListCellSelectUnfold:(YQTTagListBaseCell *)cell {
+    [self.tableview reloadSections:( [NSIndexSet indexSetWithIndex:[self.tableview indexPathForCell:cell].section]) withRowAnimation:(UITableViewRowAnimationNone)];
 
-    [self.tableview reloadSections:[NSIndexSet indexSetWithIndex: [self.tableview indexPathForCell:cell].section] withRowAnimation:(UITableViewRowAnimationNone)];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableview reloadData];
+    });
 }
 
 - (void)viewDidLoad {
@@ -155,7 +158,7 @@
     [self.view addSubview:self.bar];
     [self performSelector:@selector(addDatas) withObject:self afterDelay:3.0];
     
-    [self performSelectorOnMainThread:@selector(fooooo) withObject:self waitUntilDone:5.0f];
+//    [self performSelectorOnMainThread:@selector(fooooo) withObject:self waitUntilDone:5.0f];
     
 }
 -(void)foo {

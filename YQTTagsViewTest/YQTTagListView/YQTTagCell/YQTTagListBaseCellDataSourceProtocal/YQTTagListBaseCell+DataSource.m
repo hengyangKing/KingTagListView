@@ -26,7 +26,10 @@
 - (void)tagViewDidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
     
 }
-- (void)tagViewGetNewDatas:(NSArray <YQTTagListCellModel *>*)newdatas {
+- (void)tagListViewGetNewDatas:(NSArray <YQTTagListCellModel *>*)newdatas {
+    
+}
+- (void)tagListViewUnfoldAllDatas {
     
 }
 // optional func
