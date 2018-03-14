@@ -61,25 +61,8 @@
     }
     return 0.f;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
-    YQTTagListBaseCell *cell;
-    if (!indexPath.section) {
-        cell =  [YQTTagListCell TagListCellWithTableView:tableView];
-    }else if(indexPath.section == 1) {
-        cell = [YQTTagRowCell TagListCellWithTableView:tableView];
-    }else{
-        cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
-    }
-    !cell.tagListCellDataModel?:cell.tagListCellDataModel([self getCellModels:indexPath]);
-    [cell setNeedsUpdateConstraints];
-    [cell updateConstraintsIfNeeded];
-    
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
-    
-    return ([cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height+1);
 }
 #pragma mark - private methods
 - (void)setupTableView {

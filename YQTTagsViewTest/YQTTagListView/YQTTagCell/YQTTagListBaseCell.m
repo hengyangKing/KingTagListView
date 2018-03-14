@@ -18,7 +18,6 @@
 
 @property(nonatomic,strong)TTGTagCollectionView *taglistView;
 @property(nonatomic,strong)YQTTagListHeaderView *header;
-@property(nonatomic,strong)YQTTagListCustomButton *loadMoreButton;
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *tags;
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *selectedTags;
 
@@ -37,6 +36,7 @@
 -(void)setupUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
+    
     [self.contentView addSubview:self.header];
     __weak typeof(self) weakself = self;
     [self.header mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,10 +49,11 @@
     [self.contentView addSubview:self.taglistView];
     [self.taglistView mas_makeConstraints:^(MASConstraintMaker *make){
         make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
-    make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
+        make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
         make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(0.f);
         make.bottom.mas_equalTo(weakself.contentView.mas_bottom).mas_offset(0.f);
     }];
+    
 }
 
 #pragma mark lazy
@@ -82,15 +83,18 @@
     }
     return _header;
 }
--(YQTTagListCustomButton *)loadMoreButton {
-    if (!_loadMoreButton) {
-        _loadMoreButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) 
-        {
-            
-        }];
-    }
-    return _loadMoreButton;
-}
+//-(YQTTagListCustomButton *)unfoldButton {
+//    if (!_unfoldButton) {
+//        _unfoldButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
+//            config.normalTitle(@"查看全部").selectTitle(@"");
+//            config.YQTButtonSEL(@selector(unfoldButtonClick:)).YQTButtonTarget(self);
+//
+//        }];
+//        _unfoldButton.hidden = YES;
+//    }
+//    return _unfoldButton;
+//}
+
 -(NSMutableArray<YQTTagBaseView *> *)tags {
     if (!_tags) {
         _tags = [NSMutableArray array];
@@ -147,7 +151,6 @@
         self.header.hiddenHeaderButton(model.hiddenHeaderButton);
         //刷新UI
         __weak typeof(self) weakself = self;
-        
         [self.header mas_remakeConstraints:^(MASConstraintMaker *make) {
             //1偏移 解决导航栏线 有1像素偏移
             make.top.mas_equalTo(weakself.contentView.mas_top).mas_offset(1);
@@ -162,6 +165,7 @@
             make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
             make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(15.f);
             make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
+
         }];
         [self.tags enumerateObjectsUsingBlock:^(YQTTagBaseView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             ///初始化时已经被选中的数据源
@@ -171,7 +175,7 @@
         }];
         [self updateHeaderBarState];
         [self.taglistView reload];
-        if (self.taglistView.actualNumberOfLines > model.numberOfLines) {
+        if (self.taglistView.actualNumberOfLines > model.numberOfLines && (model.numberOfLines != 0)) {
             self.taglistView.numberOfLines = model.numberOfLines;
             self.dataModel.needTuckData = YES;
             [self.taglistView reload];
@@ -245,7 +249,14 @@
     return [self tagViewForIndex:index];
 }
 
-#pragma mark --
+#pragma mark -- func
+-(void)unfoldButtonClick:(YQTTagListCustomButton *)button {
+    
+    self.dataModel.numberOfLines = 0;
+    if ([self.delegate respondsToSelector:@selector(tagListCellSelectUnfold:)]) {
+        [self.delegate tagListCellSelectUnfold:self];
+    }
+}
 
 
 

@@ -135,6 +135,12 @@
 //        NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
     
 }
+///点击展开全部的回调
+-(void)tagListCellSelectUnfold:(YQTTagListBaseCell *)cell {
+
+    [self.tableview reloadSections:[NSIndexSet indexSetWithIndex: [self.tableview indexPathForCell:cell].section] withRowAnimation:(UITableViewRowAnimationNone)];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
