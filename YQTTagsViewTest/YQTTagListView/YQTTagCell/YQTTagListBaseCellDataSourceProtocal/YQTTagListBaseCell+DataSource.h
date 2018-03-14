@@ -18,7 +18,10 @@
 - (UIView *)tagViewForIndex:(NSUInteger)index;
 
 ///选中某tagview调用 需要在实现时调用父类的delegate
-- (void)tagViewdidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
+- (void)tagViewDidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
+
+///父类接到新数据源通知子类更新tags
+- (void)tagViewGetNewDatas:(NSArray <YQTTagListCellModel *>*)newdatas;
 
 // optional func
 ///将要选中某tagview调用 需要在实现时调用父类的delegate

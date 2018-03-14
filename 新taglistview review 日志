@@ -1,0 +1,17 @@
+1.新增YQTTagAppearanceConfig
+
+YQTBottomBarButtonConfig  YQTTagListBottomBarConfig YQTTagViewBaseConfig 均继承于该config
+
+2.YQTTagListBaseCellModel 中新增
+@property(nonatomic,assign)NSUInteger numberOfLines;//展示行数
+
+
+YQTTagListBaseCell  layoutSubview block 中 新增
+
+	if (self.taglistView.actualNumberOfLines > model.numberOfLines) {
+            [self setNeedShowLoadMore:YES];
+            self.taglistView.numberOfLines = model.numberOfLines;
+            [self.taglistView reload];
+    }
+
+3.新增 YQTTagCellLoadMoreButton 在 YQTTagListBaseCell 中

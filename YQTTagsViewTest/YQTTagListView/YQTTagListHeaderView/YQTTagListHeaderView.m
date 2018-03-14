@@ -43,7 +43,6 @@
             make.width.mas_equalTo(54.f);
         }];
     }
-#pragma mark 默认状态 tag 全都选中 button title 为取消全选
     self.changeBtnState(ButtonStateIsSelectAll);
 }
 #pragma mark -- lazy
@@ -82,15 +81,18 @@
         [_button.titleLabel setFont:self.config.font];
         
         [_button setTitleColor:self.config.textColor forState:(UIControlStateNormal)];
+        
         [_button setTitleColor:self.config.selectedTextColor forState:(UIControlStateSelected)];
         
         [_button setTitle:self.config.title forState:(UIControlStateNormal)];
         [_button setTitle:self.config.selectedTitle forState:(UIControlStateSelected)];
         
-        if (self.config.borderW) {
-            _button.layer.borderColor = self.config.borderColor.CGColor;
-            _button.layer.borderWidth = self.config.borderWidth;
-        }
+        [_button setBackgroundImage:self.config.normalBGImage forState:(UIControlStateNormal)];
+        
+        [_button setBackgroundImage:self.config.selectedBGImage forState:(UIControlStateSelected)];
+        
+        [_button setBackgroundImage:self.config.selectedBGImage forState:(UIControlStateHighlighted)];
+
     }
     return _button;
 }
@@ -126,13 +128,8 @@
     
     if (self.title.text.length) {
         [self setHidden:NO];
-        __weak typeof(self) weakself = self;
         [self mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(TagListHeaderH);
-            if (weakself.config.cornerRadius) {
-                weakself.button.layer.cornerRadius = weakself.config.cornerRadius;
-                weakself.button.layer.masksToBounds = YES;
-            }
         }];
     }
     [super updateConstraints];

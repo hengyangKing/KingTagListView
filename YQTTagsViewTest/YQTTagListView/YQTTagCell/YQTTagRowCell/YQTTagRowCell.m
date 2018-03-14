@@ -14,7 +14,6 @@
 
 @interface YQTTagRowCell()
 @property(nonatomic,strong)NSMutableArray<YQTRowTagView *> *tags;
-@property(nonatomic,copy)NSArray *nowDatas;
 @end
 @implementation YQTTagRowCell
 
@@ -32,32 +31,6 @@
         _tags = [NSMutableArray array];
     }
     return _tags;
-}
-
-#pragma mark -- 实现父类声明方法
--(void (^)(NSArray<YQTTagListCellModel *> *))datas {
-    return ^(NSArray <YQTTagListCellModel *>*datas){
-        if (![datas isEqualToArray:self.nowDatas]) {
-            self.nowDatas = [datas copy];
-        }
-    };
-}
--(void)setNowDatas:(NSArray *)nowDatas {
-    _nowDatas = nowDatas;
-    if (!_nowDatas.count) {
-        return;
-    }
-    [self.tags removeAllObjects];
-    for (YQTTagListCellModel *model in _nowDatas) {
-        if (model.title.length) {
-            [self.tags addObject:[YQTRowTagView YQTRowTagWithConfig:^(YQTTagsViewConfig *config) {
-                config.normalTitle(model.title).selectTitle(model.title);
-                config.isSelect(model.selected);
-            }]];
-        }
-    }
-    [self reloadSubviews];
-    
 }
 #pragma mark -- layoutSubview UI
 ///需要重新刷新UI
@@ -83,8 +56,7 @@
 - (UIView *)tagViewForIndex:(NSUInteger)index {
     return self.tags[index];
 }
-
-- (void)tagViewdidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+- (void)tagViewDidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
     if ([tagView isMemberOfClass:[YQTRowTagView class]]) {
         YQTRowTagView *view = (YQTRowTagView *)tagView;
         if ([self.delegate respondsToSelector:@selector(tagListCell:didSelectTag:atIndex:)]) {
@@ -93,6 +65,20 @@
         }
         self.selectTag(view);
     }
+}
+///更新数据源
+-(void)tagViewGetNewDatas:(NSArray<YQTTagListCellModel *> *)newdatas {
+    if (!newdatas.count) {return;}
+    [self.tags removeAllObjects];
+    [newdatas enumerateObjectsUsingBlock:^(YQTTagListCellModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (model.title.length) {
+            [self.tags addObject:[YQTRowTagView YQTRowTagWithConfig:^(YQTTagsViewConfig *config) {
+                config.normalTitle(model.title).selectTitle(model.title);
+                config.isSelect(model.selected);
+            }]];
+        }
+    }];
+    [self reloadSubviews];
 }
 ///将要选中某tagview调用 需要在实现时调用父类的delegate
 - (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point{
@@ -110,7 +96,6 @@
     //默认不在 bgImage 上可点击
     return NO;
 }
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

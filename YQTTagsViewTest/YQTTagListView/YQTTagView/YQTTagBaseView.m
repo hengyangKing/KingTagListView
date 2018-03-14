@@ -7,15 +7,12 @@
 //
 
 #import "YQTTagBaseView.h"
-#import "UIImage+Stretchable.h"
 @interface YQTTagBaseView() {
     UILabel *_titleLabel;
     UIImageView *_bgImage;
     NSAttributedString *_attrTitle;
     NSAttributedString *_selectedAttrTitle;
     YQTTagsViewConfig *_tagConfig;
-    UIImage *_normalBGImage;
-    UIImage *_selectBGImage;
     
 }
 @property(nonatomic,assign)QTTagStates state;
@@ -36,7 +33,6 @@
     self.userInteractionEnabled = NO;
     __weak typeof(self) weakself = self;
     [self addSubview:self.bgImage];
-
     [self.bgImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.top.bottom.mas_equalTo(weakself);
     }];
@@ -107,30 +103,6 @@
     }
     return _selectedAttrTitle;
 }
-
--(UIImage *)normalBGImage {
-    if (!_normalBGImage) {
-        CGSize size = CGSizeMake(1, 1);
-        if (self.tagConfig.cornerRadius) {
-            size = CGSizeMake(self.tagConfig.cornerRadius*2, self.tagConfig.cornerRadius*2);
-        }
-        UIImage *image = [UIImage hyb_imageWithColor:self.tagConfig.bgColor toSize:size cornerRadius:self.tagConfig.cornerRadius backgroundColor:self.tagConfig.bgColor borderColor:self.tagConfig.borderColor borderWidth:self.tagConfig.borderWidth];
-        _normalBGImage = image.stretchableImage;
-        
-    }
-    return _normalBGImage;
-}
--(UIImage *)selectBGImage {
-    if (!_selectBGImage) {
-        CGSize size = CGSizeMake(1, 1);
-        if (self.tagConfig.cornerRadius) {
-            size = CGSizeMake(self.tagConfig.cornerRadius*2, self.tagConfig.cornerRadius*2);
-        }
-        UIImage *image = [UIImage hyb_imageWithColor:self.tagConfig.selectedBGColor toSize:size cornerRadius:self.tagConfig.cornerRadius backgroundColor:self.tagConfig.selectedBGColor borderColor:self.tagConfig.selectedBorderColor borderWidth:self.tagConfig.borderWidth];
-        _selectBGImage = image.stretchableImage;
-    }
-    return _selectBGImage;
-}
 #pragma mark  -- set
 -(void)setSelected:(BOOL)selected {
     _selected = selected;
@@ -154,9 +126,9 @@
 #pragma mark -- func
 -(void)layoutUI {
     
-    [self setbgImage:self.normalBGImage withState:(QTTagStateNormal)];
+    [self setbgImage:self.tagConfig.normalBGImage withState:(QTTagStateNormal)];
     
-    [self setbgImage:self.selectBGImage withState:(QTTagStateSelected)];
+    [self setbgImage:self.tagConfig.selectedBGImage withState:(QTTagStateSelected)];
     
     [self setAttr:self.attrTitle withState:QTTagStateNormal];
     

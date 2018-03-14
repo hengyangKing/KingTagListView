@@ -6,9 +6,9 @@
 //  Copyright © 2018年 J. All rights reserved.
 //
 
-#import "YQTTagViewBaseConfig.h"
+#import "YQTTagAppearanceConfig.h"
 
-@interface YQTTagListHeaderConfig : YQTTagViewBaseConfig
+@interface YQTTagListHeaderConfig : YQTTagAppearanceConfig
 #pragma mark get
 //是否隐藏button
 @property(nonatomic,assign,readonly)BOOL hiddenButton;

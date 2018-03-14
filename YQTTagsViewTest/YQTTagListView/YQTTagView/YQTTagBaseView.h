@@ -4,7 +4,7 @@
 //
 //  Created by J on 2018/1/29.
 //  Copyright © 2018年 J. All rights reserved.
-//  TagView 抽象父类 子类都自带圆角
+//  TagView 抽象父类 
 
 #import <UIKit/UIKit.h>
 #import "YQTTagsViewConfig.h"

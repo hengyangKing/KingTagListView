@@ -92,47 +92,47 @@
 
 ///选中某tagview调用
 - (void)tagListCell:(YQTTagListBaseCell *)cell didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-    if (!self.datas.allKeys.count) {
-        return;
-    }
-    
-    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
-    if (indexpath.section>(self.datas.allKeys.count-1)) {
-        return;
-    }
-    NSArray *array = [self.datas objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
-    if (index>array.count-1) {
-        return;
-    }
-    NSDictionary *obj = [array objectAtIndex:index];
-    
-    NSMutableArray *delectArr = [NSMutableArray arrayWithArray:[self.delectDatas objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]]];
-    
-    //词汇或句子
-    BOOL select = [obj objectForKey:kSELECTED];
-    [obj setValue:@(!select) forKey:kSELECTED];
-    
-    if ([delectArr containsObject:obj]) {
-        //包含
-        [delectArr removeObject:obj];
-    }else{
-        //不包含
-        [delectArr addObject:obj];
-    }
-    [self.delectDatas setValue:delectArr forKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
+//    if (!self.datas.allKeys.count) {
+//        return;
+//    }
+//
+//    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
+//    if (indexpath.section>(self.datas.allKeys.count-1)) {
+//        return;
+//    }
+//    NSArray *array = [self.datas objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
+//    if (index>array.count-1) {
+//        return;
+//    }
+//    NSDictionary *obj = [array objectAtIndex:index];
+//
+//    NSMutableArray *delectArr = [NSMutableArray arrayWithArray:[self.delectDatas objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]]];
+//
+//    //词汇或句子
+//    BOOL select = [obj objectForKey:kSELECTED];
+//    [obj setValue:@(!select) forKey:kSELECTED];
+//
+//    if ([delectArr containsObject:obj]) {
+//        //包含
+//        [delectArr removeObject:obj];
+//    }else{
+//        //不包含
+//        [delectArr addObject:obj];
+//    }
+//    [self.delectDatas setValue:delectArr forKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
 
 }
 
 ///全部取消的回调
 -(void)tagListCellUnselectAllTag:(YQTTagListBaseCell *)cell {
     
-    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
-    [self.delectDatas setValue:@[] forKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
+//    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
+//    [self.delectDatas setValue:@[] forKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
     
 }
 ///全部选中的回调
 -(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell {
-	    NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
+//        NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
     
 }
 - (void)viewDidLoad {
@@ -140,16 +140,23 @@
     
     if (@available(iOS 11.0, *)){
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    }else{
+        self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
     self.view .backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.tableview];
     [self.view addSubview:self.bar];
     [self performSelector:@selector(addDatas) withObject:self afterDelay:3.0];
+    
+    [self performSelectorOnMainThread:@selector(fooooo) withObject:self waitUntilDone:5.0f];
+    
 }
--(void)foo
-{
+-(void)foo {
     NSLog(@"%s",__func__);
+}
+-(void)fooooo {
+    self.bar.disabled = NO;
 }
 
 

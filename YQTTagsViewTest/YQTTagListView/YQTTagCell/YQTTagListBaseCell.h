@@ -10,14 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "YQTTagListCommon.h"
 #import "YQTTagListBaseCellModel.h"
+#import "YQTTagListCellDataModel.h"
 
-@interface YQTTagListCellModel : NSObject
-@property(nonatomic,copy)NSString *title;
-@property(nonatomic,assign)BOOL selected;
-@end
 @class YQTTagListBaseCell;
 @class YQTTagBaseView;
-
 @protocol YQTTagListCellDelegate <NSObject>
 
 ///选中某tagview调用
@@ -30,21 +26,20 @@
 -(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell;
 
 
-@optional
 
+@optional
 ///将要选中某tagview调用
 - (BOOL)tagListCell:(YQTTagListBaseCell *)cell shouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
-
 @end
-
-
-
 @interface YQTTagListBaseCell : UITableViewCell
+
 ///id
 +(NSString *)YQTTagViewCellID ;
 
 ///数据源
-@property(nonatomic,copy,readonly)void (^datas)(NSArray <YQTTagListCellModel *>*);
+@property(nonatomic,strong,readonly)YQTTagListCellDataModel *dataModel;
+
+@property(nonatomic,copy,readonly)void (^tagListCellDataModel)(YQTTagListCellDataModel *dataModel);
 
 ///代理 父类声明 子类调用
 @property(nonatomic,weak)id<YQTTagListCellDelegate> delegate;
@@ -55,7 +50,6 @@
 @property(nonatomic,copy,readonly)void (^selectTag)(UIView *);
 
 
-#pragma mark 子类调用父类修改UI
 ///子类通知父类需要刷新UI 调用 子类展示的tags
 @property(nonatomic,copy,readonly)void (^layoutSubview)(YQTTagListBaseCellModel *model);
 

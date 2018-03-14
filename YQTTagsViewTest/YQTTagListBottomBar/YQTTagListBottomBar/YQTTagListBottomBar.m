@@ -7,15 +7,11 @@
 //
 
 #import "YQTTagListBottomBar.h"
-#import "YQTTagListCommon.h"
 #import "YQTTagListBottomBarShadowView.h"
 
-
-
-#define BOTTOMBARH (MARGINH>0?(78+MARGINH):78)//Bar高
+#define BOTTOMBARH (MARGINH>0?(BarContentHeight+MARGINH):BarContentHeight)//Bar高
 
 #define MARGINH ([[UIApplication sharedApplication] statusBarFrame].size.height>20? 34:0)
-
 
 @interface YQTTagListBottomBar()
 @property(nonatomic,strong)YQTTagListBottomBarConfig *config;
@@ -43,7 +39,6 @@
 -(UIView *)margin {
     if (!_margin) {
         _margin = [[UIView alloc]init];
-        _margin .backgroundColor = [UIColor yellowColor];
     }
     return _margin;
 }
@@ -59,10 +54,8 @@
         [self addSubview:self.shadowView];
     }
     [self addSubview:self.margin];
-    self.margin.backgroundColor = self.config.bgColor;
-    self.backgroundColor = self.config.bgColor;
+    self.backgroundColor = self.config.backgroundColor;
     [self addSubview:self.config.costom];
-    [self.config.costom hyb_addCornerRadius:50.f];
     [self setNeedsUpdateConstraints];
 }
 -(void)didMoveToSuperview {
@@ -111,6 +104,17 @@
             [self.superview layoutIfNeeded];
         } completion:nil];
     });
+}
+-(void)setDisabled:(BOOL)disabled {
+    _disabled = disabled;
+    if([self.config.costom isKindOfClass:[UIButton class]]){
+        UIButton *button = (UIButton *)self.config.costom;
+        button.enabled = _disabled;
+    }
+}
+-(void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    self.margin.backgroundColor = backgroundColor;
 }
 
 #pragma mark -- func

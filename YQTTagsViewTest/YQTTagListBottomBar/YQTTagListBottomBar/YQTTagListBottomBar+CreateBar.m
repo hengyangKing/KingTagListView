@@ -7,17 +7,20 @@
 //
 
 #import "YQTTagListBottomBar+CreateBar.h"
-#import "YQTBottomBarButton.h"
-#import "HYBImageCliped.h"
+#import "YQTTagListCustomButton.h"
 #import "UIColor+YQKit.h"
-
+#define VerticalMargin 15
+#define HorizontalMargin 16
 @implementation YQTTagListBottomBar (CreateBar)
 +(instancetype)createTagListBottomBarWithSEL:(SEL)sel andTarget:(id)target{
     return [YQTTagListBottomBar createBottomBarWithConfig:^(YQTTagListBottomBarConfig *config) {
         
-        config.bottomBarCostom([YQTBottomBarButton createBottomBarButtonWithConfig:^(YQTBottomBarButtonConfig *config) {
-            config.YQTButtonSEL(sel).YQTButtonTarget(target).YQTButtonTitle(@"提交");
-        }]).costomInset(UIEdgeInsetsMake(15, 16, 15, 16)).bottomBarShadow([UIImage hyb_imageWithColor:[UIColor colorWithHexString:@"#E2E2E2"] toSize:CGSizeMake(1, 1)]);
+        config.bottomBarCostom([YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
+            config.normalTitle(@"提交").selectTitle(@"提交");
+            config.YQTButtonSEL(sel).YQTButtonTarget(target);
+            config.radius((BarContentHeight-(2*VerticalMargin))/2.0f);
+        }]).costomInset(UIEdgeInsetsMake(VerticalMargin, HorizontalMargin, VerticalMargin, HorizontalMargin)).bottomBarShadow([UIImage hyb_imageWithColor:[UIColor colorWithHexString:@"#E2E2E2"] toSize:CGSizeMake(1, 1)]);
+        
         
     }];
 }

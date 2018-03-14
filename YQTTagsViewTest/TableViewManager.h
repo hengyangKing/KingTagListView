@@ -13,8 +13,8 @@
 
 
 #define kTITLE @"title"
-
 #define kSELECTED @"selected"
+
 @interface TableViewManager<AnyObject> : NSObject<UITableViewDelegate, UITableViewDataSource>
 
 /**

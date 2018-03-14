@@ -9,17 +9,19 @@
 #import "YQTTagListBaseCell.h"
 #import "YQTTagListHeaderView.h"
 #import "YQTTagBaseView.h"
-
+#import "YQTTagListCustomButton.h"
 #import "YQTTagListBaseCell+DataSource.h"//声明非正式协议
-@implementation YQTTagListCellModel
-@end
+
 @interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource>
+{
+    YQTTagListCellDataModel *_dataModel;
+}
+
 @property(nonatomic,strong)TTGTagCollectionView *taglistView;
 @property(nonatomic,strong)YQTTagListHeaderView *header;
+@property(nonatomic,strong)YQTTagListCustomButton *loadMoreButton;
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *tags;
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *selectedTags;
-
-
 
 @end
 @implementation YQTTagListBaseCell
@@ -63,6 +65,8 @@
         _taglistView.delegate = self;
         _taglistView.dataSource = self;
         _taglistView.contentInset = UIEdgeInsetsMake(TagListContentInset, TagListContentInset, TagListContentInset, TagListContentInset);
+        _taglistView.numberOfLines = 0;
+        [_taglistView.scrollView setScrollEnabled:NO];
     }
     return _taglistView;
 }
@@ -79,6 +83,14 @@
     }
     return _header;
 }
+-(YQTTagListCustomButton *)loadMoreButton {
+    if (!_loadMoreButton) {
+        _loadMoreButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
+            
+        }];
+    }
+    return _loadMoreButton;
+}
 -(NSMutableArray<YQTTagBaseView *> *)tags {
     if (!_tags) {
         _tags = [NSMutableArray array];
@@ -91,7 +103,18 @@
     }
     return _selectedTags;
 }
-
+-(void (^)(YQTTagListCellDataModel *))tagListCellDataModel {
+    return ^(YQTTagListCellDataModel *dataModel){
+        self.dataModel = dataModel;
+    };
+}
+#pragma mark -- set
+-(void)setDataModel:(YQTTagListCellDataModel *)dataModel {
+    if (![dataModel.datas isEqualToArray:_dataModel.datas]) {
+        _dataModel = dataModel;
+        [self tagViewGetNewDatas:_dataModel.datas];
+    }
+}
 #pragma mark -- 父类子类通信
 -(void (^)(UIView *))selectTag {
     return ^(UIView *v){
@@ -113,12 +136,14 @@
 
 -(void (^)(YQTTagListBaseCellModel *))layoutSubview {
     return ^(YQTTagListBaseCellModel *model){
+        model.numberOfLines = self.dataModel.numberOfLines;
         self.header.headerTitle(model.headerTitle);
         [self.tags removeAllObjects];
         [self.tags addObjectsFromArray:[model.tags copy]];
         [self.selectedTags removeAllObjects];
         self.taglistView.horizontalSpacing = model.contentHSpacing;
         self.taglistView.verticalSpacing = model.contentVSpacing;
+
         self.header.hiddenHeaderButton(model.hiddenHeaderButton);
         //刷新UI
         __weak typeof(self) weakself = self;
@@ -146,6 +171,11 @@
         }];
         [self updateHeaderBarState];
         [self.taglistView reload];
+        if (self.taglistView.actualNumberOfLines > model.numberOfLines) {
+            self.taglistView.numberOfLines = model.numberOfLines;
+            self.dataModel.needTuckData = YES;
+            [self.taglistView reload];
+        }
     };
 }
 ///header 选择 刷新子类状态
@@ -196,7 +226,7 @@
     return [self tagSizeForTagAtIndex:index];
 }
 - (void)tagCollectionView:(TTGTagCollectionView *)tagCollectionView didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-    [self tagViewdidSelectTag:tagView atIndex:index];
+    [self tagViewDidSelectTag:tagView atIndex:index];
 }
 - (BOOL)tagCollectionView:(TTGTagCollectionView *)tagCollectionView shouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point{
     if ([self respondsToSelector:@selector(tagViewShouldSelectTag:atIndex: atPoint:)]) {
@@ -214,6 +244,8 @@
 - (UIView *)tagCollectionView:(TTGTagCollectionView *)tagCollectionView tagViewForIndex:(NSUInteger)index {
     return [self tagViewForIndex:index];
 }
+
+
 
 
 @end

@@ -12,8 +12,6 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSDictionary *dataSource;
 @property (nonatomic, weak) id<YQTTagListCellDelegate> delegate;
-
-
 @end
 @implementation TableViewManager
 
@@ -37,7 +35,7 @@
     }else{
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
     }
-    !cell.datas?:cell.datas([self getCellModels:indexPath]);
+    !cell.tagListCellDataModel?:cell.tagListCellDataModel([self getCellModels:indexPath]);
     [cell setDelegate:self.delegate];
     return cell;
 }
@@ -49,19 +47,39 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    NSArray *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
-    if (section && data.count) {
+    YQTTagListCellDataModel *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
+    if (section && data.datas.count) {
         return [UIView new];
     }
     return nil;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    NSArray *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
+    YQTTagListCellDataModel *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
 
-    if (section && data.count) {
+    if (section && data.datas.count) {
         return 32.f;
     }
     return 0.f;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+    YQTTagListBaseCell *cell;
+    if (!indexPath.section) {
+        cell =  [YQTTagListCell TagListCellWithTableView:tableView];
+    }else if(indexPath.section == 1) {
+        cell = [YQTTagRowCell TagListCellWithTableView:tableView];
+    }else{
+        cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+    }
+    !cell.tagListCellDataModel?:cell.tagListCellDataModel([self getCellModels:indexPath]);
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
+    
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    
+    return ([cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height+1);
 }
 #pragma mark - private methods
 - (void)setupTableView {
@@ -78,28 +96,36 @@
 }
 -(void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
+    [dataSource enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj_index, BOOL * _Nonnull stop) {
+        if ([obj_index isKindOfClass:[NSArray class]]) {
+            NSMutableArray *datas = [NSMutableArray array];
+            
+            [obj_index enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSString *str = (NSString *)[obj objectForKey:kTITLE];
+                if (![str isEmpty]) {
+                    YQTTagListCellModel *model = [[YQTTagListCellModel alloc]init];
+                    model.title = str.guardStr;
+                    model.selected = [[obj objectForKey:kSELECTED]boolValue];
+                    [datas addObject:model];
+                }
+            }];
+            YQTTagListCellDataModel *dataModel = [[YQTTagListCellDataModel alloc]init];
+            dataModel.datas = datas;
+            dataModel.numberOfLines = (((NSString *)key).integerValue+1);
+            [_dataSource setValue:dataModel forKey:key];
+        }
+    }];
     if (_dataSource) {
         [self.tableView reloadData];
     }
 }
 #pragma mark tableviewDatasource
--(NSArray <YQTTagListCellModel *>*)getCellModels:(NSIndexPath *)indexpath {
-    
-    NSMutableArray *datas = [NSMutableArray array];
+-(YQTTagListCellDataModel *)getCellModels:(NSIndexPath *)indexpath {
     if (!self.dataSource.allKeys.count) {
-        return datas;
+        return nil;
     }
-    NSArray *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
-    [data enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *str = (NSString *)[obj objectForKey:kTITLE];
-        if (![str isEmpty]) {
-            YQTTagListCellModel *model = [[YQTTagListCellModel alloc]init];
-            model.title = str.guardStr;
-            model.selected = [[obj objectForKey:kSELECTED]boolValue];
-            [datas addObject:model];
-        }
-    }];
-    return datas;
+    YQTTagListCellDataModel *dataModel = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
+    return dataModel;
 }
 -(void)changeBarState {
 //    BOOL state = YES;

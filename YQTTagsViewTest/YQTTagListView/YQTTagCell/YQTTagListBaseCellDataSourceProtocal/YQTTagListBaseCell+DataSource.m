@@ -23,10 +23,12 @@
 }
 
 ///选中某tagview调用 需要在实现时调用父类的delegate
-- (void)tagViewdidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+- (void)tagViewDidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
     
 }
-
+- (void)tagViewGetNewDatas:(NSArray <YQTTagListCellModel *>*)newdatas {
+    
+}
 // optional func
 ///将要选中某tagview调用 需要在实现时调用父类的delegate
 - (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point{

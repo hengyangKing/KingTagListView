@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YQTTagListBottomBarConfig.h"
-#import "Masonry.h"
-
+#define BarContentHeight 80.f
 @interface YQTTagListBottomBar : UIView
 +(instancetype)createBottomBarWithConfig:(void (^)(YQTTagListBottomBarConfig *))config ;
 
@@ -19,5 +18,6 @@
 
 -(void)show;
 
+@property(nonatomic,assign)BOOL disabled;
 
 @end

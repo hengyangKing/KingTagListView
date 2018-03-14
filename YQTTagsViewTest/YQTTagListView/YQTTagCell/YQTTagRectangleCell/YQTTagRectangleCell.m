@@ -14,7 +14,6 @@
 
 @interface YQTTagRectangleCell()
 @property(nonatomic,strong)NSMutableArray<YQTRectangleTagView *> *tags;
-@property(nonatomic,copy)NSArray *nowDatas;
 @end
 @implementation YQTTagRectangleCell
 +(instancetype)TagListCellWithTableView:(UITableView *)tableview {
@@ -30,34 +29,6 @@
         _tags = [NSMutableArray array];
     }
     return _tags;
-}
-
-#pragma mark -- 实现父类声明方法
--(void (^)(NSArray<YQTTagListCellModel *> *))datas {
-    return ^(NSArray <YQTTagListCellModel *>*datas){
-        if (![datas isEqualToArray:self.nowDatas]) {
-            self.nowDatas = [datas copy];
-        }
-    };
-}
--(void)setNowDatas:(NSArray *)nowDatas {
-    _nowDatas = nowDatas;
-    if (!_nowDatas.count) {
-        return;
-    }
-    [self.tags removeAllObjects];
-    for (YQTTagListCellModel *model in _nowDatas) {
-        if (model.title.length) {
-            [self.tags addObject:[YQTRectangleTagView YQTRectangleTagWithConfig:^(YQTTagsViewConfig *config) {
-                config.normalTitle(model.title).selectTitle(model.title);
-                config.contentViewInset(UIEdgeInsetsMake(6, 0, 0, 6));
-                config.isSelect(model.selected);
-                
-            }]];
-        }
-    }
-    [self reloadSubviews];
-    
 }
 #pragma mark -- layoutSubview UI
 ///需要重新刷新UI
@@ -93,7 +64,7 @@
     return view;
 }
 
-- (void)tagViewdidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
+- (void)tagViewDidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
     if ([tagView isMemberOfClass:[YQTRectangleTagView class]]) {
         YQTRectangleTagView *view = (YQTRectangleTagView *)tagView;
         if ([self.delegate respondsToSelector:@selector(tagListCell:didSelectTag:atIndex:)]) {
@@ -102,6 +73,21 @@
         }
         self.selectTag(view);
     }
+}
+-(void)tagViewGetNewDatas:(NSArray<YQTTagListCellModel *> *)newdatas {
+
+    if (!newdatas.count) {return;}
+    [self.tags removeAllObjects];
+    [newdatas enumerateObjectsUsingBlock:^(YQTTagListCellModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (model.title.length) {
+            [self.tags addObject:[YQTRectangleTagView YQTRectangleTagWithConfig:^(YQTTagsViewConfig *config) {
+                config.normalTitle(model.title).selectTitle(model.title);
+                config.contentViewInset(UIEdgeInsetsMake(6, 0, 0, 6));
+                config.isSelect(model.selected);
+            }]];
+        }
+    }];
+    [self reloadSubviews];
 }
 ///将要选中某tagview调用 需要在实现时调用父类的delegate
 - (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point{

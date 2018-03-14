@@ -7,13 +7,13 @@
 //
 
 #import "YQTTagListBottomBarConfig.h"
-#import "UIColor+YQKit.h"
 
 @implementation YQTTagListBottomBarConfig
 +(instancetype)defaultConfig {
     YQTTagListBottomBarConfig *config = [[YQTTagListBottomBarConfig alloc]init];
-    
-    config.bottomBarBGColor([UIColor colorWithHex:@"#FFFFFF"]).costomInset(UIEdgeInsetsZero).needCostomCornerRadius(YES);
+
+    config.bottomBarBackgroundColor([UIColor colorWithHex:@"#FFFFFF"]);
+    config.costomInset(UIEdgeInsetsZero);
     return config;
 }
 -(YQTTagListBottomBarConfig *(^)(UIView *))bottomBarCostom {
@@ -22,49 +22,34 @@
         return self;
     };
 }
--(YQTTagListBottomBarConfig *(^)(UIColor *))bottomBarBGColor {
-    return ^(UIColor *color){
-        self.bgColor = color;
-        return self;
-    };
-}
--(YQTTagListBottomBarConfig *(^)(UIEdgeInsets))costomInset
-{
+-(YQTTagListBottomBarConfig *(^)(UIEdgeInsets))costomInset {
     return ^(UIEdgeInsets insets){
         self.contentInset = insets;
         return self;
     };
 }
--(YQTTagListBottomBarConfig *(^)(BOOL))needCostomCornerRadius {
-    return ^(BOOL need){
-        self.needCornerRadius = need;
-        return self;
-    };
-}
--(YQTTagListBottomBarConfig *(^)(UIImage *))bottomBarShadow
-{
+-(YQTTagListBottomBarConfig *(^)(UIImage *))bottomBarShadow {
     return ^(UIImage *image){
         self.shadow = image;
         return self;
     };
 }
--(void)setShadow:(UIImage *)shadow
-{
+-(YQTTagListBottomBarConfig *(^)(UIColor *))bottomBarBackgroundColor {
+    return ^(UIColor *color){
+        self.backgroundColor = color;
+        return self;
+    };
+}
+-(void)setShadow:(UIImage *)shadow {
     _shadow = shadow;
 }
 -(void)setCostom:(UIView *)costom {
     _costom = costom;
 }
--(void)setBgColor:(UIColor *)bgColor{
-    _bgColor = bgColor;
-}
-
 -(void)setContentInset:(UIEdgeInsets)contentInset {
     _contentInset = contentInset;
 }
--(void)setNeedCornerRadius:(BOOL)needCornerRadius
-{
-    _needCornerRadius = needCornerRadius;
+-(void)setBackgroundColor:(UIColor *)backgroundColor{
+    _backgroundColor = backgroundColor;
 }
-
 @end

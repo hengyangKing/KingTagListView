@@ -11,8 +11,17 @@
 @implementation YQTTagListHeaderConfig
 +(instancetype)defaultConfig {
     YQTTagListHeaderConfig *config = [[YQTTagListHeaderConfig alloc]init];
+    
     //基类
-    config.titleFont(YQTFONT(14)).radius(6.f).normalTitleColor([UIColor colorWithHex:@"#15A6EE"]).selectTitleColor([UIColor colorWithHex:@"#15A6EE"]).borderW(1.f).normalBorderColor([UIColor colorWithHex:@"#15A6EE"]).normalBGColor([UIColor colorWithHex:@"F333333"]).selectBGColor([UIColor colorWithHex:@"F333333"]).normalTitle(@"全选").selectTitle(@"取消全选");
+    config.radius(6.f).borderW(1.f);
+    
+    config.titleFont(YQKINGFONT(14));
+    config.normalTitleColor([UIColor colorWithHex:@"#15A6EE"]).selectTitleColor([UIColor colorWithHex:@"#15A6EE"]);
+    config.normalBorderColor([UIColor colorWithHex:@"#15A6EE"]).normalBGColor([UIColor colorWithHex:@"F333333"]);
+    
+    config.selectBGColor([UIColor colorWithHex:@"F333333"]).selectBorderColor([UIColor colorWithHex:@"#15A6EE"]);
+    
+    config.normalTitle(@"全选").selectTitle(@"取消全选");
     
     config.needHiddenButton(NO).HeaderTitleColor([UIColor blackColor]);
     return config;

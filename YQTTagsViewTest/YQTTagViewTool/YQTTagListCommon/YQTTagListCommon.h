@@ -22,7 +22,7 @@
 #define Color(rgb) [UIColor colorWithHex:rgb]
 
 #define YQTFONT(A) [UIFont fontWithName:@"PingFangSC-Regular"size:A]
-
+#define YQKINGFONT(A) YQTFONT(A)?YQTFONT(A):[UIFont systemFontOfSize:A]
 //上部tag 列表排列方式
 typedef NS_ENUM(NSUInteger, YQTTagListArrangeType) {
     YQTTagListArrangeTypeIsTag,//tag 排列
