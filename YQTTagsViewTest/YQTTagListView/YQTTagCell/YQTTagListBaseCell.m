@@ -12,8 +12,7 @@
 #import "YQTTagListCustomButton.h"
 #import "YQTTagListBaseCell+DataSource.h"//声明非正式协议
 
-@interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource>
-{
+@interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource> {
     YQTTagListCellDataModel *_dataModel;
 }
 
@@ -85,7 +84,8 @@
 }
 -(YQTTagListCustomButton *)loadMoreButton {
     if (!_loadMoreButton) {
-        _loadMoreButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
+        _loadMoreButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) 
+        {
             
         }];
     }
@@ -235,7 +235,7 @@
     return YES;
 }
 
-#pragma mark - TTGTagCollectionViewDataSource
+#pragma mark -- TTGTagCollectionViewDataSource
 
 - (NSUInteger)numberOfTagsInTagCollectionView:(TTGTagCollectionView *)tagCollectionView {
     return [self numberOfTagsInTag];
@@ -245,6 +245,7 @@
     return [self tagViewForIndex:index];
 }
 
+#pragma mark --
 
 
 

@@ -1,4 +1,4 @@
-1.新增YQTTagAppearanceConfig
+1.新增YQTTagListAppearanceConfig 、YQTTagAppearanceConfig
 
 YQTBottomBarButtonConfig  YQTTagListBottomBarConfig YQTTagViewBaseConfig 均继承于该config
 
@@ -14,4 +14,7 @@ YQTTagListBaseCell  layoutSubview block 中 新增
             [self.taglistView reload];
     }
 
-3.新增 YQTTagCellLoadMoreButton 在 YQTTagListBaseCell 中
+删除子类nowdata 等属性，新增非正式协议 tagViewGetNewDatas 
+
+
+3.cell 内模型换成YQTTagListCellDataModel 类
