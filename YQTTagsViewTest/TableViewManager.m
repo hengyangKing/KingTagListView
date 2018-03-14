@@ -66,12 +66,15 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
 }
+
+
+
 #pragma mark - private methods
 - (void)setupTableView {
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 80;
+    self.tableView.estimatedRowHeight = 44.f;
     self.tableView.delegate =self;
     self.tableView.dataSource = self;
 }

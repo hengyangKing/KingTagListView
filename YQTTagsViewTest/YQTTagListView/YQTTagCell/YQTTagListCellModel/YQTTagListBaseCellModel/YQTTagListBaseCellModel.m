@@ -17,7 +17,6 @@
     model.hiddenHeaderButton = NO;
     model.headerTitle = @"";
     model.tags = @[];
-    model.numberOfLines = 0;
     return model;
 }
 @end

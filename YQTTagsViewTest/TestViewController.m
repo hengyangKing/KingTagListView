@@ -65,14 +65,14 @@
         _tableview.contentInset = UIEdgeInsetsMake(MAXNAVY, 0, self.bar.barH, 0);
         _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableview.rowHeight = UITableViewAutomaticDimension;
-        _tableview.estimatedRowHeight = 44;
+        _tableview.estimatedRowHeight = 44.f;
     }
     
     return _tableview;
 }
 -(void)addDatas{
 
-    NSArray *datas = @[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]",@""@"    ",@"    123"      ,@"     \n    ",@"    \t    ",@"    \r    ",@"1",@"2",@"3",@"4",@"5"];
+    NSArray *datas = @[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]",@"",@"    ",@"    123"      ,@"     \n    ",@"    \t    ",@"    \r    ",@"1",@"2",@"3",@"4",@"5"];
     for (NSInteger i = 0; i<3; i++) {
         NSMutableArray *array = [NSMutableArray array];
         for (NSString *str in datas) {
@@ -133,17 +133,7 @@
 ///全部选中的回调
 -(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell {
 //        NSIndexPath *indexpath = [self.tableview indexPathForCell:cell];
-    
 }
-///点击展开全部的回调
--(void)tagListCellSelectUnfold:(YQTTagListBaseCell *)cell {
-    [self.tableview reloadSections:( [NSIndexSet indexSetWithIndex:[self.tableview indexPathForCell:cell].section]) withRowAnimation:(UITableViewRowAnimationNone)];
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableview reloadData];
-    });
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

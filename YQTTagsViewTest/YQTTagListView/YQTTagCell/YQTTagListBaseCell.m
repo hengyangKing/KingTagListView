@@ -36,11 +36,11 @@
     return self;
 }
 -(void)setupUI {
+    
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
     
     __weak typeof(self) weakself = self;
-
     [self.contentView addSubview:self.header];
     [self.header mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakself.contentView);
@@ -52,7 +52,7 @@
 #pragma mark ---unfoldButton
     [self.contentView addSubview:self.unfoldButton];
     [self.unfoldButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(0);
+        make.height.mas_equalTo(0).priority(999);
         make.leading.trailing.mas_equalTo(weakself.header);
         make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
     }];
@@ -63,14 +63,11 @@
         make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
         make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
         make.top.mas_equalTo(weakself.header.mas_bottom).mas_offset(0.f);
-            make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
+        make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
         
 #pragma mark ---unfoldButton
-
-            make.bottom.mas_equalTo(weakself.unfoldButton.mas_top);
-        
+        make.bottom.mas_equalTo(weakself.unfoldButton.mas_top);
     }];
-    
 }
 
 #pragma mark lazy
@@ -163,17 +160,15 @@
 
 -(void (^)(YQTTagListBaseCellModel *))layoutSubview {
     return ^(YQTTagListBaseCellModel *model){
-        model.numberOfLines = self.dataModel.numberOfLines;
         self.header.headerTitle(model.headerTitle);
         [self.tags removeAllObjects];
         [self.tags addObjectsFromArray:[model.tags copy]];
         [self.selectedTags removeAllObjects];
         self.taglistView.horizontalSpacing = model.contentHSpacing;
         self.taglistView.verticalSpacing = model.contentVSpacing;
-
         self.header.hiddenHeaderButton(model.hiddenHeaderButton);
-        //刷新UI
         __weak typeof(self) weakself = self;
+        //刷新UI
         [self.header mas_remakeConstraints:^(MASConstraintMaker *make) {
             //1偏移 解决导航栏线 有1像素偏移
             make.top.mas_equalTo(weakself.contentView.mas_top).mas_offset(1);
@@ -203,11 +198,11 @@
         }];
         [self updateHeaderBarState];
         [self.taglistView reload];
-        if (self.taglistView.actualNumberOfLines > model.numberOfLines && (model.numberOfLines != 0)) {
-            self.taglistView.numberOfLines = model.numberOfLines;
+        if (self.taglistView.actualNumberOfLines > self.dataModel.numberOfLines && (self.dataModel.numberOfLines != 0)) {
+            self.taglistView.numberOfLines = self.dataModel.numberOfLines;
             self.unfoldButton.hidden = NO;
             [self.unfoldButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(TagListFootH);
+                make.height.mas_equalTo(TagListFootH).priority(999);
                 make.leading.trailing.mas_equalTo(weakself.header);
                 make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
             }];
@@ -259,7 +254,6 @@
 }
 #pragma mark - TTGTagCollectionViewDelegate 需子类遵循父类非正式协议数据源
 - (CGSize)tagCollectionView:(TTGTagCollectionView *)tagCollectionView sizeForTagAtIndex:(NSUInteger)index {
-    
     return [self tagSizeForTagAtIndex:index];
 }
 - (void)tagCollectionView:(TTGTagCollectionView *)tagCollectionView didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
@@ -286,13 +280,13 @@
 -(void)unfoldButtonClick:(YQTTagListCustomButton *)button {
     
     self.unfoldButton.hidden = YES;
-    _dataModel.numberOfLines = 0;
-    _dataModel.unfoldDatas = YES;
-    if ([self.delegate respondsToSelector:@selector(tagListCellSelectUnfold:)]) {
-        [self.delegate tagListCellSelectUnfold:self];
+    self.dataModel.numberOfLines = 0;
+    self.taglistView.numberOfLines = self.dataModel.numberOfLines;
+    self.dataModel.unfoldDatas = YES;
+    UIView *view = self.superview;
+    if ([view isKindOfClass:[UITableView class]]) {
+        UITableView *tableview = (UITableView *)view;
+        [tableview reloadData];
     }
 }
-
-
-
 @end

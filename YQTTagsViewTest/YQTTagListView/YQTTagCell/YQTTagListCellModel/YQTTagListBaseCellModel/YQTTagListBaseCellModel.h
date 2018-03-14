@@ -16,8 +16,6 @@
 @property(nonatomic,assign)CGFloat contentHSpacing;//横向间距
 @property(nonatomic,assign)CGFloat contentVSpacing;//纵向间距
 
-@property(nonatomic,assign)NSUInteger numberOfLines;//展示行数
-
 +(instancetype)YQTTagListBaseCellModel;
 
 @end

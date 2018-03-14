@@ -18,7 +18,7 @@
 #define ListTagPadding 15.f //tagview 左右内边距 和 contentview 的外边距
 #define ListTagMargin 8.f //tagview 上下内边距
 #define TagListContentInset 2.f //contentview内边距
-#define TagListFootH 30.f //loadmoreButton高度
+#define TagListFootH 40.f //loadmoreButton高度
 
 
 #define Color(rgb) [UIColor colorWithHex:rgb]

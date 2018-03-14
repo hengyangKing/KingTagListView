@@ -25,9 +25,6 @@
 ///全部选中的回调
 -(void)tagListCellSelectAllTag:(YQTTagListBaseCell *)cell;
 
-///点击展开的回调
--(void)tagListCellSelectUnfold:(YQTTagListBaseCell *)cell;
-
 @optional
 ///将要选中某tagview调用
 - (BOOL)tagListCell:(YQTTagListBaseCell *)cell shouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index;
