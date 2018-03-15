@@ -99,15 +99,19 @@
             }];
             YQTTagListCellDataModel *dataModel = [[YQTTagListCellDataModel alloc]init];
             dataModel.datas = datas;
-            if (((NSString *)key).integerValue < 2) {
-                dataModel.appearModel.numberOfLines = (((NSString *)key).integerValue+1);
+            dataModel.appearModel.numberOfLines = 1;
+
+            if (((NSString *)key).integerValue == 2)  {
             }
-            if (((NSString *)key).integerValue == 1) {
-                dataModel.appearModel.canDrawBack = NO;
-            }
-            if (((NSString *)key).integerValue == 2) {
-                dataModel.appearModel.numberOfLines = 4;
-            }
+//            if (((NSString *)key).integerValue < 2) {
+//                dataModel.appearModel.numberOfLines = (((NSString *)key).integerValue+1);
+//            }
+//            if (((NSString *)key).integerValue == 1) {
+//                dataModel.appearModel.canDrawBack = NO;
+//            }
+//            if (((NSString *)key).integerValue == 0) {
+//                dataModel.appearModel.numberOfLines = 10;
+//            }
             [_dataSource setValue:dataModel forKey:key];
         }
     }];
