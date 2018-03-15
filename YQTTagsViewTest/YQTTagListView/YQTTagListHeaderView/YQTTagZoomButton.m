@@ -22,7 +22,8 @@
 @end
 @implementation YQTTagZoomButton
 
-+(instancetype)zoomButtonAnimateWidth:(CGFloat (^)(void))animate andClickCompletion:(void (^)(BOOL nowSelect))completion {    YQTTagZoomButton *button = [YQTTagZoomButton buttonWithType:UIButtonTypeCustom];
++(instancetype)zoomButtonAnimateWidth:(CGFloat (^)(void))animate andClickCompletion:(void (^)(BOOL nowSelect))completion {
+    YQTTagZoomButton *button = [YQTTagZoomButton buttonWithType:UIButtonTypeCustom];
     [button setAnimateBlock:animate];
     [button setCompletionBlock:completion];
     return button;
@@ -83,6 +84,9 @@
         [self setSelected:self.userActions.lastObject.boolValue];
         [self.userActions removeAllObjects];
     }
+}
+-(void)setHighlighted:(BOOL)highlighted {
+    
 }
 
 

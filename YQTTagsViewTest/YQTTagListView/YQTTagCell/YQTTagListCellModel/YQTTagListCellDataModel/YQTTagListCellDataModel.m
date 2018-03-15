@@ -14,6 +14,7 @@
         self.numberOfLines = 0;
         self.needRefashion = NO;
         self.canDrawBack = YES;
+        self.canFlex = YES;
     }
     return self;
 }

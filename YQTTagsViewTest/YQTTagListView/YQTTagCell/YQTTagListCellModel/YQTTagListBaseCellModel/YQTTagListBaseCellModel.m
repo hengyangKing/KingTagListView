@@ -13,10 +13,12 @@
     YQTTagListBaseCellModel *model = [[YQTTagListBaseCellModel alloc]init];
     model.contentHSpacing = 14.f;
     model.contentVSpacing = 14.f;
-
     model.hiddenHeaderButton = NO;
     model.headerTitle = @"";
     model.tags = @[];
     return model;
+}
+-(NSString *)unfoldTitle{
+    return _unfoldTitle.length?_unfoldTitle:@"展开全部";
 }
 @end

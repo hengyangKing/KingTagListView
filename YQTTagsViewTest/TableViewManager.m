@@ -105,6 +105,9 @@
             if (((NSString *)key).integerValue == 1) {
                 dataModel.appearModel.canDrawBack = NO;
             }
+            if (((NSString *)key).integerValue == 2) {
+                dataModel.appearModel.numberOfLines = 4;
+            }
             [_dataSource setValue:dataModel forKey:key];
         }
     }];

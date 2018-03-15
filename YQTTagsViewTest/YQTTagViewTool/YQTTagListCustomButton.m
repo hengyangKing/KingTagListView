@@ -25,15 +25,30 @@
     }
     return _config;
 }
+-(void (^)(NSString *))YQTTagListCustomButtonNormalTitle {
+    return ^(NSString *title){
+        self.config.normalTitle(title);
+        [self setTitle:self.config.title forState:(UIControlStateNormal)];
+    };
+}
+-(void (^)(NSString *))YQTTagListCustomButtonSelectTitle {
+    return ^(NSString *title){
+        self.config.selectTitle(title);
+        [self setTitle:self.config.selectedTitle forState:(UIControlStateSelected)];
+    };
+}
 -(void)setup {
     
     [self setBackgroundImage:self.config.normalBGImage forState:(UIControlStateNormal)];
     
-    [self setBackgroundImage:self.config.normalBGImage forState:(UIControlStateHighlighted)];
-    
     [self setBackgroundImage:self.config.disabledBGImage forState:(UIControlStateDisabled)];
     
+    [self setBackgroundImage:self.config.selectedImage forState:(UIControlStateSelected)];
+    
     [self setTitleColor:self.config.textColor forState:(UIControlStateNormal)];
+    
+    [self setTitleColor:self.config.selectedTextColor forState:(UIControlStateSelected)];
+    
     
     [self setTitle:self.config.title forState:(UIControlStateNormal)];
     
@@ -51,4 +66,8 @@
     [self addTarget:self.config.target action:self.config.sel forControlEvents:(UIControlEventTouchUpInside)];
     
 }
+-(void)setHighlighted:(BOOL)highlighted {
+    
+}
+
 @end

@@ -17,6 +17,9 @@
 #define     kIOS7  [[UIDevice currentDevice].systemVersion doubleValue] < 8.0 && \
 [[UIDevice currentDevice].systemVersion doubleValue] >= 7.0
 
+//收缩
+#define FoldTitle @"收起"
+
 @interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource> {
     YQTTagListCellDataModel *_dataModel;
 }
@@ -107,7 +110,7 @@
 -(YQTTagListCustomButton *)unfoldButton {
     if (!_unfoldButton) {
         _unfoldButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
-            config.normalTitle(@"展开").selectTitle(@"收缩");
+            config.selectTitle(FoldTitle);
             config.YQTButtonSEL(@selector(unfoldButtonClick:)).YQTButtonTarget(self);
 
         }];
@@ -208,7 +211,7 @@
             return ;
         }
         ///收缩
-        if (!self.unfoldButton.selected) {
+        if ((!self.unfoldButton.selected)&&self.dataModel.appearModel.canFlex) {
             //需要收缩
             if (self.taglistView.actualNumberOfLines <= self.dataModel.appearModel.numberOfLines) {
                 //实际行数小于等于目标行数
@@ -217,6 +220,8 @@
                 //实际行数大于目标行数
                 self.dataModel.appearModel.canFlex = YES;
                 self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
+                
+                self.unfoldButton.YQTTagListCustomButtonNormalTitle(model.unfoldTitle);
                 [self.unfoldButton setHidden:NO];
                 [self.taglistView reload];
             }
@@ -292,16 +297,8 @@
 #pragma mark -- func
 -(void)unfoldButtonClick:(YQTTagListCustomButton *)button {
     
-    if (!button.selected) {
-        //展开
-        //需要具有收缩功能
-        [self.unfoldButton setHidden:!self.dataModel.appearModel.canDrawBack];
-        self.taglistView.numberOfLines = 0;
-    }else{
-        //收缩
-        [self.unfoldButton setHidden:NO];
-        self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
-    }
+    //展开时需要判断是否具有收缩功能，收缩时展示
+    [self.unfoldButton setHidden: button.selected ? NO :(!self.dataModel.appearModel.canDrawBack)];
     
     button.selected = !button.selected;
     self.dataModel.appearModel.needRefashion = YES;

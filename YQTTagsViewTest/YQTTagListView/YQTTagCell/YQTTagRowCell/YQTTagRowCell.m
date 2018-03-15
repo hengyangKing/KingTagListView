@@ -11,6 +11,7 @@
 #import "NSAttributedString+TagSize.h"
 //遵循非正式协议
 #import "YQTTagListBaseCell+DataSource.h"
+#define KEYWORD @"句子"
 
 @interface YQTTagRowCell()
 @property(nonatomic,strong)NSMutableArray<YQTRowTagView *> *tags;
@@ -37,7 +38,10 @@
 -(void)reloadSubviews {
     ///根据内容修改约束
     YQTTagListBaseCellModel *model = [YQTTagListBaseCellModel YQTTagListBaseCellModel];
-    NSString *title = self.tags.count?@"点击划掉不用的句子":@"";
+    
+    NSString *title = self.tags.count?HeaderTitlt(KEYWORD):@"";
+    model.unfoldTitle = UnfoldTitle(self.tags.count, KEYWORD);
+
     model.headerTitle = title;
     model.tags = [self.tags copy];
     model.contentHSpacing = 0.f;

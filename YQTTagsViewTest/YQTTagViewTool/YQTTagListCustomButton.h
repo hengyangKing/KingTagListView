@@ -12,4 +12,10 @@
 @interface YQTTagListCustomButton : UIButton
 +(instancetype)createCustomButtonWithConfig:(void (^)(YQTButtonAppearanceConfig *))config;
 
+@property(nonatomic,copy,readonly)void (^YQTTagListCustomButtonNormalTitle)(NSString *title);
+
+@property(nonatomic,copy,readonly)void (^YQTTagListCustomButtonSelectTitle)(NSString *title);
+
+
+
 @end
