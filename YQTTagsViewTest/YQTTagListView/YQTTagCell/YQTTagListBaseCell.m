@@ -11,7 +11,9 @@
 #import "YQTTagBaseView.h"
 #import "YQTTagListCustomButton.h"
 #import "YQTTagListBaseCell+DataSource.h"//声明非正式协议
-
+#define IOS7 kIOS7
+#define     kIOS7  [[UIDevice currentDevice].systemVersion doubleValue] < 8.0 && \
+[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0
 @interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource> {
     YQTTagListCellDataModel *_dataModel;
 }
@@ -39,7 +41,10 @@
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
-    
+    if (IOS7) {
+        self.contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    }
+
     __weak typeof(self) weakself = self;
     [self.contentView addSubview:self.header];
     [self.header mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,7 +54,7 @@
         make.height.mas_equalTo(0);
     }];
     
-#pragma mark ---unfoldButton
+#pragma mark --add unfoldButton
     [self.contentView addSubview:self.unfoldButton];
     [self.unfoldButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(0).priority(999);
@@ -284,9 +289,10 @@
     self.taglistView.numberOfLines = self.dataModel.numberOfLines;
     self.dataModel.unfoldDatas = YES;
     UIView *view = self.superview;
-    if ([view isKindOfClass:[UITableView class]]) {
-        UITableView *tableview = (UITableView *)view;
-        [tableview reloadData];
+    while ((![view isKindOfClass:[UITableView class]]) && view) {
+        view = view.superview;
     }
+    UITableView *tableview = (UITableView *)view;
+    [tableview reloadData];
 }
 @end

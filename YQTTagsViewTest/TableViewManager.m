@@ -99,7 +99,9 @@
             }];
             YQTTagListCellDataModel *dataModel = [[YQTTagListCellDataModel alloc]init];
             dataModel.datas = datas;
-            dataModel.numberOfLines = (((NSString *)key).integerValue+1);
+            if (((NSString *)key).integerValue < 2) {
+                dataModel.numberOfLines = (((NSString *)key).integerValue+1);
+            }
             [_dataSource setValue:dataModel forKey:key];
         }
     }];
