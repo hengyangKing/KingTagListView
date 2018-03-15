@@ -13,6 +13,7 @@
     if (self) {
         self.numberOfLines = 0;
         self.unfoldDatas = NO;
+        self.drawBack = NO;
     }
     return self;
 }

@@ -20,8 +20,8 @@
 ///刷新标识 需要展开数据
 @property(nonatomic,assign)BOOL unfoldDatas;
 
-///
-@property(nonatomic,assign)BOOL a;
+///展示完全数据后 是否需要收缩功能
+@property(nonatomic,assign)BOOL drawBack;
 
 @end
 
