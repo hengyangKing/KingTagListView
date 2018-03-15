@@ -7,10 +7,7 @@
 //
 
 #import "YQTTagListCellDataModel.h"
-@implementation YQTTagListCellModel
-
-@end
-@implementation YQTTagListCellDataModel
+@implementation YQTTagListCellAppearanceModel
 -(instancetype)init {
     self = [super init];
     if (self) {
@@ -18,5 +15,21 @@
         self.unfoldDatas = NO;
     }
     return self;
+}
+@end
+@implementation YQTTagListCellModel
+
+@end
+@interface YQTTagListCellDataModel() {
+    YQTTagListCellAppearanceModel *_appearModel;
+}
+@end
+@implementation YQTTagListCellDataModel
+
+-(YQTTagListCellAppearanceModel *)appearModel {
+    if (!_appearModel) {
+        _appearModel = [[YQTTagListCellAppearanceModel alloc]init];
+    }
+    return _appearModel;
 }
 @end

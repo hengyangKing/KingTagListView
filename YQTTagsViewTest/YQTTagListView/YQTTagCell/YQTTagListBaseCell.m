@@ -137,10 +137,10 @@
         //更新数据源
         _dataModel = dataModel;
         [self tagListViewGetNewDatas:_dataModel.datas];
-    }else if (_dataModel.unfoldDatas){
+    }else if (_dataModel.appearModel.unfoldDatas){
         //展开数据源
-        _dataModel.numberOfLines = 0;
-        _dataModel.unfoldDatas = NO;
+        _dataModel.appearModel.numberOfLines = 0;
+        _dataModel.appearModel.unfoldDatas = NO;
         [self tagListViewUnfoldAllDatas];
     }
 }
@@ -203,8 +203,8 @@
         }];
         [self updateHeaderBarState];
         [self.taglistView reload];
-        if (self.taglistView.actualNumberOfLines > self.dataModel.numberOfLines && (self.dataModel.numberOfLines != 0)) {
-            self.taglistView.numberOfLines = self.dataModel.numberOfLines;
+        if (self.taglistView.actualNumberOfLines > self.dataModel.appearModel.numberOfLines && (self.dataModel.appearModel.numberOfLines != 0)) {
+            self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
             self.unfoldButton.hidden = NO;
             [self.unfoldButton mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(TagListFootH).priority(999);
@@ -285,9 +285,9 @@
 -(void)unfoldButtonClick:(YQTTagListCustomButton *)button {
     
     self.unfoldButton.hidden = YES;
-    self.dataModel.numberOfLines = 0;
-    self.taglistView.numberOfLines = self.dataModel.numberOfLines;
-    self.dataModel.unfoldDatas = YES;
+    self.dataModel.appearModel.numberOfLines = 0;
+    self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
+    self.dataModel.appearModel.unfoldDatas = YES;
     UIView *view = self.superview;
     while ((![view isKindOfClass:[UITableView class]]) && view) {
         view = view.superview;

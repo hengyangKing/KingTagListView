@@ -100,7 +100,7 @@
             YQTTagListCellDataModel *dataModel = [[YQTTagListCellDataModel alloc]init];
             dataModel.datas = datas;
             if (((NSString *)key).integerValue < 2) {
-                dataModel.numberOfLines = (((NSString *)key).integerValue+1);
+                dataModel.appearModel.numberOfLines = (((NSString *)key).integerValue+1);
             }
             [_dataSource setValue:dataModel forKey:key];
         }
