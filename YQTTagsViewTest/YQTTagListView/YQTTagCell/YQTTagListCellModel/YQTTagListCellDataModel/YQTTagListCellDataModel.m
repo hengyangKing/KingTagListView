@@ -12,8 +12,8 @@
     self = [super init];
     if (self) {
         self.numberOfLines = 0;
-        self.unfoldDatas = NO;
-        self.drawBack = NO;
+        self.needRefashion = NO;
+        self.canDrawBack = YES;
     }
     return self;
 }

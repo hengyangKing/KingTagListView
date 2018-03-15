@@ -37,6 +37,9 @@
     
     [self setTitle:self.config.title forState:(UIControlStateNormal)];
     
+    [self setTitle:self.config.selectedTitle forState:(UIControlStateSelected)];
+
+    
     if (self.config.normalImage) {
         [self setImage:self.config.normalImage forState:(UIControlStateNormal)];
     }

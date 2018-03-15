@@ -29,7 +29,7 @@
 - (void)tagListViewGetNewDatas:(NSArray <YQTTagListCellModel *>*)newdatas {
     
 }
-- (void)tagListViewUnfoldAllDatas {
+- (void)tagListViewFoldOrUnfoldTags {
     
 }
 // optional func

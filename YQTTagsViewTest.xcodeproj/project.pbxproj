@@ -38,6 +38,7 @@
 		09B52AA22058EC0C000C150E /* YQTTagListCellDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52AA12058EC0C000C150E /* YQTTagListCellDataModel.m */; };
 		09B52AA520590C0F000C150E /* YQTButtonAppearanceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52AA420590C0F000C150E /* YQTButtonAppearanceConfig.m */; };
 		09B52AA820591289000C150E /* YQTTagListCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52AA720591289000C150E /* YQTTagListCustomButton.m */; };
+		09B52AAC205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52AAB205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m */; };
 		09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B552019E40F001DB26D /* AppDelegate.m */; };
 		09EB3B592019E40F001DB26D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B582019E40F001DB26D /* ViewController.m */; };
 		09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EB3B5D2019E40F001DB26D /* Assets.xcassets */; };
@@ -111,6 +112,8 @@
 		09B52AA420590C0F000C150E /* YQTButtonAppearanceConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTButtonAppearanceConfig.m; sourceTree = "<group>"; };
 		09B52AA620591289000C150E /* YQTTagListCustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListCustomButton.h; sourceTree = "<group>"; };
 		09B52AA720591289000C150E /* YQTTagListCustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListCustomButton.m; sourceTree = "<group>"; };
+		09B52AAA205A4E4A000C150E /* YQTTagListCustomButton+Hidden.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YQTTagListCustomButton+Hidden.h"; sourceTree = "<group>"; };
+		09B52AAB205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YQTTagListCustomButton+Hidden.m"; sourceTree = "<group>"; };
 		09EB3B512019E40F001DB26D /* YQTTagsViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQTTagsViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09EB3B542019E40F001DB26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09EB3B552019E40F001DB26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 			children = (
 				090588BF202C4E0F005A7CDF /* YQTTagListBaseCell.h */,
 				090588C0202C4E0F005A7CDF /* YQTTagListBaseCell.m */,
+				09B52AA9205A4E2F000C150E /* YQTTagListTool */,
 				09B52A9A2058EBD2000C150E /* YQTTagListCellModel */,
 				092D9B8C2023332D00EDBABA /* YQTTagRowCell */,
 				092D9B932023332D00EDBABA /* YQTTagListCell */,
@@ -338,6 +342,15 @@
 				09B52AA12058EC0C000C150E /* YQTTagListCellDataModel.m */,
 			);
 			path = YQTTagListCellDataModel;
+			sourceTree = "<group>";
+		};
+		09B52AA9205A4E2F000C150E /* YQTTagListTool */ = {
+			isa = PBXGroup;
+			children = (
+				09B52AAA205A4E4A000C150E /* YQTTagListCustomButton+Hidden.h */,
+				09B52AAB205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m */,
+			);
+			path = YQTTagListTool;
 			sourceTree = "<group>";
 		};
 		09EB3B482019E40F001DB26D = {
@@ -612,6 +625,7 @@
 				0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */,
 				09B52A882057F368000C150E /* YQTagViewImageTool.m in Sources */,
 				09B52A9920580B44000C150E /* YQTTagListAppearanceConfig.m in Sources */,
+				09B52AAC205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,15 +17,18 @@
 @interface YQTTagListCellAppearanceModel : NSObject
 ///展示行数 默认0
 @property(nonatomic,assign)NSUInteger numberOfLines;
-///刷新标识 需要展开数据
-@property(nonatomic,assign)BOOL unfoldDatas;
 
-///展示完全数据后 是否需要收缩功能
-@property(nonatomic,assign)BOOL drawBack;
+///是否具备可伸缩功能
+///实际行数 小于规定展示 行数时 不具备可伸缩功能
+@property(nonatomic,assign)BOOL canFlex;
+
+///展示完全数据后 是否需要收缩功能 是否隐藏button
+@property(nonatomic,assign)BOOL canDrawBack;
+
+///刷新标识 需要 重绘
+@property(nonatomic,assign)BOOL needRefashion;
 
 @end
-
-
 
 @interface YQTTagListCellDataModel : NSObject
 ///tags 数据源

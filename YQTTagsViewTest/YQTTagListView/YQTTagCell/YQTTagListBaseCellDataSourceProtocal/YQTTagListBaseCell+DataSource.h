@@ -23,12 +23,14 @@
 ///父类接到新数据源通知子类更新tags
 - (void)tagListViewGetNewDatas:(NSArray <YQTTagListCellModel *>*)newdatas;
 
+///选中折叠 button 调用 需要展开或者收缩
+- (void)tagListViewFoldOrUnfoldTags;
+
 
 // optional func
 ///将要选中某tagview调用 需要在实现时调用父类的delegate
 - (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point;
 
-///父类需要 子类展示全部数据
-- (void)tagListViewUnfoldAllDatas;
+
 
 @end

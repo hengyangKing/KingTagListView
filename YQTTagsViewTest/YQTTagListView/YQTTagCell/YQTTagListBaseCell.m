@@ -11,9 +11,12 @@
 #import "YQTTagBaseView.h"
 #import "YQTTagListCustomButton.h"
 #import "YQTTagListBaseCell+DataSource.h"//声明非正式协议
+#import "YQTTagListCustomButton+Hidden.h"
+
 #define IOS7 kIOS7
 #define     kIOS7  [[UIDevice currentDevice].systemVersion doubleValue] < 8.0 && \
 [[UIDevice currentDevice].systemVersion doubleValue] >= 7.0
+
 @interface YQTTagListBaseCell()<TTGTagCollectionViewDelegate, TTGTagCollectionViewDataSource> {
     YQTTagListCellDataModel *_dataModel;
 }
@@ -38,7 +41,6 @@
     return self;
 }
 -(void)setupUI {
-    
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
     if (IOS7) {
@@ -105,7 +107,7 @@
 -(YQTTagListCustomButton *)unfoldButton {
     if (!_unfoldButton) {
         _unfoldButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
-            config.normalTitle(@"查看全部").selectTitle(@"");
+            config.normalTitle(@"展开").selectTitle(@"收缩");
             config.YQTButtonSEL(@selector(unfoldButtonClick:)).YQTButtonTarget(self);
 
         }];
@@ -137,11 +139,10 @@
         //更新数据源
         _dataModel = dataModel;
         [self tagListViewGetNewDatas:_dataModel.datas];
-    }else if (_dataModel.appearModel.unfoldDatas){
-        //展开数据源
-        _dataModel.appearModel.numberOfLines = 0;
-        _dataModel.appearModel.unfoldDatas = NO;
-        [self tagListViewUnfoldAllDatas];
+    }else if (_dataModel.appearModel.needRefashion){
+        //需要展开或者收缩列表
+        _dataModel.appearModel.needRefashion = NO;
+        [self tagListViewFoldOrUnfoldTags];
     }
 }
 #pragma mark -- 父类子类通信
@@ -165,12 +166,14 @@
 
 -(void (^)(YQTTagListBaseCellModel *))layoutSubview {
     return ^(YQTTagListBaseCellModel *model){
+        
         self.header.headerTitle(model.headerTitle);
         [self.tags removeAllObjects];
         [self.tags addObjectsFromArray:[model.tags copy]];
         [self.selectedTags removeAllObjects];
         self.taglistView.horizontalSpacing = model.contentHSpacing;
         self.taglistView.verticalSpacing = model.contentVSpacing;
+        self.taglistView.numberOfLines = 0;
         self.header.hiddenHeaderButton(model.hiddenHeaderButton);
         __weak typeof(self) weakself = self;
         //刷新UI
@@ -182,12 +185,6 @@
                 make.height.mas_equalTo(TagListHeaderH);
             
         }];
-        [self.unfoldButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(0);
-            make.leading.trailing.mas_equalTo(weakself.header);
-            make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
-        }];
-        
         [self.taglistView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.leading.mas_equalTo(weakself.header.mas_leading).mas_offset(-TagListContentInset);
             make.trailing.mas_equalTo(weakself.header.mas_trailing).mas_offset(TagListContentInset);
@@ -203,15 +200,26 @@
         }];
         [self updateHeaderBarState];
         [self.taglistView reload];
-        if (self.taglistView.actualNumberOfLines > self.dataModel.appearModel.numberOfLines && (self.dataModel.appearModel.numberOfLines != 0)) {
-            self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
-            self.unfoldButton.hidden = NO;
-            [self.unfoldButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(TagListFootH).priority(999);
-                make.leading.trailing.mas_equalTo(weakself.header);
-                make.bottom.mas_equalTo(weakself.contentView.mas_bottom);
-            }];
-            [self.taglistView reload];
+        
+        //更新折叠状态
+        if (!self.dataModel.appearModel.numberOfLines) {
+            //不具备收缩功能
+            self.dataModel.appearModel.canFlex = NO;
+            return ;
+        }
+        ///收缩
+        if (!self.unfoldButton.selected) {
+            //需要收缩
+            if (self.taglistView.actualNumberOfLines <= self.dataModel.appearModel.numberOfLines) {
+                //实际行数小于等于目标行数
+                self.dataModel.appearModel.canFlex = NO;
+            }else{
+                //实际行数大于目标行数
+                self.dataModel.appearModel.canFlex = YES;
+                self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
+                [self.unfoldButton setHidden:NO];
+                [self.taglistView reload];
+            }
         }
     };
 }
@@ -284,10 +292,19 @@
 #pragma mark -- func
 -(void)unfoldButtonClick:(YQTTagListCustomButton *)button {
     
-    self.unfoldButton.hidden = YES;
-    self.dataModel.appearModel.numberOfLines = 0;
-    self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
-    self.dataModel.appearModel.unfoldDatas = YES;
+    if (!button.selected) {
+        //展开
+        //需要具有收缩功能
+        [self.unfoldButton setHidden:!self.dataModel.appearModel.canDrawBack];
+        self.taglistView.numberOfLines = 0;
+    }else{
+        //收缩
+        [self.unfoldButton setHidden:NO];
+        self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
+    }
+    
+    button.selected = !button.selected;
+    self.dataModel.appearModel.needRefashion = YES;
     UIView *view = self.superview;
     while ((![view isKindOfClass:[UITableView class]]) && view) {
         view = view.superview;

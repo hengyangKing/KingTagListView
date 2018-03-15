@@ -80,10 +80,11 @@
     }];
     [self reloadSubviews];
 }
-///展示全量
--(void)tagListViewUnfoldAllDatas {
+///折叠或者收缩调用
+-(void)tagListViewFoldOrUnfoldTags {
     [self reloadSubviews];
 }
+
 ///将要选中某tagview调用 需要在实现时调用父类的delegate
 - (BOOL)tagViewShouldSelectTag:(UIView *)tagView atIndex:(NSUInteger)index atPoint:(CGPoint)point{
     
