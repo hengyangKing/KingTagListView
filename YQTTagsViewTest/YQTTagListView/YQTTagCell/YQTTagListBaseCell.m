@@ -9,9 +9,8 @@
 #import "YQTTagListBaseCell.h"
 #import "YQTTagListHeaderView.h"
 #import "YQTTagBaseView.h"
-#import "YQTTagListCustomButton.h"
+#import "YQTTagListFlexButton.h"
 #import "YQTTagListBaseCell+DataSource.h"//声明非正式协议
-#import "YQTTagListCustomButton+Hidden.h"
 
 #define IOS7 kIOS7
 #define     kIOS7  [[UIDevice currentDevice].systemVersion doubleValue] < 8.0 && \
@@ -26,7 +25,7 @@
 
 @property(nonatomic,strong)TTGTagCollectionView *taglistView;
 @property(nonatomic,strong)YQTTagListHeaderView *header;
-@property(nonatomic,strong)YQTTagListCustomButton *unfoldButton;
+@property(nonatomic,strong)YQTTagListFlexButton *unfoldButton;
 
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *tags;
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *selectedTags;
@@ -107,12 +106,13 @@
     }
     return _header;
 }
--(YQTTagListCustomButton *)unfoldButton {
+-(YQTTagListFlexButton *)unfoldButton {
     if (!_unfoldButton) {
-        _unfoldButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
+        _unfoldButton = [YQTTagListFlexButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
             config.selectTitle(FoldTitle);
+            config.titleFont(14);
             config.YQTButtonSEL(@selector(unfoldButtonClick:)).YQTButtonTarget(self);
-
+            config.YQTButtonNormalImage([UIImage hyb_imageWithColor:[UIColor redColor] toSize:CGSizeMake(12, 7) cornerRadius:0]);
         }];
         _unfoldButton.hidden = YES;
     }
@@ -295,7 +295,7 @@
 }
 
 #pragma mark -- func
--(void)unfoldButtonClick:(YQTTagListCustomButton *)button {
+-(void)unfoldButtonClick:(YQTTagListFlexButton *)button {
     
     //展开时需要判断是否具有收缩功能，收缩时展示
     [self.unfoldButton setHidden: button.selected ? NO :(!self.dataModel.appearModel.canDrawBack)];

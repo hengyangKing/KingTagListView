@@ -26,7 +26,7 @@
         self.selectBGColor(Color(@"#EDEDED"));
         
         ///const
-        self.titleFont(YQKINGFONT(15));
+        self.titleFont(15);
         self.radius(6.f);
         self.borderW(.5f);
         

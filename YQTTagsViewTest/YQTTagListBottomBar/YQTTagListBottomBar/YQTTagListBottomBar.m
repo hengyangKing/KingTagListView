@@ -58,6 +58,7 @@
     [self addSubview:self.config.costom];
     [self setNeedsUpdateConstraints];
 }
+
 -(void)didMoveToSuperview {
 
     [self mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -61,7 +61,7 @@
 
 ///const
 ///font
-@property(nonatomic,copy,readonly)YQTTagAppearanceConfig *(^titleFont)(UIFont * font);
+@property(nonatomic,copy,readonly)YQTTagAppearanceConfig *(^titleFont)(CGFloat fontSize);
 
 
 @end
