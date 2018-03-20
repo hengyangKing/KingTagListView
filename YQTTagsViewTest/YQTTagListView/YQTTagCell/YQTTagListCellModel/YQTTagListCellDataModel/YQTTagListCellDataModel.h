@@ -13,8 +13,19 @@
 @property(nonatomic,copy)NSString *title;
 @property(nonatomic,assign)BOOL selected;
 @end
+
+
+typedef NS_ENUM(NSUInteger, TagListCellNowFlexState) {
+    ///收缩
+    CellNowFlexStateIsFlex,
+    ///展开
+    CellNowFlexStateIsUnflex,
+    
+};
 ///taglistcell 外观模型
 @interface YQTTagListCellAppearanceModel : NSObject
+
+@property(nonatomic,assign,readonly)TagListCellNowFlexState nowState;
 ///展示行数 默认0
 @property(nonatomic,assign)NSUInteger numberOfLines;
 
@@ -27,6 +38,9 @@
 
 ///刷新标识 需要 重绘
 @property(nonatomic,assign)BOOL needRefashion;
+
+
+@property(nonatomic,copy,readonly)YQTTagListCellAppearanceModel * (^TagListCellAppearanceState)(TagListCellNowFlexState nowState);
 
 @end
 

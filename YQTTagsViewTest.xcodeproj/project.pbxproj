@@ -27,7 +27,6 @@
 		0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552020201C1C006FE16E /* YQTTagListBottomBar.m */; };
 		0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */; };
 		09B52A872057F368000C150E /* NSAttributedString+TagSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A7A2057F368000C150E /* NSAttributedString+TagSize.m */; };
-		09B52A882057F368000C150E /* YQTagViewImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A7D2057F368000C150E /* YQTagViewImageTool.m */; };
 		09B52A892057F368000C150E /* UIImage+Stretchable.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A7E2057F368000C150E /* UIImage+Stretchable.m */; };
 		09B52A8A2057F368000C150E /* UIColor+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A832057F368000C150E /* UIColor+YQKit.m */; };
 		09B52A8B2057F368000C150E /* NSString+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A842057F368000C150E /* NSString+YQKit.m */; };
@@ -89,10 +88,8 @@
 		0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBottomBarConfig.m; sourceTree = "<group>"; };
 		09B52A7A2057F368000C150E /* NSAttributedString+TagSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+TagSize.m"; sourceTree = "<group>"; };
 		09B52A7C2057F368000C150E /* YQTTagListCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListCommon.h; sourceTree = "<group>"; };
-		09B52A7D2057F368000C150E /* YQTagViewImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTagViewImageTool.m; sourceTree = "<group>"; };
 		09B52A7E2057F368000C150E /* UIImage+Stretchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Stretchable.m"; sourceTree = "<group>"; };
 		09B52A7F2057F368000C150E /* NSAttributedString+TagSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+TagSize.h"; sourceTree = "<group>"; };
-		09B52A802057F368000C150E /* YQTagViewImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTagViewImageTool.h; sourceTree = "<group>"; };
 		09B52A822057F368000C150E /* NSString+YQKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YQKit.h"; sourceTree = "<group>"; };
 		09B52A832057F368000C150E /* UIColor+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YQKit.m"; sourceTree = "<group>"; };
 		09B52A842057F368000C150E /* NSString+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YQKit.m"; sourceTree = "<group>"; };
@@ -260,8 +257,6 @@
 				09B52A7B2057F368000C150E /* YQTTagListCommon */,
 				09B52A7F2057F368000C150E /* NSAttributedString+TagSize.h */,
 				09B52A7A2057F368000C150E /* NSAttributedString+TagSize.m */,
-				09B52A802057F368000C150E /* YQTagViewImageTool.h */,
-				09B52A7D2057F368000C150E /* YQTagViewImageTool.m */,
 				09B52A862057F368000C150E /* UIImage+Stretchable.h */,
 				09B52A7E2057F368000C150E /* UIImage+Stretchable.m */,
 				09B52AA620591289000C150E /* YQTTagListCustomButton.h */,
@@ -616,7 +611,6 @@
 				090588BB202C48E7005A7CDF /* YQTTagView.m in Sources */,
 				09B52AA820591289000C150E /* YQTTagListCustomButton.m in Sources */,
 				0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */,
-				09B52A882057F368000C150E /* YQTagViewImageTool.m in Sources */,
 				09B52A9920580B44000C150E /* YQTTagListAppearanceConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
