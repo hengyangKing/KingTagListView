@@ -9,9 +9,8 @@
 #import "YQTTagListBaseCell.h"
 #import "YQTTagListHeaderView.h"
 #import "YQTTagBaseView.h"
-#import "YQTTagListCustomButton.h"
+#import "YQTTagListFlexButton.h"
 #import "YQTTagListBaseCell+DataSource.h"//声明非正式协议
-#import "YQTTagListCustomButton+Hidden.h"
 
 #define IOS7 kIOS7
 #define     kIOS7  [[UIDevice currentDevice].systemVersion doubleValue] < 8.0 && \
@@ -26,7 +25,7 @@
 
 @property(nonatomic,strong)TTGTagCollectionView *taglistView;
 @property(nonatomic,strong)YQTTagListHeaderView *header;
-@property(nonatomic,strong)YQTTagListCustomButton *unfoldButton;
+@property(nonatomic,strong)YQTTagListFlexButton *unfoldButton;
 
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *tags;
 @property(nonatomic,strong)NSMutableArray<YQTTagBaseView *> *selectedTags;
@@ -107,12 +106,13 @@
     }
     return _header;
 }
--(YQTTagListCustomButton *)unfoldButton {
+-(YQTTagListFlexButton *)unfoldButton {
     if (!_unfoldButton) {
-        _unfoldButton = [YQTTagListCustomButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
+        _unfoldButton = [YQTTagListFlexButton createCustomButtonWithConfig:^(YQTButtonAppearanceConfig *config) {
             config.selectTitle(FoldTitle);
+            config.titleFont(14);
             config.YQTButtonSEL(@selector(unfoldButtonClick:)).YQTButtonTarget(self);
-
+            config.YQTButtonNormalImage([UIImage hyb_imageWithColor:[UIColor redColor] toSize:CGSizeMake(12, 7) cornerRadius:0]);
         }];
         _unfoldButton.hidden = YES;
     }
@@ -208,19 +208,22 @@
         if (!self.dataModel.appearModel.numberOfLines) {
             //不具备收缩功能
             self.dataModel.appearModel.canFlex = NO;
+            self.dataModel.appearModel.TagListCellAppearanceState(CellNowFlexStateIsUnflex);//当前展开
             return ;
         }
         ///收缩
-        if ((!self.unfoldButton.selected)&&self.dataModel.appearModel.canFlex) {
+        if ((self.dataModel.appearModel.nowState == CellNowFlexStateIsFlex)&&self.dataModel.appearModel.canFlex) {
             //需要收缩
             if (self.taglistView.actualNumberOfLines <= self.dataModel.appearModel.numberOfLines) {
                 //实际行数小于等于目标行数
                 self.dataModel.appearModel.canFlex = NO;
+                self.dataModel.appearModel.TagListCellAppearanceState(CellNowFlexStateIsUnflex);
+
             }else{
                 //实际行数大于目标行数
                 self.dataModel.appearModel.canFlex = YES;
                 self.taglistView.numberOfLines = self.dataModel.appearModel.numberOfLines;
-                
+                self.dataModel.appearModel.TagListCellAppearanceState(CellNowFlexStateIsFlex);
                 self.unfoldButton.YQTTagListCustomButtonNormalTitle(model.unfoldTitle);
                 [self.unfoldButton setHidden:NO];
                 [self.taglistView reload];
@@ -295,12 +298,12 @@
 }
 
 #pragma mark -- func
--(void)unfoldButtonClick:(YQTTagListCustomButton *)button {
+-(void)unfoldButtonClick:(YQTTagListFlexButton *)button {
     
     //展开时需要判断是否具有收缩功能，收缩时展示
     [self.unfoldButton setHidden: button.selected ? NO :(!self.dataModel.appearModel.canDrawBack)];
-    
     button.selected = !button.selected;
+    
     self.dataModel.appearModel.needRefashion = YES;
     UIView *view = self.superview;
     while ((![view isKindOfClass:[UITableView class]]) && view) {
@@ -312,5 +315,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [tableview scrollToRowAtIndexPath:[tableview indexPathForCell:weakself] atScrollPosition:(UITableViewScrollPositionBottom) animated:YES];
     });
+    self.dataModel.appearModel.TagListCellAppearanceState(button.selected?CellNowFlexStateIsUnflex:CellNowFlexStateIsFlex);
 }
 @end

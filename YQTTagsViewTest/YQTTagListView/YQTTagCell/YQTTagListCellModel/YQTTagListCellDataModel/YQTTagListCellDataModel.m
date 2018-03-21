@@ -11,12 +11,22 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.numberOfLines = 0;
+        self.numberOfLines = 2;
         self.needRefashion = NO;
         self.canDrawBack = YES;
         self.canFlex = YES;
+        self.nowState = CellNowFlexStateIsFlex;///默认状态收缩
     }
     return self;
+}
+-(void)setNowState:(TagListCellNowFlexState)nowState {
+    _nowState = nowState;
+}
+-(YQTTagListCellAppearanceModel *(^)(TagListCellNowFlexState))TagListCellAppearanceState {
+    return ^(TagListCellNowFlexState state){
+        self.nowState = state;
+        return self;
+    };
 }
 @end
 @implementation YQTTagListCellModel

@@ -15,7 +15,7 @@
     //基类
     config.radius(6.f).borderW(1.f);
     
-    config.titleFont(YQKINGFONT(14));
+    config.titleFont(14);
     config.normalTitleColor([UIColor colorWithHex:@"#15A6EE"]).selectTitleColor([UIColor colorWithHex:@"#15A6EE"]);
     config.normalBorderColor([UIColor colorWithHex:@"#15A6EE"]).normalBGColor([UIColor colorWithHex:@"F333333"]);
     

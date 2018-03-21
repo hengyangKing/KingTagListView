@@ -14,7 +14,7 @@
 @implementation YQTTagListCustomButton
 
 +(instancetype)createCustomButtonWithConfig:(void (^)(YQTButtonAppearanceConfig *))config {
-    YQTTagListCustomButton *button = [YQTTagListCustomButton buttonWithType:(UIButtonTypeCustom)];
+    YQTTagListCustomButton *button = [self buttonWithType:(UIButtonTypeCustom)];
     !config? : config(button.config);
     [button setup];
     return button;
@@ -38,6 +38,7 @@
     };
 }
 -(void)setup {
+    self.titleLabel.numberOfLines = 1;
     
     [self setBackgroundImage:self.config.normalBGImage forState:(UIControlStateNormal)];
     

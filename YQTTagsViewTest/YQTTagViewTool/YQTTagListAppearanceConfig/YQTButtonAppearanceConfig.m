@@ -24,7 +24,7 @@
     config.normalBorderColor(Color(@"#15A6EE")).selectBorderColor(Color(@"#15A6EE"));
     config.YQTButtonDisabledBGColor(Color(@"#EDEDED"));
     
-    config.titleFont(YQKINGFONT(18));
+    config.titleFont(18);
     
     return config;
 }
@@ -76,15 +76,15 @@
         return self;
     };
 }
--(YQTButtonAppearanceConfig *(^)(NSString *))YQTButtonNormalImage {
-    return ^(NSString *name){
-        self.normalImage = [UIImage imageNamed:name];
+-(YQTButtonAppearanceConfig *(^)(UIImage *))YQTButtonNormalImage {
+    return ^(UIImage *image){
+        self.normalImage = image;
         return self;
     };
 }
--(YQTButtonAppearanceConfig *(^)(NSString *))YQTButtonSelectedImage {
-    return ^(NSString *name){
-        self.selectedImage = [UIImage imageNamed:name];
+-(YQTButtonAppearanceConfig *(^)(UIImage *))YQTButtonSelectedImage {
+    return ^(UIImage *image){
+        self.selectedImage = image;
         return self;
     };
 }

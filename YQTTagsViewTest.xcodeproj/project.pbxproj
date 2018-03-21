@@ -27,7 +27,6 @@
 		0950552120201C1C006FE16E /* YQTTagListBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552020201C1C006FE16E /* YQTTagListBottomBar.m */; };
 		0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */; };
 		09B52A872057F368000C150E /* NSAttributedString+TagSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A7A2057F368000C150E /* NSAttributedString+TagSize.m */; };
-		09B52A882057F368000C150E /* YQTagViewImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A7D2057F368000C150E /* YQTagViewImageTool.m */; };
 		09B52A892057F368000C150E /* UIImage+Stretchable.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A7E2057F368000C150E /* UIImage+Stretchable.m */; };
 		09B52A8A2057F368000C150E /* UIColor+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A832057F368000C150E /* UIColor+YQKit.m */; };
 		09B52A8B2057F368000C150E /* NSString+YQKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52A842057F368000C150E /* NSString+YQKit.m */; };
@@ -38,7 +37,6 @@
 		09B52AA22058EC0C000C150E /* YQTTagListCellDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52AA12058EC0C000C150E /* YQTTagListCellDataModel.m */; };
 		09B52AA520590C0F000C150E /* YQTButtonAppearanceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52AA420590C0F000C150E /* YQTButtonAppearanceConfig.m */; };
 		09B52AA820591289000C150E /* YQTTagListCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52AA720591289000C150E /* YQTTagListCustomButton.m */; };
-		09B52AAC205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B52AAB205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m */; };
 		09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B552019E40F001DB26D /* AppDelegate.m */; };
 		09EB3B592019E40F001DB26D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3B582019E40F001DB26D /* ViewController.m */; };
 		09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EB3B5D2019E40F001DB26D /* Assets.xcassets */; };
@@ -48,6 +46,7 @@
 		09EB3BAF201C56C4001DB26D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BAE201C56C4001DB26D /* TestViewController.m */; };
 		09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BB1201C6859001DB26D /* YQTTagZoomButton.m */; };
 		7AB6B26BB551E1FDA33714D1 /* Pods_YQTTagsViewTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */; };
+		E30F079F205F726D0056DBBA /* YQTTagListFlexButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E30F079E205F726D0056DBBA /* YQTTagListFlexButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,10 +88,8 @@
 		0950552320201C29006FE16E /* YQTTagListBottomBarConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListBottomBarConfig.m; sourceTree = "<group>"; };
 		09B52A7A2057F368000C150E /* NSAttributedString+TagSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+TagSize.m"; sourceTree = "<group>"; };
 		09B52A7C2057F368000C150E /* YQTTagListCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTTagListCommon.h; sourceTree = "<group>"; };
-		09B52A7D2057F368000C150E /* YQTagViewImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTagViewImageTool.m; sourceTree = "<group>"; };
 		09B52A7E2057F368000C150E /* UIImage+Stretchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Stretchable.m"; sourceTree = "<group>"; };
 		09B52A7F2057F368000C150E /* NSAttributedString+TagSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+TagSize.h"; sourceTree = "<group>"; };
-		09B52A802057F368000C150E /* YQTagViewImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTagViewImageTool.h; sourceTree = "<group>"; };
 		09B52A822057F368000C150E /* NSString+YQKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YQKit.h"; sourceTree = "<group>"; };
 		09B52A832057F368000C150E /* UIColor+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YQKit.m"; sourceTree = "<group>"; };
 		09B52A842057F368000C150E /* NSString+YQKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YQKit.m"; sourceTree = "<group>"; };
@@ -112,8 +109,6 @@
 		09B52AA420590C0F000C150E /* YQTButtonAppearanceConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTButtonAppearanceConfig.m; sourceTree = "<group>"; };
 		09B52AA620591289000C150E /* YQTTagListCustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListCustomButton.h; sourceTree = "<group>"; };
 		09B52AA720591289000C150E /* YQTTagListCustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListCustomButton.m; sourceTree = "<group>"; };
-		09B52AAA205A4E4A000C150E /* YQTTagListCustomButton+Hidden.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YQTTagListCustomButton+Hidden.h"; sourceTree = "<group>"; };
-		09B52AAB205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YQTTagListCustomButton+Hidden.m"; sourceTree = "<group>"; };
 		09EB3B512019E40F001DB26D /* YQTTagsViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQTTagsViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09EB3B542019E40F001DB26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09EB3B552019E40F001DB26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -133,6 +128,8 @@
 		256B3A3F4345AC92C51A869E /* Pods-YQTTagsViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.release.xcconfig"; sourceTree = "<group>"; };
 		736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQTTagsViewTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB4547AE134F916F4E1A5CB /* Pods-YQTTagsViewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.debug.xcconfig"; sourceTree = "<group>"; };
+		E30F079D205F726D0056DBBA /* YQTTagListFlexButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListFlexButton.h; sourceTree = "<group>"; };
+		E30F079E205F726D0056DBBA /* YQTTagListFlexButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagListFlexButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +149,8 @@
 			children = (
 				090588BF202C4E0F005A7CDF /* YQTTagListBaseCell.h */,
 				090588C0202C4E0F005A7CDF /* YQTTagListBaseCell.m */,
-				09B52AA9205A4E2F000C150E /* YQTTagListTool */,
+				E30F079D205F726D0056DBBA /* YQTTagListFlexButton.h */,
+				E30F079E205F726D0056DBBA /* YQTTagListFlexButton.m */,
 				09B52A9A2058EBD2000C150E /* YQTTagListCellModel */,
 				092D9B8C2023332D00EDBABA /* YQTTagRowCell */,
 				092D9B932023332D00EDBABA /* YQTTagListCell */,
@@ -259,8 +257,6 @@
 				09B52A7B2057F368000C150E /* YQTTagListCommon */,
 				09B52A7F2057F368000C150E /* NSAttributedString+TagSize.h */,
 				09B52A7A2057F368000C150E /* NSAttributedString+TagSize.m */,
-				09B52A802057F368000C150E /* YQTagViewImageTool.h */,
-				09B52A7D2057F368000C150E /* YQTagViewImageTool.m */,
 				09B52A862057F368000C150E /* UIImage+Stretchable.h */,
 				09B52A7E2057F368000C150E /* UIImage+Stretchable.m */,
 				09B52AA620591289000C150E /* YQTTagListCustomButton.h */,
@@ -342,15 +338,6 @@
 				09B52AA12058EC0C000C150E /* YQTTagListCellDataModel.m */,
 			);
 			path = YQTTagListCellDataModel;
-			sourceTree = "<group>";
-		};
-		09B52AA9205A4E2F000C150E /* YQTTagListTool */ = {
-			isa = PBXGroup;
-			children = (
-				09B52AAA205A4E4A000C150E /* YQTTagListCustomButton+Hidden.h */,
-				09B52AAB205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m */,
-			);
-			path = YQTTagListTool;
 			sourceTree = "<group>";
 		};
 		09EB3B482019E40F001DB26D = {
@@ -612,6 +599,7 @@
 				09B52AA22058EC0C000C150E /* YQTTagListCellDataModel.m in Sources */,
 				09B52A9E2058EBEB000C150E /* YQTTagListBaseCellModel.m in Sources */,
 				09B52AA520590C0F000C150E /* YQTButtonAppearanceConfig.m in Sources */,
+				E30F079F205F726D0056DBBA /* YQTTagListFlexButton.m in Sources */,
 				090588C1202C4E0F005A7CDF /* YQTTagListBaseCell.m in Sources */,
 				090588B3202C48C2005A7CDF /* YQTTagsViewConfig.m in Sources */,
 				094C832820492A8000A81671 /* NSString+GuardStr.m in Sources */,
@@ -623,9 +611,7 @@
 				090588BB202C48E7005A7CDF /* YQTTagView.m in Sources */,
 				09B52AA820591289000C150E /* YQTTagListCustomButton.m in Sources */,
 				0950552420201C29006FE16E /* YQTTagListBottomBarConfig.m in Sources */,
-				09B52A882057F368000C150E /* YQTagViewImageTool.m in Sources */,
 				09B52A9920580B44000C150E /* YQTTagListAppearanceConfig.m in Sources */,
-				09B52AAC205A4E4A000C150E /* YQTTagListCustomButton+Hidden.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,12 +23,13 @@
 
 
 @property(nonatomic,copy,readonly)YQTButtonAppearanceConfig *(^YQTButtonTarget)(id target);
+
 @property(nonatomic,copy,readonly)YQTButtonAppearanceConfig *(^YQTButtonSEL)(SEL sel);
 
-@property(nonatomic,copy,readonly)YQTButtonAppearanceConfig *(^YQTButtonNormalImage)(NSString *name);
+@property(nonatomic,copy,readonly)YQTButtonAppearanceConfig *(^YQTButtonNormalImage)(UIImage *image);
 
 
-@property(nonatomic,copy,readonly)YQTButtonAppearanceConfig *(^YQTButtonSelectedImage)(NSString *name);
+@property(nonatomic,copy,readonly)YQTButtonAppearanceConfig *(^YQTButtonSelectedImage)(UIImage *image);
 
 
 @property(nonatomic,copy,readonly)YQTButtonAppearanceConfig *(^YQTButtonDisabledBorderColor)(UIColor *color);

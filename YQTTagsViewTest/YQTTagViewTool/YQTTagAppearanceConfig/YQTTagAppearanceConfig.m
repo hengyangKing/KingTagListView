@@ -8,7 +8,8 @@
 
 #import "YQTTagAppearanceConfig.h"
 #import "UIImage+Stretchable.h"
-
+#define YQTFONT(A) [UIFont fontWithName:@"PingFangSC-Regular"size:A]
+#define YQKINGFONT(A) YQTFONT(A)?YQTFONT(A):[UIFont systemFontOfSize:A]
 @interface YQTTagAppearanceConfig() {
     UIImage *_normalBGImage;
     UIImage *_selectedBGImage;
@@ -134,9 +135,9 @@
         return self;
     };
 }
--(YQTTagAppearanceConfig *(^)(UIFont *))titleFont {
-    return ^(UIFont *font){
-        self.font = font;
+-(YQTTagAppearanceConfig *(^)(CGFloat ))titleFont {
+    return ^(CGFloat fontSize){
+        self.font = YQKINGFONT(fontSize);
         return self;
     };
 }
