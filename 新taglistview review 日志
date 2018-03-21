@@ -18,3 +18,6 @@ YQTTagListBaseCell  layoutSubview block 中 新增
 
 
 3.cell 内模型换成YQTTagListCellDataModel 类
+
+base cell 内添加 unfoldButton 并修改相应
+cell delegate 添加新回调unfoldButtonClick
