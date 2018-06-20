@@ -89,6 +89,5 @@
     CGFloat W = (((MAXCONTENTSIZE.width - 10.0f - 15.f )/2.0f)-2.0f);
     CGFloat scaleH = W/scale;
     return  CGSizeMake(W, scaleH);
-    
 }
 @end

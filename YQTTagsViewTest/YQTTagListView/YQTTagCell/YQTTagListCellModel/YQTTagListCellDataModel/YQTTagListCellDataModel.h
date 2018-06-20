@@ -42,6 +42,8 @@ typedef NS_ENUM(NSUInteger, TagListCellNowFlexState) {
 
 @property(nonatomic,copy,readonly)YQTTagListCellAppearanceModel * (^TagListCellAppearanceState)(TagListCellNowFlexState nowState);
 
+@property(nonatomic,copy)NSString *title;
+
 @end
 
 @interface YQTTagListCellDataModel : NSObject

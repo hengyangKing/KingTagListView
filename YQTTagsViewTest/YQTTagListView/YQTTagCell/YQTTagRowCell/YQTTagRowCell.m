@@ -41,7 +41,7 @@
     
     NSString *title = self.tags.count?HeaderTitlt(KEYWORD):@"";
     model.unfoldTitle = UnfoldTitle(self.tags.count, KEYWORD);
-    model.headerTitle = title;
+    model.headerTitle = self.dataModel.appearModel.title.length?self.dataModel.appearModel.title:title;
     model.tags = [self.tags copy];
     model.contentHSpacing = 0.f;
     self.layoutSubview(model);

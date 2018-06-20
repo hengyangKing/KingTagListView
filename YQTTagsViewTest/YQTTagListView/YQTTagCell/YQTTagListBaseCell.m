@@ -136,6 +136,7 @@
         self.dataModel = dataModel;
     };
 }
+
 #pragma mark -- set
 -(void)setDataModel:(YQTTagListCellDataModel *)dataModel {
     if (![dataModel.datas isEqualToArray:_dataModel.datas]) {
@@ -169,7 +170,6 @@
 
 -(void (^)(YQTTagListBaseCellModel *))layoutSubview {
     return ^(YQTTagListBaseCellModel *model){
-        
         self.header.headerTitle(model.headerTitle);
         [self.tags removeAllObjects];
         [self.tags addObjectsFromArray:[model.tags copy]];

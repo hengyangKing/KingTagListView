@@ -38,7 +38,7 @@
     
     ///根据内容修改约束
     NSString *title = self.tags.count?@"选择题型":@"";
-    model.headerTitle = title;
+    model.headerTitle = self.dataModel.appearModel.title.length?self.dataModel.appearModel.title:title;
     model.tags = [self.tags copy];
     model.hiddenHeaderButton = YES;
     model.contentVSpacing = 10.f;

@@ -129,6 +129,7 @@
     YQTTagListCellDataModel *dataModel = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
     if (indexpath.section == 3) {
         dataModel.appearModel.numberOfLines = 0;
+        dataModel.appearModel.title = @"hahahahhahahahha";
     }
     return dataModel;
 }

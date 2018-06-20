@@ -23,7 +23,7 @@
     
     config.normalTitle(@"全选").selectTitle(@"取消全选");
     
-    config.needHiddenButton(NO).HeaderTitleColor([UIColor blackColor]);
+    config.needHiddenButton(NO).HeaderTitleColor([UIColor colorWithHex:@"#363636"]);
     return config;
 }
 
