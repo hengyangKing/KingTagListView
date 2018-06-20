@@ -7,8 +7,7 @@
 //
 
 #import "YQTRectangleTagView.h"
-@interface YQTRectangleTagView ()
-{
+@interface YQTRectangleTagView () {
     NSAttributedString *_attrTitle;
     NSAttributedString *_selectedAttrTitle;
 }

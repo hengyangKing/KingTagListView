@@ -72,8 +72,8 @@
 }
 -(void)addDatas{
 
-    NSArray *datas = @[@"[[NSAttributedString alloc]initWithString:[attr.string substringToIndex:1] attributes:[attr attributesAtIndex:1 effectiveRange:&range]]",@"",@"    ",@"    123"      ,@"     \n    ",@"    \t    ",@"    \r    ",@"1",@"2",@"3",@"4",@"5"];
-    for (NSInteger i = 0; i<3; i++) {
+    NSArray *datas = @[@"Listening and speaking: Going to different places",@"",@"    ",@"    123"      ,@"     \n    ",@"    \t    ",@"    \r    ",@"1",@"2",@"3",@"4",@"5"];
+    for (NSInteger i = 0; i<4; i++) {
         NSMutableArray *array = [NSMutableArray array];
         for (NSString *str in datas) {
             NSMutableDictionary *dic = [NSMutableDictionary dictionary];

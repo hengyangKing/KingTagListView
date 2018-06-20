@@ -49,8 +49,7 @@
     }
     return _bgImage;
 }
--(UILabel *)titleLabel
-{
+-(UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;

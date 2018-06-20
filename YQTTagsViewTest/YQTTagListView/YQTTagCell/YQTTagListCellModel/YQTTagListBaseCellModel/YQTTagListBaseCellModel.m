@@ -13,6 +13,7 @@
     YQTTagListBaseCellModel *model = [[YQTTagListBaseCellModel alloc]init];
     model.contentHSpacing = 14.f;
     model.contentVSpacing = 14.f;
+    model.contentViewMargin = ListTagPadding;
     model.hiddenHeaderButton = NO;
     model.headerTitle = @"";
     model.tags = @[];

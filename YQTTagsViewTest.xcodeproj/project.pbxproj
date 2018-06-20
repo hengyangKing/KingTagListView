@@ -45,6 +45,9 @@
 		09EB3BA2201AE2DF001DB26D /* YQTTagListHeaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BA1201AE2DF001DB26D /* YQTTagListHeaderConfig.m */; };
 		09EB3BAF201C56C4001DB26D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BAE201C56C4001DB26D /* TestViewController.m */; };
 		09EB3BB2201C6859001DB26D /* YQTTagZoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB3BB1201C6859001DB26D /* YQTTagZoomButton.m */; };
+		3CBF365920DA35AC009D5CEA /* YQTTagMultiLineRectangleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF365820DA35AC009D5CEA /* YQTTagMultiLineRectangleCell.m */; };
+		3CBF365D20DA3637009D5CEA /* YQTMultiLineRectangleTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF365C20DA3637009D5CEA /* YQTMultiLineRectangleTagView.m */; };
+		3CBF365F20DA4E4E009D5CEA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CBF365E20DA4E4E009D5CEA /* Launch Screen.storyboard */; };
 		7AB6B26BB551E1FDA33714D1 /* Pods_YQTTagsViewTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */; };
 		E30F079F205F726D0056DBBA /* YQTTagListFlexButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E30F079E205F726D0056DBBA /* YQTTagListFlexButton.m */; };
 /* End PBXBuildFile section */
@@ -126,6 +129,11 @@
 		09EB3BB0201C6859001DB26D /* YQTTagZoomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagZoomButton.h; sourceTree = "<group>"; };
 		09EB3BB1201C6859001DB26D /* YQTTagZoomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagZoomButton.m; sourceTree = "<group>"; };
 		256B3A3F4345AC92C51A869E /* Pods-YQTTagsViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.release.xcconfig"; sourceTree = "<group>"; };
+		3CBF365720DA35AC009D5CEA /* YQTTagMultiLineRectangleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagMultiLineRectangleCell.h; sourceTree = "<group>"; };
+		3CBF365820DA35AC009D5CEA /* YQTTagMultiLineRectangleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTTagMultiLineRectangleCell.m; sourceTree = "<group>"; };
+		3CBF365B20DA3637009D5CEA /* YQTMultiLineRectangleTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTMultiLineRectangleTagView.h; sourceTree = "<group>"; };
+		3CBF365C20DA3637009D5CEA /* YQTMultiLineRectangleTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQTMultiLineRectangleTagView.m; sourceTree = "<group>"; };
+		3CBF365E20DA4E4E009D5CEA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQTTagsViewTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB4547AE134F916F4E1A5CB /* Pods-YQTTagsViewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQTTagsViewTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YQTTagsViewTest/Pods-YQTTagsViewTest.debug.xcconfig"; sourceTree = "<group>"; };
 		E30F079D205F726D0056DBBA /* YQTTagListFlexButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQTTagListFlexButton.h; sourceTree = "<group>"; };
@@ -151,6 +159,7 @@
 				090588C0202C4E0F005A7CDF /* YQTTagListBaseCell.m */,
 				E30F079D205F726D0056DBBA /* YQTTagListFlexButton.h */,
 				E30F079E205F726D0056DBBA /* YQTTagListFlexButton.m */,
+				3CBF365320DA355E009D5CEA /* YQTTagMultiLineRectangleCell */,
 				09B52A9A2058EBD2000C150E /* YQTTagListCellModel */,
 				092D9B8C2023332D00EDBABA /* YQTTagRowCell */,
 				092D9B932023332D00EDBABA /* YQTTagListCell */,
@@ -375,6 +384,7 @@
 				090588D5202C4FB6005A7CDF /* TableViewManager.m */,
 				094C832620492A8000A81671 /* NSString+GuardStr.h */,
 				094C832720492A8000A81671 /* NSString+GuardStr.m */,
+				3CBF365E20DA4E4E009D5CEA /* Launch Screen.storyboard */,
 				09EB3B5D2019E40F001DB26D /* Assets.xcassets */,
 				09EB3B622019E40F001DB26D /* Info.plist */,
 				09EB3B632019E40F001DB26D /* main.m */,
@@ -400,6 +410,7 @@
 				090588AF202C48C2005A7CDF /* YQTTagBaseView.m */,
 				090588B1202C48C2005A7CDF /* YQTTagsViewConfig.h */,
 				090588B0202C48C2005A7CDF /* YQTTagsViewConfig.m */,
+				3CBF365A20DA35FC009D5CEA /* YQTMultiLineRectangleTagView */,
 				0957FE7F201ECC22007F270B /* YQTTagView */,
 				0957FE83201ECC4D007F270B /* YQTRectangleTagView */,
 				0957FE84201ECC53007F270B /* YQTRowTagView */,
@@ -435,6 +446,24 @@
 				736092CA49C1B10B51C98826 /* Pods_YQTTagsViewTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3CBF365320DA355E009D5CEA /* YQTTagMultiLineRectangleCell */ = {
+			isa = PBXGroup;
+			children = (
+				3CBF365720DA35AC009D5CEA /* YQTTagMultiLineRectangleCell.h */,
+				3CBF365820DA35AC009D5CEA /* YQTTagMultiLineRectangleCell.m */,
+			);
+			path = YQTTagMultiLineRectangleCell;
+			sourceTree = "<group>";
+		};
+		3CBF365A20DA35FC009D5CEA /* YQTMultiLineRectangleTagView */ = {
+			isa = PBXGroup;
+			children = (
+				3CBF365B20DA3637009D5CEA /* YQTMultiLineRectangleTagView.h */,
+				3CBF365C20DA3637009D5CEA /* YQTMultiLineRectangleTagView.m */,
+			);
+			path = YQTMultiLineRectangleTagView;
 			sourceTree = "<group>";
 		};
 		CD37997E675338D06446FF73 /* Pods */ = {
@@ -475,7 +504,7 @@
 		09EB3B492019E40F001DB26D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = J;
 				TargetAttributes = {
 					09EB3B502019E40F001DB26D = {
@@ -509,6 +538,7 @@
 			files = (
 				09EB3B5E2019E40F001DB26D /* Assets.xcassets in Resources */,
 				092D998820208D5C00EDBABA /* Default-568h@2x.png in Resources */,
+				3CBF365F20DA4E4E009D5CEA /* Launch Screen.storyboard in Resources */,
 				090588B8202C48D2005A7CDF /* select.mark.YQTTagView.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +626,7 @@
 				09EB3B592019E40F001DB26D /* ViewController.m in Sources */,
 				09EB3B642019E40F001DB26D /* main.m in Sources */,
 				09B52A8A2057F368000C150E /* UIColor+YQKit.m in Sources */,
+				3CBF365920DA35AC009D5CEA /* YQTTagMultiLineRectangleCell.m in Sources */,
 				09B52AA22058EC0C000C150E /* YQTTagListCellDataModel.m in Sources */,
 				09B52A9E2058EBEB000C150E /* YQTTagListBaseCellModel.m in Sources */,
 				09B52AA520590C0F000C150E /* YQTButtonAppearanceConfig.m in Sources */,
@@ -603,6 +634,7 @@
 				090588C1202C4E0F005A7CDF /* YQTTagListBaseCell.m in Sources */,
 				090588B3202C48C2005A7CDF /* YQTTagsViewConfig.m in Sources */,
 				094C832820492A8000A81671 /* NSString+GuardStr.m in Sources */,
+				3CBF365D20DA3637009D5CEA /* YQTMultiLineRectangleTagView.m in Sources */,
 				090588BE202C48F0005A7CDF /* YQTRowTagView.m in Sources */,
 				09EB3B562019E40F001DB26D /* AppDelegate.m in Sources */,
 				09B52A8B2057F368000C150E /* NSString+YQKit.m in Sources */,
@@ -632,6 +664,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -639,6 +672,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -687,6 +721,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -694,6 +729,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -728,7 +764,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GLHBVKZG33;
 				INFOPLIST_FILE = YQTTagsViewTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -744,7 +780,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GLHBVKZG33;
 				INFOPLIST_FILE = YQTTagsViewTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

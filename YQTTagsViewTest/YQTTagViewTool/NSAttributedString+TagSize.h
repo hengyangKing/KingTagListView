@@ -17,8 +17,8 @@
 ///row数据类型内部size
 @property(nonatomic,assign,readonly)CGSize rowContentSize;
 
-
-
 ///题型数据Size
 @property(nonatomic,assign,readonly)CGSize rectangleSize;
+///新增选择章节size
+@property(nonatomic,assign,readonly)CGSize multiLineRectangleSize;
 @end

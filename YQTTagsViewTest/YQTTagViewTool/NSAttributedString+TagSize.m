@@ -78,5 +78,17 @@
     CGFloat scaleH = W/scale;
     return  CGSizeMake(W, scaleH);
 }
-
+- (CGSize)multiLineRectangleSize {
+    NSAttributedString *attr =self;
+    if (!attr.string.length) {
+        return CGSizeZero;
+    }
+    CGFloat scale = 160.f/45.f;
+    //之前 两边margin 为 15 现在为 20 so-10
+    //15 为 tag 间距
+    CGFloat W = (((MAXCONTENTSIZE.width - 10.0f - 15.f )/2.0f)-2.0f);
+    CGFloat scaleH = W/scale;
+    return  CGSizeMake(W, scaleH);
+    
+}
 @end

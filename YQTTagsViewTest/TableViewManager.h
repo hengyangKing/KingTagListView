@@ -10,6 +10,7 @@
 #import "YQTTagListCell.h"
 #import "YQTTagRowCell.h"
 #import "YQTTagRectangleCell.h"
+#import "YQTTagMultiLineRectangleCell.h"
 
 
 #define kTITLE @"title"

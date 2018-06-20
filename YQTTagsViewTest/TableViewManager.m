@@ -34,8 +34,10 @@
         cell =  [YQTTagListCell TagListCellWithTableView:tableView];
     }else if(indexPath.section == 1) {
         cell = [YQTTagRowCell TagListCellWithTableView:tableView];
-    }else{
+    }else if(indexPath.section == 2){
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+    }else{
+        cell = [YQTTagMultiLineRectangleCell TagListCellWithTableView:tableView];
     }
     !cell.tagListCellDataModel?:cell.tagListCellDataModel([self getCellModels:indexPath]);
     [cell setDelegate:self.delegate];
@@ -45,7 +47,7 @@
     return 1;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     YQTTagListCellDataModel *data = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(section)]];
@@ -125,6 +127,9 @@
         return nil;
     }
     YQTTagListCellDataModel *dataModel = [self.dataSource objectForKey:[NSString stringWithFormat:@"%@",@(indexpath.section)]];
+    if (indexpath.section == 3) {
+        dataModel.appearModel.numberOfLines = 0;
+    }
     return dataModel;
 }
 -(void)changeBarState {

@@ -1,30 +1,29 @@
 //
-//  YQTTagRectangleCell.m
+//  YQTTagMultiLineRectangleCell.m
 //  YQTTagsViewTest
 //
-//  Created by J on 2018/1/28.
+//  Created by king on 2018/6/20.
 //  Copyright © 2018年 J. All rights reserved.
 //
 
-#import "YQTTagRectangleCell.h"
-#import "YQTRectangleTagView.h"
+#import "YQTTagMultiLineRectangleCell.h"
+#import "YQTMultiLineRectangleTagView.h"
 #import "NSAttributedString+TagSize.h"
 //遵循非正式协议
 #import "YQTTagListBaseCell+DataSource.h"
+@interface YQTTagMultiLineRectangleCell()
+@property(nonatomic,strong)NSMutableArray<YQTMultiLineRectangleTagView *> *tags;
 
-@interface YQTTagRectangleCell()
-@property(nonatomic,strong)NSMutableArray<YQTRectangleTagView *> *tags;
 @end
-@implementation YQTTagRectangleCell
+@implementation YQTTagMultiLineRectangleCell
 +(instancetype)TagListCellWithTableView:(UITableView *)tableview {
-    YQTTagRectangleCell *cell = [tableview dequeueReusableCellWithIdentifier:[self YQTTagViewCellID]];
+    YQTTagMultiLineRectangleCell *cell = [tableview dequeueReusableCellWithIdentifier:[self YQTTagViewCellID]];
     if (!cell) {
-        cell = [[YQTTagRectangleCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:[self YQTTagViewCellID]];
+        cell = [[YQTTagMultiLineRectangleCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:[self YQTTagViewCellID]];
     }
     return cell;
 }
-#pragma mark -- lazy
--(NSMutableArray *)tags {
+-(NSMutableArray<YQTMultiLineRectangleTagView *> *)tags {
     if (!_tags) {
         _tags = [NSMutableArray array];
     }
@@ -42,30 +41,30 @@
     model.headerTitle = title;
     model.tags = [self.tags copy];
     model.hiddenHeaderButton = YES;
-    model.contentHSpacing = 0.f;
-    model.contentVSpacing = 6.f;
+    model.contentVSpacing = 10.f;
+    model.contentViewMargin = 20.f;
     self.layoutSubview(model);
+    
 }
 
 #pragma mark YQTTagListBaseCellDatasource
-
 - (NSUInteger)numberOfTagsInTag {
     return self.tags.count;
 }
 
 - (CGSize)tagSizeForTagAtIndex:(NSUInteger)index {
-    YQTRectangleTagView *view = self.tags[index];
-    return view.attrTitle.rectangleSize;
+    YQTMultiLineRectangleTagView *view = self.tags[index];
+    return view.attrTitle.multiLineRectangleSize;
 }
 
 - (UIView *)tagViewForIndex:(NSUInteger)index {
-    YQTRectangleTagView *view = self.tags[index];
+    YQTMultiLineRectangleTagView *view = self.tags[index];
     return view;
 }
 
 - (void)tagViewDidSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
-    if ([tagView isMemberOfClass:[YQTRectangleTagView class]]) {
-        YQTRectangleTagView *view = (YQTRectangleTagView *)tagView;
+    if ([tagView isMemberOfClass:[YQTMultiLineRectangleTagView class]]) {
+        YQTMultiLineRectangleTagView *view = (YQTMultiLineRectangleTagView *)tagView;
         if ([self.delegate respondsToSelector:@selector(tagListCell:didSelectTag:atIndex:)]) {
             view.clickTagView();
             [self.delegate tagListCell:self didSelectTag:view atIndex:index];
@@ -74,14 +73,13 @@
     }
 }
 -(void)tagListViewGetNewDatas:(NSArray<YQTTagListCellModel *> *)newdatas {
-
+    
     if (!newdatas.count) {return;}
     [self.tags removeAllObjects];
     [newdatas enumerateObjectsUsingBlock:^(YQTTagListCellModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
         if (model.title.length) {
-            [self.tags addObject:[YQTRectangleTagView YQTRectangleTagWithConfig:^(YQTTagsViewConfig *config) {
+            [self.tags addObject:[YQTMultiLineRectangleTagView YQTMultiLineRectangleTagWithConfig:^(YQTTagsViewConfig *config) {
                 config.normalTitle(model.title).selectTitle(model.title);
-                config.contentViewInset(UIEdgeInsetsMake(6, 0, 0, 6));
                 config.isSelect(model.selected);
             }]];
         }
@@ -98,13 +96,6 @@
         return [self.delegate tagListCell:self shouldSelectTag:tagView atIndex:index];
     }
     return YES;
-}
-
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
 
 

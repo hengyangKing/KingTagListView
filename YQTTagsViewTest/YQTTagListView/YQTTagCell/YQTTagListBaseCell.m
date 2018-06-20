@@ -183,8 +183,8 @@
         [self.header mas_remakeConstraints:^(MASConstraintMaker *make) {
             //1偏移 解决导航栏线 有1像素偏移
             make.top.mas_equalTo(weakself.contentView.mas_top).mas_offset(1);
-            make.leading.mas_equalTo(weakself.contentView).mas_offset(ListTagPadding);
-            make.trailing.mas_equalTo(weakself.contentView).mas_offset(-ListTagPadding);
+            make.leading.mas_equalTo(weakself.contentView).mas_offset(model.contentViewMargin);
+            make.trailing.mas_equalTo(weakself.contentView).mas_offset(-model.contentViewMargin);
                 make.height.mas_equalTo(TagListHeaderH);
             
         }];
