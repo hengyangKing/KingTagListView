@@ -32,14 +32,31 @@
     YQTTagListBaseCell *cell;
     if (!indexPath.section) {
         cell =  [YQTTagListCell TagListCellWithTableView:tableView];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [cell selectTags];
+        });
+        
     }else if(indexPath.section == 1) {
         cell = [YQTTagRowCell TagListCellWithTableView:tableView];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [cell unSelectTags];
+        });
+        
+        
     }else if(indexPath.section == 2){
         cell = [YQTTagRectangleCell TagListCellWithTableView:tableView];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        });
     }else{
         cell = [YQTTagMultiLineRectangleCell TagListCellWithTableView:tableView];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(8.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        });
     }
     !cell.tagListCellDataModel?:cell.tagListCellDataModel([self getCellModels:indexPath]);
+    NSLog(@"%@",cell.currentSelectedTags);
+    NSLog(@"------------------------------");
+
     [cell setDelegate:self.delegate];
     return cell;
 }

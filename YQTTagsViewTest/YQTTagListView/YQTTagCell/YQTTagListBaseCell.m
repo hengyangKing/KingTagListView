@@ -136,6 +136,17 @@
         self.dataModel = dataModel;
     };
 }
+-(NSArray<NSDictionary *> *)currentSelectedTags {
+    NSMutableArray *temp = [NSMutableArray array];
+    [self.selectedTags enumerateObjectsUsingBlock:^(YQTTagBaseView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        
+        [dic setObject:[NSNumber numberWithInteger:[self.tags indexOfObject:obj]] forKey:@"index"];
+        [dic setObject:obj forKey:@"tagview"];
+        [temp addObject:dic];
+    }];
+    return [temp copy];
+}
 
 #pragma mark -- set
 -(void)setDataModel:(YQTTagListCellDataModel *)dataModel {
@@ -317,4 +328,21 @@
     });
     self.dataModel.appearModel.TagListCellAppearanceState(button.selected?CellNowFlexStateIsUnflex:CellNowFlexStateIsFlex);
 }
+
+/**
+ 将当前cell 内 所有tag 全部取消选中
+ */
+-(void)unSelectTags {
+    [self headerViewButtonClick:(ButtonStateIsUnSelectAll)];
+    [self updateHeaderBarState];
+}
+
+/**
+ 将当前cell 内 所有tag 全部选中
+ */
+-(void)selectTags {
+    [self headerViewButtonClick:(ButtonStateIsSelectAll)];
+    [self updateHeaderBarState];
+}
+
 @end

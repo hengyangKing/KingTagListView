@@ -52,4 +52,25 @@
 ///子类通知父类需要刷新UI 调用 子类展示的tags
 @property(nonatomic,copy,readonly)void (^layoutSubview)(YQTTagListBaseCellModel *model);
 
+#pragma mark add newfuncs
+
+/**
+ 当前cell 被选中的 items
+ dic is {
+            @"index":index,
+            @"tag":tagview,
+        }
+ */
+@property(nonatomic,copy,readonly)NSArray <NSDictionary *>*currentSelectedTags;
+
+/**
+ 将当前cell 内 所有tag 全部取消选中
+ */
+-(void)unSelectTags;
+
+/**
+ 将当前cell 内 所有tag 全部选中
+ */
+-(void)selectTags;
+
 @end

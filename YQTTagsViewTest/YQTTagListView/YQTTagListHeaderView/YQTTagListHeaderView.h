@@ -19,5 +19,6 @@
 ///设置header button
 @property(nonatomic,copy,readonly)void (^hiddenHeaderButton)(BOOL hidden);
 
+@property(nonatomic,assign,readonly)TagListHeaderButtonState currentState;
 
 @end

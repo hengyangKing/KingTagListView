@@ -117,6 +117,9 @@
     _state = state;
     [self.button changeButtonState:(_state == ButtonStateIsSelectAll)?NO:YES];
 }
+-(TagListHeaderButtonState)currentState {
+    return self.state;
+}
 #pragma mark -- MAS
 // tell UIKit that you are using AutoLayout
 + (BOOL)requiresConstraintBasedLayout {
